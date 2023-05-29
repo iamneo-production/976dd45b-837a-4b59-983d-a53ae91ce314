@@ -15,6 +15,7 @@ import { AddeventComponent } from './components/customerside/addevent/addevent.c
 import { MybookingComponent } from './components/customerside/mybooking/mybooking.component';
 import { NavbarUserComponent } from './components/customerside/navbar-user/navbar-user.component';
 import { UserHomepageComponent } from './components/customerside/user-homepage/user-homepage.component';
+import { BookingComponent } from './components/adminside/booking/booking.component';
 
 
 
@@ -34,7 +35,8 @@ import { UserHomepageComponent } from './components/customerside/user-homepage/u
     AddeventComponent,
     MybookingComponent,
     NavbarUserComponent,
-    UserHomepageComponent
+    UserHomepageComponent,
+    BookingComponent
 
   ],
   imports: [
