@@ -16,6 +16,14 @@ import { MybookingComponent } from './components/customerside/mybooking/mybookin
 import { NavbarUserComponent } from './components/customerside/navbar-user/navbar-user.component';
 import { UserHomepageComponent } from './components/customerside/user-homepage/user-homepage.component';
 import { BookingComponent } from './components/adminside/booking/booking.component';
+import { AddonsComponent } from './components/adminside/addons/addons.component';
+import { DashboardComponent } from './components/adminside/dashboard/dashboard.component';
+import { FoodmenuComponent } from './components/adminside/foodmenu/foodmenu.component';
+import { NavbarAdminComponent } from './components/adminside/navbar-admin/navbar-admin.component';
+import { ThemesComponent } from './components/adminside/themes/themes.component';
+import { EditEventComponent } from './components/customerside/edit-event/edit-event.component';
+import { UserreviewComponent } from './components/customerside/userreview/userreview.component';
+import { AdminreviewComponent } from './components/adminside/adminreview/adminreview.component';
 
 
 
@@ -36,7 +44,15 @@ import { BookingComponent } from './components/adminside/booking/booking.compone
     MybookingComponent,
     NavbarUserComponent,
     UserHomepageComponent,
-    BookingComponent
+    BookingComponent,
+    AddonsComponent,
+    DashboardComponent,
+    FoodmenuComponent,
+    NavbarAdminComponent,
+    ThemesComponent,
+    EditEventComponent,
+    UserreviewComponent,
+    AdminreviewComponent
 
   ],
   imports: [
