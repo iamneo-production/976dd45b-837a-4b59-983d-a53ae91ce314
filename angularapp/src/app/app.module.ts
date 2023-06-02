@@ -24,6 +24,15 @@ import { ThemesComponent } from './components/adminside/themes/themes.component'
 import { EditEventComponent } from './components/customerside/edit-event/edit-event.component';
 import { UserreviewComponent } from './components/customerside/userreview/userreview.component';
 import { AdminreviewComponent } from './components/adminside/adminreview/adminreview.component';
+import { AddaddonsComponent } from './components/adminside/addons/addaddons/addaddons.component';
+import { AddaddmenuComponent } from './components/adminside/foodmenu/addaddmenu/addaddmenu.component';
+import { AddmenuHomeComponent } from './components/adminside/foodmenu/addmenu-home/addmenu-home.component';
+import { UpdateaddmenuComponent } from './components/adminside/foodmenu/updateaddmenu/updateaddmenu.component';
+import { ThemeHomeComponent } from './components/adminside/themes/theme-home/theme-home.component';
+import { NewThemeComponent } from './components/adminside/themes/new-theme/new-theme.component';
+import { UpdatethemeComponent } from './components/adminside/themes/updatetheme/updatetheme.component';
+import { AddonHomeComponent } from './components/adminside/addons/addon-home/addon-home.component';
+import { UpdateaddonsComponent } from './components/adminside/addons/updateaddons/updateaddons.component';
 
 
 @NgModule({
@@ -49,7 +58,16 @@ import { AdminreviewComponent } from './components/adminside/adminreview/adminre
     ThemesComponent,
     EditEventComponent,
     UserreviewComponent,
-    AdminreviewComponent
+    AdminreviewComponent,
+    AddaddonsComponent,
+    AddaddmenuComponent,
+    AddmenuHomeComponent,
+    UpdateaddmenuComponent,
+    ThemeHomeComponent,
+    NewThemeComponent,
+    UpdatethemeComponent,
+    AddonHomeComponent,
+    UpdateaddonsComponent
 
   ],
   imports: [
