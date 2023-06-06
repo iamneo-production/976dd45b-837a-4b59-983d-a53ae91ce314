@@ -33,7 +33,11 @@ import { NewThemeComponent } from './components/adminside/themes/new-theme/new-t
 import { UpdatethemeComponent } from './components/adminside/themes/updatetheme/updatetheme.component';
 import { AddonHomeComponent } from './components/adminside/addons/addon-home/addon-home.component';
 import { UpdateaddonsComponent } from './components/adminside/addons/updateaddons/updateaddons.component';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -73,6 +77,14 @@ import { UpdateaddonsComponent } from './components/adminside/addons/updateaddon
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgbModule,
+    Ng2SearchPipeModule,
+    RouterModule.forRoot([
+      
+    ]),
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
