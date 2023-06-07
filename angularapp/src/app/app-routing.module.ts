@@ -1,9 +1,4 @@
 import { NgModule } from '@angular/core';
-<<<<<<< HEAD
-import { Routes, RouterModule } from '@angular/router';
-
-const routes: Routes = [
-=======
 import { RouterModule, Routes } from '@angular/router';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { HomeComponent } from './home/home.component';
@@ -74,7 +69,6 @@ const routes: Routes = [
 
 
       
->>>>>>> b0af86db9945ef6c455067dbd624cb52f6cd06c2
 ];
 
 @NgModule({
