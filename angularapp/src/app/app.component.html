@@ -1,0 +1,64 @@
+<p>Angular app works! V4</p>
+<button  class="btn btn-outline-secondary mt-3 mb-2">Submit</button>
+
+    <ngb-rating [max]="5" [readonly]="true" [rate] ="2">:</ngb-rating>
+
+<!-- 
+   <div>
+      <div class="input-group">
+        <div class="form-outline">
+          <input class="search-icon" type="text" id="form1" name="search" [(ngModel)]="searchText" autocomplete="off"  placeholder=" Search " class="form-control" />
+        </div>
+      </div>
+      
+      <div class=" back ">
+      <div class = "container ">
+        <div class = "row row-cols-1 row-cols-md-3 g-4">
+            
+      <ng-container *ngFor = "let theme of themes |  filter:searchText ; let i=index">
+        <div class="col" id="eventGrid{{i+1}}">
+        <div class="card  shadow p-3 mb-4 bg-body rounded thumbcard">
+            <img routerLink="/user/bookevent"  class=" pic card-img-top mt-1">
+            <div class="card-body" style="display: block;">
+                <div style="text-align: center; margin-bottom:20px;">
+                <h5  class = "card-title text-center"></h5>
+                </div>
+                <div class="rate" >
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class=" fa fa-star checked"></span>
+                  <span class="unchecked fa fa-star"></span>
+  
+                </div>
+                <div style="text-align: center; margin-top:55px;">
+                  <h5  class = "card-title text-center">Cost:</h5> -->
+                  <!-- </div>
+                  <div style="text-align: center;"> -->
+                    <!-- <h5  >Location:</h5>
+                    </div> -->
+  
+            <!-- </div>
+            </div>
+       -->
+            
+      <!-- </div>
+      </ng-container>
+        </div>
+      </div>
+      </div>
+     -->
+
+     <div class="input-group">
+      <input class="search-icon" type="text"  name="search" [(ngModel)]="searchText" autocomplete="off"  placeholder=" Search "/>
+    </div><div><ng-container *ngFor = "let t of themes | filter:searchText ">
+    <div class="col" routerLink="/user/bookTheme"  id="eventGrid{{count}}">
+    <div class="card  shadow p-3 mb-4 bg-body rounded thumbcard">
+     
+        <div class="card-body">
+            <h5 class = "card-title text-center">{{t.themeName}}</h5>
+    
+        </div>
+        </div>
+    </div>
+    </ng-container></div>
