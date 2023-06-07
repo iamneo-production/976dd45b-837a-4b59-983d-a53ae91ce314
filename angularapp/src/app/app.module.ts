@@ -7,8 +7,6 @@ import { AuthComponent } from './components/auth/auth.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { HomeComponent } from './home/home.component';
-import { ServicesComponent } from './services/services.component';
-import { ClassComponent } from './class/class.component';
 import { CustomersideComponent } from './components/customerside/customerside.component';
 import { AdminsideComponent } from './components/adminside/adminside.component';
 import { AddeventComponent } from './components/customerside/addevent/addevent.component';
@@ -42,8 +40,6 @@ import { UpdateaddonsComponent } from './components/adminside/addons/updateaddon
     LoginComponent,
     SignupComponent,
     HomeComponent,
-    ServicesComponent,
-    ClassComponent,
     CustomersideComponent,
     AdminsideComponent,
     AddeventComponent,
