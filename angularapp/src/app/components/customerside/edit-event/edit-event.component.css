@@ -1,0 +1,52 @@
+.addontable{
+    width:500px;
+}
+.dropdownbtn,.dropdownfood{
+    width:500px;
+}
+.backBtn{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.L_container{
+    background: url(src/assets/images/u_bg.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.container{
+    position: relative;
+    max-width: 800px;
+    width: 100%;
+    border-radius: 6px;
+    /* padding: 30px; */
+    margin: 0 15px;
+    background-color: #f5f3f6;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    /* margin-top: -10px; */
+}
+.image{
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+.container form .form{
+    position: relative;
+    background-color: #8b42b2;
+    transition: 0.3s ease;
+    background: url(src/assets/images/u_bodybg.png) no-repeat center center fixed;
+    
+}
+.page{
+    display: block;
+    margin-left: 200px;
+}
