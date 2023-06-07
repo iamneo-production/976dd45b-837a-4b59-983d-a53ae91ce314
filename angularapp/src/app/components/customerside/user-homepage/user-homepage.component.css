@@ -1,0 +1,113 @@
+input
+{
+    height: 40px;
+  }
+  
+  .con
+  {
+      justify-content: center;
+      display: flex;
+  }
+  .row
+  {
+      margin: 20px;
+  }
+  .search{
+  width: 50%;
+      margin: auto;
+      
+  }
+  
+  .container {
+     display: flex;
+     margin: auto;
+     align-items: center;
+     
+    }
+    .input-group
+    {
+      margin: auto;
+      display:block;
+      width: 300px;
+      padding-top: 10px;
+      height: 30px;
+    }
+    
+  .card
+  {
+      /* width:100%; */
+      margin: 15px;
+      display: inline-block;
+  }
+  .card-body
+  {
+      display: flex;
+      font-size: 17px;
+      
+      align-items: center;
+     
+      
+  }
+  .responsive
+  {
+      display: block;
+      max-width: 100%;
+      height: auto;
+  
+  }
+  .rate {
+      float: left;
+      height: 46px;
+      padding: 0 10px;
+      display: block;
+      margin: auto;
+  }
+  
+  .checked
+   {
+      color: orange;
+    }
+    .unchecked 
+    {
+      color: rgb(178, 177, 177);
+    }
+  .star
+  {
+      margin: auto;
+  }
+  
+  /* .pic{
+      width: 100%;
+      object-fit: cover;
+      height:200px;
+      cursor: pointer;
+      min-width: 283px;
+      max-width: 283PX;
+      
+      
+    } */
+    .card:hover
+    {
+      transform: scale(1.05);
+      /* box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06); */
+    }
+  
+    .rate
+    {
+      position: absolute;
+   
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    
+    }
+  
+    ngb-rating{
+      color:orange;
+      font-size: xx-large;
+      /* border: 2px solid black; */
+    }
+    ngb-rating .star
+     {
+     stroke: black;
+  }

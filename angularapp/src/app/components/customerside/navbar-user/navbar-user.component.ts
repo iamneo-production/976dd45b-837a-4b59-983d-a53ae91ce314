@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-
 @Component({
   selector: 'app-navbar-user',
   templateUrl: './navbar-user.component.html',
@@ -8,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarUserComponent implements OnInit {
 
-  constructor() { }
+
+  constructor() 
+  { 
+    
+  }
 
   ngOnInit(): void {
   }
