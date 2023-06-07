@@ -1,0 +1,45 @@
+<app-navbar-user></app-navbar-user>
+  <div class="back" style=" background-image: url('assets/images/user-home-bg-img.jpg');  background-position: center center;
+   background-size: 100%;  
+    background-size: cover; 
+    min-height: 1100px;
+  ">
+    <div class="input-group">
+      <div class="form-outline">
+        <input class="search-icon" type="text" id="searchEventbutton" name="search" [(ngModel)]="searchText" autocomplete="off"  placeholder=" Search " class="form-control" />
+      </div>
+    </div>
+    
+    <div class=" back ">
+    <div class = "container ">
+      <div class = "row row-cols-1 row-cols-md-3 g-4">
+          
+    <ng-container *ngFor = "let theme of themes |  filter:searchText ; let i=index">
+      <div class="col" id="eventGrid{{i+1}}">
+      <div class="card  shadow p-3 mb-4 bg-body rounded thumbcard">
+          <img routerLink="/user/bookevent" (click)="updateText(theme.themeName,theme.themeDescription, theme.themeCost)" src = "{{ theme.themeImageURL }}" class=" pic card-img-top mt-1">
+          <div class="card-body" style="display: block;">
+              <div style="text-align: center; margin-bottom:20px;">
+              <h5  class = "card-title text-center">{{theme.themeName}}</h5>
+              </div>
+              <div class="rate" >
+                <ngb-rating [max]="5" [readonly]="true" [rate] = "theme.ratings">:</ngb-rating>
+
+              </div>
+              <div style="text-align: center; margin-top:55px;">
+                <h5  class = "card-title text-center">Cost:{{theme.themeCost}}</h5>
+                <!-- </div>
+                <div style="text-align: center;"> -->
+                  <h5  >Location: {{theme.themeDescription}}</h5>
+                  </div>
+
+          </div>
+          </div>
+    
+          
+    </div>
+    </ng-container>
+      </div>
+    </div>
+    </div>
+  </div>
