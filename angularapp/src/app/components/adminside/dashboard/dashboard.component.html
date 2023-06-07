@@ -1,1 +1,34 @@
-<p>dashboard works!</p>
+<app-navbar-admin></app-navbar-admin>
+<div class=" back ">
+    <div class = "container ">
+        <div class = "row row-cols-1 row-cols-md-3 g-5">
+            
+    <ng-container *ngFor = "let item of theme; let i=index">
+        <div class="col" id="themeGrid{{i+1}}">
+        <div class="card  shadow p-3 mb-4 bg-body rounded thumbcard">
+            <img src = "{{ item.themeImageURL }}" class=" pic card-img-top mt-1">
+            <div class="card-body">
+                <h5 class = "card-title text-center">{{item.themePhotographer}}</h5>
+                <h5 class = "card-title text-center">{{item.themeReturnGift}}</h5>
+                <h5 class = "card-title text-center">{{item.themeName}}</h5>
+                <h5 class = "card-title text-center">{{item.themeVideographer}}</h5>
+                <h5 class = "card-title text-center">{{item.themeCost}}</h5>
+                <h5 class = "card-title text-center">{{item.themeDescription}}</h5>
+                <div class=" text-center">
+                    
+                <button class="btn btn-primary me-2 " (click) = "updateTheme(item.themeId)" id="editTheme{{i+1}}">Edit&nbsp;
+                    <i class="fa fa-pencil-square-o" aria-hidden="true" ></i>
+                </button>
+      
+                <button  class="btn bg-danger text-white " (click) = "deleteTheme(item.themeId)" id="deleteTheme{{i+1}}">Delete&nbsp;
+                    <i class="fa fa-trash" aria-hidden="true" ></i>
+                </button>
+            </div>
+            </div>
+            
+            </div>
+    </div>
+    </ng-container>
+        </div>
+    </div>
+    </div>
