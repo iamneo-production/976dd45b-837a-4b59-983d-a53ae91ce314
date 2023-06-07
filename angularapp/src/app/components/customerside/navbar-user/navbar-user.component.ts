@@ -7,9 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarUserComponent implements OnInit {
 
+<<<<<<< HEAD
   constructor() { }
 
   ngOnInit(): void {
   }
 
 }
+=======
+
+  constructor() 
+  { 
+    
+  }
+
+  ngOnInit(): void {
+  }
+  logoutalrt()
+  {
+    alert("Successfully Logged Out");
+  }
+}
+>>>>>>> b0af86db9945ef6c455067dbd624cb52f6cd06c2

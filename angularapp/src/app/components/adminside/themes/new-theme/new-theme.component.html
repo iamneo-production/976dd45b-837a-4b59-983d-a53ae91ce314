@@ -1,1 +1,76 @@
+<<<<<<< HEAD
 <p>new-theme works!</p>
+=======
+     <div class="back">
+        <br/>
+        
+            <div class="container">
+                        
+                  <form (ngSubmit) = "onSubmit()">
+                    <div class="form first">
+                        <div class="details event">
+                            <br/><br/>
+                            <div class="fields">
+                                <div class="form-group; mb-3 row">
+                                    <label for="themeName" class="col-sm-2 col-form-label">Theme Name</label><br>
+                                    <div class="col-sm-10">
+                                    <input id="themeName" type="text"  [(ngModel)] = "newtheme.themeName" name = "themeName" class="form-control" placeholder="Enter theme name" style="height: 40px; width: 500px;" required="" ngModel>
+                                    </div>
+                                </div>
+        
+                                <div class="form-group; mb-3 row">
+                                    <label for="imageUrl" class="col-sm-2 col-form-label">Image Url</label><br>
+                                    <div class="col-sm-10">
+                                    <input id=imageUrl type="text"  [(ngModel)] = "newtheme.themeImageURL" name = "themeImageURL" class="form-control" placeholder="Enter the image url"  style="height: 40px; width: 500px;" required="" ngModel>
+                                    </div>
+                                </div>
+        
+                                <div class="form-group; mb-3 row">
+                                    <label for="photographerDetails" class="col-sm-2 col-form-label">Photographer Details</label><br>
+                                    <div class="col-sm-10">
+                                    <input id="photographerDetails" type="text" [(ngModel)] = "newtheme.themePhotographer" name = "themePhotographer" class="form-control" placeholder="Enter photographer details"  style="height: 40px; width: 500px;" required="" ngModel>
+                                    </div>
+                                </div>
+        
+                                <div class="form-group; mb-3 row">
+                                    <label for="videographerDetails" class="col-sm-2 col-form-label">Videographer Details</label><br>
+                                    <div class="col-sm-10">
+                                    <input id="videographerDetails" type="text" [(ngModel)] = "newtheme.themeVideographer" name = "themeVideographer" class="form-control" placeholder="Enter videographer details"  style="height: 40px; width: 500px;" required="" ngModel>
+                                    </div>
+                                </div>
+        
+                                <div class="form-group; mb-3 row">
+                                    <label for="returnGift" class="col-sm-2 col-form-label">Theme return gift</label><br>
+                                    <div class="col-sm-10">
+                                    <input id="returnGift" type="email" [(ngModel)] = "newtheme.themeReturnGift" name = "themeReturnGift" class="form-control" placeholder="Enter theme return gift"  style="height: 40px; width: 500px;" required="" ngModel>
+                                    </div>
+                                </div>
+        
+                                <div class="form-group; mb-3 row">
+                                    <label for="themeCost" class="col-sm-2 col-form-label">Theme cost</label><br>
+                                    <div class="col-sm-10">
+                                    <input id="themeCost" type="text"  [(ngModel)] = "newtheme.themeCost" name = "themeCost" class="form-control" placeholder="Enter theme cost"  style="height: 40px; width: 500px;" required="" ngModel>
+                                    </div>
+                                </div>
+        
+                                <div class="form-group; mb-3 row">
+                                    <label for="themeDescription" class="col-sm-2 col-form-label">Theme Description</label><br>
+                                    <div class="col-sm-10">
+                                    <input id="themeDescription" type="textarea"  name="eventDate" [(ngModel)]="newtheme.themeDescription" class="form-control" placeholder="Enter theme description"   style="height: 40px; width: 500px;" required="" ngModel>
+                                    </div>
+                                </div> 
+                            </div>
+                          
+                            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                <div class="btn-group add" role="group" aria-label="First group" >
+                                  <button id="addTheme" class="btn btn-outline-primary" id="btn1" type="submit" > ADD THEME</button>
+                                </div>                        
+                            </div>
+                            <br/>
+                            <br/>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+        </div>
+>>>>>>> b0af86db9945ef6c455067dbd624cb52f6cd06c2

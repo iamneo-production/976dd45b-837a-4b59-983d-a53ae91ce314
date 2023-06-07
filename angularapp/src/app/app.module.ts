@@ -7,8 +7,11 @@ import { AuthComponent } from './components/auth/auth.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { HomeComponent } from './home/home.component';
+<<<<<<< HEAD
 import { ServicesComponent } from './services/services.component';
 import { ClassComponent } from './class/class.component';
+=======
+>>>>>>> b0af86db9945ef6c455067dbd624cb52f6cd06c2
 import { CustomersideComponent } from './components/customerside/customerside.component';
 import { AdminsideComponent } from './components/adminside/adminside.component';
 import { AddeventComponent } from './components/customerside/addevent/addevent.component';
@@ -32,10 +35,14 @@ import { ThemeHomeComponent } from './components/adminside/themes/theme-home/the
 import { NewThemeComponent } from './components/adminside/themes/new-theme/new-theme.component';
 import { UpdatethemeComponent } from './components/adminside/themes/updatetheme/updatetheme.component';
 import { AddonHomeComponent } from './components/adminside/addons/addon-home/addon-home.component';
+<<<<<<< HEAD
 import { UpdateaddonsComponent } from './components/adminside/addons/updateaddons/updateaddons.component'
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+=======
+import { UpdateaddonsComponent } from './components/adminside/addons/updateaddons/updateaddons.component';
+>>>>>>> b0af86db9945ef6c455067dbd624cb52f6cd06c2
 
 
 @NgModule({
@@ -45,8 +52,11 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     SignupComponent,
     HomeComponent,
+<<<<<<< HEAD
     ServicesComponent,
     ClassComponent,
+=======
+>>>>>>> b0af86db9945ef6c455067dbd624cb52f6cd06c2
     CustomersideComponent,
     AdminsideComponent,
     AddeventComponent,
@@ -76,9 +86,12 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
+<<<<<<< HEAD
     NgbModule,
     Ng2SearchPipeModule,
     FormsModule
+=======
+>>>>>>> b0af86db9945ef6c455067dbd624cb52f6cd06c2
   ],
   providers: [],
   bootstrap: [AppComponent]
