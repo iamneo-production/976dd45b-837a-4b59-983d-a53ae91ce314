@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from "@angular/router";
 import { Observable } from "rxjs";
-import { LoginService } from 'src/app/services/login.service';
+import { LoginService } from 'src/app/services/loginservice.service';
 
 @Component({
   selector: 'app-auth',

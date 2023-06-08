@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
 
 
   private getAllTheme(){
-    this.themeService.getAllTheme().subscribe(data => {
+    this.themeService.getTheme().subscribe(data => {
       console.log(data)
       this.theme = data;
     });
