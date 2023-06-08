@@ -7,7 +7,7 @@ import { User } from 'src/app/class/user';
   providedIn: 'root'
 })
 export class UserserviceService {
-
+  
   constructor(private httpclient :HttpClient) { }
 
   checkEmail(email:String):Observable<Boolean>{
