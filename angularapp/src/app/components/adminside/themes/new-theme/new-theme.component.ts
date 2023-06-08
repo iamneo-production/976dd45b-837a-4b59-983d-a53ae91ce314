@@ -19,7 +19,7 @@ export class NewThemeComponent {
   }
 
   saveTheme(){
-    this.themeService.storeTheme(this.newtheme).subscribe( data => {
+    this.themeService.addTheme(this.newtheme).subscribe( data => {
       console.log(data);
       this.gotoTheme();
     },

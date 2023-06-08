@@ -11,7 +11,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  registrationForm: FormGroup<any>;
+  registrationForm: FormGroup;
   role ?:String;
 
   constructor(private userService:UserserviceService,private fb: FormBuilder, 

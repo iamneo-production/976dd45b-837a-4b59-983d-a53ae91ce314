@@ -50,7 +50,7 @@ export class EditEventComponent implements OnInit {
      }
      ) 
      //themecost
-     this.themeService.getAllTheme().subscribe((data)=>{
+     this.themeService.getTheme().subscribe((data)=>{
       this.themeData = data;
       console.log(data);
       this.getThemecost();
