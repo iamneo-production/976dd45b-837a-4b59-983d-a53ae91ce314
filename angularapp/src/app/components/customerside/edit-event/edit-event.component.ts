@@ -140,7 +140,7 @@ export class EditEventComponent implements OnInit {
       }
     }
     
-     
+  
   }
 
   subtract(i: number){
