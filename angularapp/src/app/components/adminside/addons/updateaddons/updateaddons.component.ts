@@ -31,7 +31,7 @@ export class UpdateaddonsComponent implements OnInit{
   }
 
   onSubmit(){
-    this.addservice.updateAddon(this.addOnid,this.newaddon).subscribe(data =>{
+    this.addservice.editAddon(this.addOnid,this.newaddon).subscribe(data =>{
       this.gotoaddon();
     })
   }

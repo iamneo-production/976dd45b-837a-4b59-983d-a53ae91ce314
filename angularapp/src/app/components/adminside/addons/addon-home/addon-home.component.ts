@@ -13,7 +13,7 @@ export class AddonHomeComponent implements OnInit {
   addons: addon[] = [];
 
   private getAddons(){
-    this.addservice.getList().subscribe(data=>{
+    this.addservice.getAddon().subscribe(data=>{
       console.log(data);
       this.addons = data;
     });
@@ -26,7 +26,7 @@ export class AddonHomeComponent implements OnInit {
   }
 
   deleteadd(addOnid:number){
-    this.addservice.deleteaddon(addOnid).subscribe(data =>{
+    this.addservice.deleteAddon(addOnid).subscribe(data =>{
       this.getAddons();
     })
   }
