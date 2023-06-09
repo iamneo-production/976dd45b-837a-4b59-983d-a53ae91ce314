@@ -1,0 +1,25 @@
+<!-- <router-outlet></router-outlet> -->
+<div  class="back">
+    <form (ngSubmit) = "onSubmit()">
+    <div class = "form-group col addonForm">
+        <div class="width p-2">
+            <input class="form-control" type = "text" id = "addOnsName" 
+                    [(ngModel)] = "newaddon.addOnName" name = "addOnName" placeholder="Enter name">
+        </div>
+        <div class="width p-2">
+            <input class="form-control" type = "text" id = "addOnsPrice" 
+                    [(ngModel)] = "newaddon.addAddonPrice" name = "addAddonPrice" placeholder="Enter Price">
+        </div>
+        <div class="width p-2">
+            <input class="form-control" type = "text" id = "addOnsImageurl" 
+                    [(ngModel)] = "newaddon.addonDescription" name = "addonDescription" placeholder="Enter URL of image">
+        </div>
+        
+    </div>
+    <button class="btn btn-outline-success mt-2 mb-2"  id="addAddOns" type = "submit">SUBMIT</button>
+   
+</form>
+    
+</div>
+<app-addon-home></app-addon-home>
+    
