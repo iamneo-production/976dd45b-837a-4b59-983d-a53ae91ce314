@@ -1,0 +1,15 @@
+.back{
+    min-height: 600px;
+} 
+
+.pic{
+  width: 100%;
+  object-fit: cover;
+  height:200px;
+  cursor: pointer;
+  
+}
+.card:hover{
+  transform: scale(1.05);
+  
+}
