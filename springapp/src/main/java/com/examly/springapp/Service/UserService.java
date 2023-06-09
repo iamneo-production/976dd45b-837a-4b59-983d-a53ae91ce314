@@ -27,6 +27,9 @@ public interface UserService {
     Boolean isAdminPresent(LoginModel loginModel);
 
     String checkUserRolebyEmail(String email);
-
-    //  UserModel getByUserRole(String userRole);
+    // User CRUD Operation
+    List<UserModel> getAllusers();
+    void addUser(UserModel user);
+    void editUser(String userId, UserModel user);
+    void deleteUser(String userId);
 }

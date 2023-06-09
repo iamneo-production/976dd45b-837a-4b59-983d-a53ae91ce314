@@ -88,4 +88,24 @@ public class UserServiceImpl implements UserService{
         else
             return "Email ID not found";
     }
+    // USER CRUD Operation
+    @Override
+    public List<UserModel> getAllusers(){
+        List<UserModel> users = new ArrayList<>();
+        userRepo.findAll().forEach(users::add);
+        return users;
+    }
+    @Override
+    public void addUser(UserModel user) {
+        userRepo.save(user);
+    }
+    @Override
+    public void editUser(String userId, UserModel user) {
+        userRepo.save(user);
+    }
+    @Override
+    public void deleteUser(String userId) {
+        userRepo.deleteById(userId);
+    }
+
 }
