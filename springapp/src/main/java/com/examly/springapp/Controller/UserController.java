@@ -12,24 +12,27 @@ import java.util.*;
 
 public class UserController {
     @Autowired
-    private UserService userService;
+    private UserServices userService;
 
-    @RequestMapping("/getUser")
-    public List<User> getAllUsers(){
+    @GetMapping("/getUser")
+    public List<UserModel> getAllUsers(){
         return userService.getAllusers();
     }
-    @RequestMapping(method = RequestMethod.POST, value = "/addUser")
-    public void addUser(@RequestBody User user){
+    @PostMapping("/addUser")
+    public String addUser(@RequestBody UserModel user){
+
         userService.addUser(user);
+        return "User/ Admin added";
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "/editUser/{id}")
-    public void editUser(@PathVariable String id, @RequestBody User user){
-        userService.editUser(id,  user);
+    @PutMapping("/editUser/{userId}")
+    public void editUser(@PathVariable String userId, @RequestBody UserModel user){
+        userService.editUser(userId,  user);
+
     }
-    @RequestMapping(method = RequestMethod.DELETE, value = "/deleteUser/{id}")
-    public void deleteUser(@PathVariable String id) {
-        userService.deleteUser(id);
-    }
-    
+    @DeleteMapping("/deleteUser/{userId}")
+    public String deleteUser(@PathVariable String userId) {
+        userService.deleteUser(userId);
+        return "User/Admin deleted";
+    }
 }
