@@ -1,0 +1,43 @@
+<div class="col-md-8 offset-md-2" >
+    <h2 >Update Theme</h2>
+    <br>
+    <form (ngSubmit) = "onSubmit()">
+        <div class ="form-group">
+            <label>Photographer Details</label>
+            <input type = "text" id = "photographerDetails" class="form-control"
+                    [(ngModel)] = "theme.themePhotographer" name = "themePhotographer" placeholder="Enter photographerDetails">
+        </div >
+        <div class ="form-group">
+            <label>Return Gift</label>
+            <input type = "text" id = "returnGift" class="form-control"
+                    [(ngModel)] = "theme.themeReturnGift" name = "themeReturnGift" placeholder="Enter returnGift">
+        </div>
+        <div class ="form-group">
+            <label>Theme Name</label>
+            <input type = "text" id = "themeName" class="form-control"
+                    [(ngModel)] = "theme.themeName" name = "themeName" placeholder="Enter themeName">
+        </div>
+        <div class ="form-group">
+            <label>Image Url</label>
+            <input type = "text" id = "imageUrl" class="form-control"
+                    [(ngModel)] = "theme.themeImageURL" name = "themeImageURL" placeholder="Enter imageUrl">
+        </div>
+        <div class ="form-group">
+            <label>Videographer Details</label>
+            <input type = "text" id = "videographerDetails" class="form-control"
+                    [(ngModel)] = "theme.themeVideographer" name = "themeVideographer" placeholder="Enter videographerDetails">
+        </div>
+        <div class ="form-group">
+            <label>Theme Cost</label>
+            <input type = "number" id = "themeCost" class="form-control"
+                    [(ngModel)] = "theme.themeCost" name = "themeCost" placeholder="Enter themeCost">
+        </div>
+        <div class ="form-group">
+            <label>Theme Description</label>
+            <input type = "text" id = "themeDescription" class="form-control"
+                    [(ngModel)] = "theme.themeDescription" name = "themeDescription" placeholder="Enter themeDescription">
+        </div>
+        <button class="btn btn-outline-success mt-3 mb-2" type = "submit">SUBMIT</button>
+    </form>
+    
+</div>
