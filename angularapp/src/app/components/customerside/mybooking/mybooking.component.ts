@@ -8,13 +8,13 @@ import { BookEventService } from 'src/app/services/bookevent.service';
   templateUrl: './mybooking.component.html',
   styleUrls: ['./mybooking.component.css']
 })
-export class ViewbookingComponent {
+export class MybookingComponent {
   // events: bookevent=new bookevent();
   events: bookevent[] = [];
   constructor(private bookEventService: BookEventService, private router: Router) {}
 
   ngOnInit(): void {
-    this.bookEventService.getList().subscribe(data =>{
+    this.bookEventService.viewEvent().subscribe(data =>{
       this.events = data;
   })
 }
@@ -24,11 +24,11 @@ updateEvent(eventId:number){
 }
 
 deleteBookedEvent(eventId: number){
-  // if(window.confirm("You are going to delete the Booked Event !")){
+
     this.bookEventService.deleteEvent(eventId).subscribe( data =>{
       this.ngOnInit();
       console.log("deleted")
     })
-//   }
+
 }
 }

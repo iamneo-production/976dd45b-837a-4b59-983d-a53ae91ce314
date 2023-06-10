@@ -35,6 +35,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    NgxSliderModule,
     Ng2SearchPipeModule,
     RouterModule.forRoot([
       

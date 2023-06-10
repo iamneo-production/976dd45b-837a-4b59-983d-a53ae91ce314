@@ -15,7 +15,7 @@ export class BookEventService {
   private baseUrl4 = "https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/user/deleteTheme";
 
   constructor(private httpclient : HttpClient) { }
-  getList(): Observable<bookevent[]>{
+  viewEvent(): Observable<bookevent[]>{
     return this.httpclient.get<bookevent[]>(`${this.baseUrl3}`);
   }
 
@@ -23,7 +23,7 @@ export class BookEventService {
     return this.httpclient.post(`${this.baseUrl}`,add);
   }
   
-    viewEvent(eventid : number): Observable<bookevent>
+    viewEventbyId(eventid : number): Observable<bookevent>
   {
     return this.httpclient.get<bookevent>(`${this.baseUrl3}/${eventid}`);
   }    
