@@ -11,5 +11,10 @@ export class NavbarUserComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  
+  logoutalrt()
+  {
+    alert("Successfully Logged Out");
+  }
 }
+
