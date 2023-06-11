@@ -19,7 +19,7 @@ export class AddaddmenuComponent implements OnInit{
   }
 
   saveAddMenu(){
-    this.addmenuService.addAddMenu(this.addmenu).subscribe( data => {
+    this.addmenuService.addMenu(this.addmenu).subscribe( data => {
       console.log(data);
       this.gotoAddmenu();
     },
