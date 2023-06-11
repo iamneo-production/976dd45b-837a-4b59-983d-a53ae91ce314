@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Addmenu } from '../../../class/addmenu';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-foodmenu',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FoodmenuComponent implements OnInit {
 
-  constructor() { }
+  add(){
+    this.router.navigate(['admin/addmenu/Addaddmenu']);
+  }
+
+  addmenus: Addmenu[] = [];
+
+  constructor(private router:Router){}
 
   ngOnInit(): void {
+      
   }
+
+
+  
+
+  
 
 }
