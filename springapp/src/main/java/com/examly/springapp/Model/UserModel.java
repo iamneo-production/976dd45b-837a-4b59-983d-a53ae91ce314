@@ -9,7 +9,7 @@ public class UserModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    private int userId;
+    private long userId;
 
     @Column(name = "email")
     private String email;
@@ -30,7 +30,7 @@ public class UserModel {
     public UserModel() {
     }
 
-    public UserModel(int userId, String email, String password, String username, String mobileNumber, String userRole) {
+    public UserModel(long userId, String email, String password, String username, String mobileNumber, String userRole) {
         this.userId = userId;
         this.email = email;
         this.password = password;
@@ -44,7 +44,7 @@ public class UserModel {
         return this.userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
 

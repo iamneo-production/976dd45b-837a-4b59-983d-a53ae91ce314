@@ -2,7 +2,7 @@ package com.examly.springapp.Service.Impl;
 
 
 
-import java.util.List;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -100,11 +100,11 @@ public class UserServiceImpl implements UserService{
         userRepo.save(user);
     }
     @Override
-    public void editUser(String userId, UserModel user) {
+    public void editUser(long userId, UserModel user) {
         userRepo.save(user);
     }
     @Override
-    public void deleteUser(String userId) {
+    public void deleteUser(long userId) {
         userRepo.deleteById(userId);
     }
 

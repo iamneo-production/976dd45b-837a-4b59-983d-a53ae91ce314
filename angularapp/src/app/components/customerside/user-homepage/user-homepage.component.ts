@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Theme } from 'src/app/class/theme';
 import { DataService } from 'src/app/services/data.service';
 import { ThemeService } from 'src/app/services/theme.service';
-import { LabelType, Options } from 'ng5-slider';
+import { LabelType, Options } from '@angular-slider/ngx-slider';
 
 
 @Component({
