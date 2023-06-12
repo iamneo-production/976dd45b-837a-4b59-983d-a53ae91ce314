@@ -1,0 +1,41 @@
+/* .head{
+    text-align: center;
+    background-color: rgb(113, 144, 176);
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+    margin-bottom: 0%;
+} */
+h1 {
+    margin: 0;
+    font-size: 2rem;
+    /* padding: 3rem; */
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px 4px #000000;
+    
+  }
+
+  .section-one {
+   
+    opacity: 0.8;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(
+      135deg, 
+      rgb(18, 194, 233), 
+      rgb(40, 150, 228), 
+      /* rgb(246, 79, 89) */
+      rgba(176,229,208,1)
+    );
+    background-size: 400%;
+    animation: my-animation 5s infinite alternate;
+  }
+  
+  @keyframes my-animation {
+    from {
+      background-position: 0%;
+    }
+    to {
+      background-position: 100%;
+    }
+  }

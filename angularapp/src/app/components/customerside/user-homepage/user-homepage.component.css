@@ -1,0 +1,127 @@
+.card-img-top
+{
+    max-width: 100%;
+  }
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  .con
+  {
+    justify-content: center;
+    display: flex;
+  }
+  .custom-slider
+  {
+    width: 30%;
+    margin: auto;
+  }
+  .row{
+    margin: 20px;
+  }
+  .form-outline
+  {
+    padding-top: 20px;
+    display: flex;
+    margin: auto;
+    width: 30%;
+    height:55px;
+    }
+  .container 
+  {
+   display: flex;
+   margin: auto;
+   align-items: center; 
+  }
+  
+  .card
+  {
+    margin: 15px;
+    display: inline-block;
+    
+  }
+  .card-body
+  {
+    display: flex;
+    font-size: 17px;
+    align-items: center;
+  }
+  
+  .responsive
+  {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .custom-slider
+  {
+    border:2px solid black;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    
+  }
+  .event
+  {
+    transition-property: all;
+    transition-property: transform;
+    transition-duration: 3s;
+  
+  
+  }
+  
+  .checked
+   {
+    color: orange;
+  }
+  .unchecked {
+    color: rgb(227, 142, 142);
+  }
+  .filter{
+     
+     margin-left: 70px;
+  }
+    
+  #remove{
+    /* margin:auto;  */
+    color: rgb(199, 40, 40); 
+    font-size:20px;
+     padding:2px; 
+    border: 1px solid red;
+  }
+  .btn{
+    display: flex;
+    justify-content: center;
+   
+    
+  }
+  .rate
+  {
+    position: absolute;
+  
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  
+  }
+  .star
+  {
+    margin: auto;
+  }
+  ngb-rating
+  {
+    color:orange;
+    font-size: xx-large;
+  }
+  
+  .card:hover
+  {
+    /* transform: translate(10px,5px); */
+    transform: scale(1.05);
+    /* transform: scale(0.8); */
+  }
+  
+  .remove_btn{
+    display: flex;
+    justify-content: right;
+  }
