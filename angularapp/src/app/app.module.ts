@@ -7,12 +7,11 @@ import { AuthComponent } from './components/auth/auth.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { HomeComponent } from './home/home.component';
-import { ServicesComponent } from './services/services.component';
 import { CustomersideComponent } from './components/customerside/customerside.component';
 import { AdminsideComponent } from './components/adminside/adminside.component';
 import { AddeventComponent } from './components/customerside/addevent/addevent.component';
+import { EditEventComponent } from './components/customerside/edit-event/edit-event.component';
 import { MybookingComponent } from './components/customerside/mybooking/mybooking.component';
-import { NavbarUserComponent } from './components/customerside/navbar-user/navbar-user.component';
 import { UserHomepageComponent } from './components/customerside/user-homepage/user-homepage.component';
 import { BookingComponent } from './components/adminside/booking/booking.component';
 import { AddonsComponent } from './components/adminside/addons/addons.component';
@@ -20,14 +19,12 @@ import { DashboardComponent } from './components/adminside/dashboard/dashboard.c
 import { FoodmenuComponent } from './components/adminside/foodmenu/foodmenu.component';
 import { NavbarAdminComponent } from './components/adminside/navbar-admin/navbar-admin.component';
 import { ThemesComponent } from './components/adminside/themes/themes.component';
-import { EditEventComponent } from './components/customerside/edit-event/edit-event.component';
 import { UserreviewComponent } from './components/customerside/userreview/userreview.component';
 import { AdminreviewComponent } from './components/adminside/adminreview/adminreview.component';
 import { AddaddonsComponent } from './components/adminside/addons/addaddons/addaddons.component';
 import { AddaddmenuComponent } from './components/adminside/foodmenu/addaddmenu/addaddmenu.component';
 import { AddmenuHomeComponent } from './components/adminside/foodmenu/addmenu-home/addmenu-home.component';
 import { UpdateaddmenuComponent } from './components/adminside/foodmenu/updateaddmenu/updateaddmenu.component';
-import { ThemeHomeComponent } from './components/adminside/themes/theme-home/theme-home.component';
 import { NewThemeComponent } from './components/adminside/themes/new-theme/new-theme.component';
 import { UpdatethemeComponent } from './components/adminside/themes/updatetheme/updatetheme.component';
 import { AddonHomeComponent } from './components/adminside/addons/addon-home/addon-home.component';
@@ -37,6 +34,8 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { NavbarUserComponent } from './components/customerside/navbar-user/navbar-user.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +44,6 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     LoginComponent,
     SignupComponent,
     HomeComponent,
-    ServicesComponent,
     CustomersideComponent,
     AdminsideComponent,
     AddeventComponent,
@@ -65,7 +63,6 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     AddaddmenuComponent,
     AddmenuHomeComponent,
     UpdateaddmenuComponent,
-    ThemeHomeComponent,
     NewThemeComponent,
     UpdatethemeComponent,
     AddonHomeComponent,
@@ -76,6 +73,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    NgxSliderModule,
     Ng2SearchPipeModule,
     RouterModule.forRoot([
       

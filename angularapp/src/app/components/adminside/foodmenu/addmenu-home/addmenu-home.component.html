@@ -1,1 +1,28 @@
-<p>addmenu-home works!</p>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th>Item Image </th>
+            <th>Item Name </th>
+            <th>Item Category </th>
+            <th>Item price </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let item of addmenus; let i=index" id="menuGrid{{i+1}}">
+            <td><img src = "{{item.foodMenuImage}}" class=" pic card-img-top mt-1"></td>
+            <td style="padding-top: 62px;">{{item.foodMenuItems}}</td>
+            <td style="padding-top: 62px;">{{item.foodMenuType}}</td>
+            <td style="padding-top: 62px;">{{item.foodMenuCost}}</td>
+            <td style="padding-top: 58px;">
+
+                <button  class="btn btn-primary me-2 " (click) = "updateFoodMenu(item.foodMenuID)" id="editItem{{i+1}}">Edit&nbsp;
+                    <i class="fa fa-pencil-square-o" aria-hidden="true" ></i>
+                </button>
+                <button  class="btn bg-danger text-white " (click) = "deleteFoodMenu(item.foodMenuID)" id="deleteItem{{i+1}}">Delete&nbsp;
+                    <i class="fa fa-trash" aria-hidden="true" ></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

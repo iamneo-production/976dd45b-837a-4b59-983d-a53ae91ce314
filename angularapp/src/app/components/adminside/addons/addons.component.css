@@ -1,0 +1,24 @@
+h2{
+    font-family: Georgia, serif;
+    padding: 10px 0 20px 0;
+    text-align: center;
+}
+.thumbcard{
+    width: 15rem;
+    width: 100%;
+    height: 18rem;
+    }
+    
+    @media(max-width: 768px){
+    .thumbcard{
+    width: 10rem;
+    width: 100%;
+    height: 18rem;
+    }
+    }
+
+
+.back{
+    background-image: radial-gradient( circle 588px at 31.7% 40.2%,  rgba(225,200,239,1) 21.4%, rgba(163,225,233,1) 57.1% );
+    
+  }

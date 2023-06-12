@@ -1,0 +1,70 @@
+.back{
+	min-height: 630px;
+    background-image: radial-gradient( circle 588px at 31.7% 40.2%,  rgba(225,200,239,1) 21.4%, rgba(163,225,233,1) 57.1% );
+  /* background-image: linear-gradient( 58.2deg,  rgba(40,91,212,0.73) -3%, rgba(171,53,163,0.45) 49.3%, rgba(255,204,112,0.37) 97.7% ); */
+}
+
+.add{
+    display: block;
+    margin: auto;
+}
+
+
+
+.btn{
+    background-image: linear-gradient(to right,rgb(78, 114, 134),rgb(7, 180, 200));
+    /* border:2px solid white; */
+    border-radius: 5px;
+    color:rgb(47, 121, 148);
+    transition-duration: 0.4s;
+    font-weight:400;
+}
+.btn4{
+
+    background-image: linear-gradient(to right,rgb(86, 160, 190),rgb(189, 189, 241));
+    border-radius: 5px;
+    color:black;
+    transition-duration: 0.4s;
+    font-weight:400;
+}
+
+.btn:hover{
+    color:white;
+    background-image: linear-gradient(to right,grey,rgb(42, 152, 167));
+    /* background-image: linear-gradient(rgb(122, 238, 238),rgb(113, 207, 113)); */
+}
+
+#btn1{
+
+     background-image: linear-gradient(to left,rgb(252, 169, 175),rgb(189, 189, 241));
+    border-radius: 5px;
+    color:black;
+    border:none;
+    width:200px;
+    height:40px;
+    transition-duration: 0.4s;
+    margin-left:-400px;
+    margin-top: 50px;
+    
+
+}
+
+#btn1:hover{
+    background-image: linear-gradient(to left,pink,rgb(5, 195, 248));
+}
+input:hover{
+    background-image: linear-gradient(to right,rgb(231, 232, 248),rgb(177, 220, 209));
+}
+option:hover{
+    background-image: linear-gradient(to right,rgb(169, 179, 252),rgb(189, 189, 241));
+}
+
+
+div{
+    text-align: center;
+}
+label{
+    text-align: left;
+    font-weight: 500;
+}
+

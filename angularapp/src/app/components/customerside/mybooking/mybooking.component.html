@@ -1,1 +1,37 @@
-<p>mybooking works!</p>
+<app-navbar-user></app-navbar-user>
+<div class="bgimg" style=" background-image: url('assets/images/user-home-bg-img.jpg'); 
+   background-size: 100%;  
+    background-size: cover; 
+    min-height: 1100px;
+  ">
+<div class="back rounded">
+
+    <table class = "table table-striped table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th >Event Name</th>
+                <th>Event Date</th>
+                <th >Event Time</th>
+                <th>Event Cost </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="record" *ngFor = "let e of events">
+               
+                <td style="padding: 25px;"><strong>{{e.eventName}}</strong></td>
+                <td style="padding: 25px;"><strong>{{e.eventDate}}</strong></td>
+                <td style="padding:25px;"><strong>{{e.eventTime}}</strong></td>
+                <td style="padding: 25px;"><strong>{{e.eventCost}}</strong></td>
+                <td style="padding:25px">
+                    <button id="editBooking" class="btn btn-primary me-2" (click) = "updateEvent(e.eventId)">Edit &nbsp;
+                        <i class="fa fa-pencil-square-o" aria-hidden="true" ></i>
+                    </button>
+                    <button id="deleteBooking" class="btn bg-danger text-white " (click)="deleteBookedEvent(e.eventId)">Delete&nbsp;
+                        <i class="fa fa-trash" aria-hidden="true" ></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table></div>
+</div>
