@@ -1,0 +1,17 @@
+.back{
+    padding-top: 30px;
+    max-width: 70%;
+    margin: auto;
+   
+}
+.record{
+    align-items: center;
+    margin: auto;
+}
+.table{
+    
+    background-image: url("/assets/images/tt.jpeg.jpg"); 
+    
+    background-size: 100%;  
+    background-size: cover;
+}

@@ -34,7 +34,7 @@ export class UpdatethemeComponent implements OnInit {
 
   onSubmit(){
     
-    this.themeService.updateTheme(this.themeId,this.theme).subscribe(data =>{
+    this.themeService.EditTheme(this.themeId,this.theme).subscribe(data =>{
       this.gotoAddtheme();
     })
   }

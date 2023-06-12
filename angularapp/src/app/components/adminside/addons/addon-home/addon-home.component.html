@@ -1,1 +1,32 @@
-<p>addon-home works!</p>
+
+<br>
+<br>
+<div class=" back ">
+<div class = "container ">
+    <div class = "row row-cols-1 row-cols-md-3 g-5">
+        
+<ng-container *ngFor = "let items of addons; let i=index" >
+    <div class="col" id="addOnsGrid{{i+1}}">
+    <div class="card  shadow p-3 mb-4 bg-body rounded thumbcard">
+        <img src = "{{ items.addonDescription }}" class=" pic card-img-top mt-1">
+        <div class="card-body">
+            <h5 class = "card-title text-center">{{items.addOnName}}</h5>
+            <h5 class = "card-title text-center text-success">Price: {{ items.addAddonPrice }}</h5>
+            <div class=" text-center">
+                
+            <button class="btn btn-primary me-2 " (click) = "updateadd(items.addOnid)" id="editOns{{i+1}}">Edit&nbsp;
+                <i class="fa fa-pencil-square-o" aria-hidden="true" ></i>
+            </button>
+        
+            <button  class="btn bg-danger text-white " (click) = "deleteadd(items.addOnid)" id="deleteOns{{i+1}}">Delete&nbsp;
+                <i class="fa fa-trash" aria-hidden="true" ></i>
+            </button>
+        </div>
+        </div>
+        
+        </div>
+</div>
+</ng-container>
+    </div>
+</div>
+</div>
