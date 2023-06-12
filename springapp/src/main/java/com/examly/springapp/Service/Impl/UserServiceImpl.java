@@ -100,8 +100,8 @@ public class UserServiceImpl implements UserService{
         userRepo.save(user);
     }
     @Override
-    public void editUser(long userId, UserModel user) {
-        userRepo.save(user);
+    public UserModel editUser(long userId, UserModel user) {
+        return userRepo.save(user);
     }
     @Override
     public void deleteUser(long userId) {
