@@ -26,9 +26,9 @@ public class UserController {
     }
 
     @PutMapping("/editUser/{userId}")
-    public void editUser(@PathVariable long userId, @RequestBody UserModel user){
-        userService.editUser(userId,  user);
-
+    public ResponseEntity<UserModel> editUser(@PathVariable long userId, @RequestBody UserModel user){
+        UserModel updatedUser =userService.editUser(userId,  user);
+        return ResponseEntity.ok(updatedUser);
     }
     @DeleteMapping("/deleteUser/{userId}")
     public String deleteUser(@PathVariable long userId) {
