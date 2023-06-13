@@ -1,1 +1,36 @@
-<p>navbar-admin works!</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/admin">
+        <i class="fa fa-birthday-cake" aria-hidden="true"></i>
+        Birthday Event 
+        
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-pills card-header-pills">
+          <li class = "nav-link">
+        <a class="nav-link" routerLink="/admin" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+      </li>
+          <li class="nav-link">
+            <a class="nav-link " id="adminTheme" routerLink="/admin/addtheme" routerLinkActive="active" >Add Theme</a>
+          </li>
+          <li class="nav-link">
+            <a class="nav-link" id="adminFoodMenu" routerLink="/admin/addmenu"routerLinkActive="active"  aria-current="page">Food Menu</a>
+          </li>
+          <li class="nav-link">
+            <a class="nav-link" id="addItemButton" routerLink="/admin/addon" routerLinkActive="active"   aria-current="page">Add on</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+              <a id="logout" class="nav-link " routerLink="/login" routerLinkActive="active" aria-current="page" (click)= "logoutalrt()"> 
+                <i class="fa fa-sign-out" aria-hidden="true"></i> &nbsp;Logout </a>
+              
+          </li>
+      </ul>
+    </div>
+    </div>
+  </nav>

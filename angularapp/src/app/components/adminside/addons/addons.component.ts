@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { addon } from '../../../class/addon';
+import { Router } from '@angular/router';
+import { AddonserviceService } from '../../../services/addonservice.service';
 
 @Component({
   selector: 'app-addons',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddonsComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit(): void {
+  add(){
+    this.router.navigate(['admin/addon/addAddon']);
+  }
+
+
+  constructor(private router:Router,private addservice:AddonserviceService){
+
+  }
+
+  ngOnInit(): void{
+    
   }
 
 }

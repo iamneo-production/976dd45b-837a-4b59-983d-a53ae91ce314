@@ -1,0 +1,17 @@
+.pic{
+    /* width: 100%;
+    object-fit: cover;
+    height:100px;
+    cursor: pointer; */
+    width:50%;
+   height:150px;
+   object-fit:cover;
+   object-position:50% 50%;
+    border-radius: 15px;
+    cursor: pointer;
+    
+  }
+  .pic:hover{
+    transform: scale(1.05);
+    /* box-shadow: 0 10px 20px rgba(242, 9, 9, 0.12), 0 4px 8px rgba(239, 8, 8, 0.06); */
+  }
