@@ -57,7 +57,7 @@ public class ThemeController {
     themeDetails.setThemeCost(themeDetails.getThemeCost());
     themeDetails.setRatings(themeDetails.getRatings());
 
-		ThemeModel updatedTheme =  themeService.updateTheme(themeDetails);
+		ThemeModel updatedTheme =  themeService.EditTheme(themeDetails);
 
     return ResponseEntity.ok(updatedTheme);
 
@@ -75,10 +75,4 @@ public class ThemeController {
 
   }
 
-  @GetMapping("user/getAllThemes")
-  public List<ThemeModel> getAllThemes()
-  {
-    List<ThemeModel> themes = themeService.getAllTheme();
-    return themes;
-  }
 }
