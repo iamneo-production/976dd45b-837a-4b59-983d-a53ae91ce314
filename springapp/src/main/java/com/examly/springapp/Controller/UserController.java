@@ -3,6 +3,7 @@ package com.examly.springapp.Controller;
 import com.examly.springapp.Model.UserModel;
 import com.examly.springapp.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
