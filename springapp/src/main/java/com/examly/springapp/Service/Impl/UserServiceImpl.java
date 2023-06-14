@@ -17,16 +17,23 @@ public class UserServiceImpl implements UserService{
 
     @Autowired
     private Userrepository userRepo;
+    BCryptPasswordEncoder bcrypt=new BCryptPasswordEncoder();
 
     @Override
     public UserModel saveUser(UserModel user)
     {
+        BCryptPasswordEncoder bcrypt=new BCryptPasswordEncoder();
+        String encrpytedPwd=bcrypt.encode(user.getPassword());
+        user.setPassword(encrpytedPwd);
         return userRepo.save(user);
     }
 
     @Override
     public UserModel saveAdmin(UserModel user)
     {
+        BCryptPasswordEncoder bcrypt=new BCryptPasswordEncoder();
+        String encrpytedPwd=bcrypt.encode(user.getPassword());
+        user.setPassword(encrpytedPwd);
         return userRepo.save(user);
     }
 
@@ -60,7 +67,8 @@ public class UserServiceImpl implements UserService{
         
         UserModel user=userRepo.findByEmail(loginModel.getEmail());
 
-        if(user!=null && user.getPassword().equals(loginModel.getPassword()) && user.getUserRole().equals("User")){
+        if(user!=null  && user.getUserRole().equals("User") 
+            && bcrypt.matches(loginModel.getPassword(),user.getPassword())){
             return true;
         }
         else 
@@ -72,7 +80,8 @@ public class UserServiceImpl implements UserService{
         
         UserModel user=userRepo.findByEmail(loginModel.getEmail());
 
-        if(user!=null && user.getPassword().equals(loginModel.getPassword()) && user.getUserRole().equals("Admin")){
+        if(user!=null  && user.getUserRole().equals("Admin") 
+            && bcrypt.matches(loginModel.getPassword(),user.getPassword()) ){
             return true;
         }
         else 
@@ -97,6 +106,9 @@ public class UserServiceImpl implements UserService{
     }
     @Override
     public void addUser(UserModel user) {
+        BCryptPasswordEncoder bcrypt=new BCryptPasswordEncoder();
+        String encrpytedPwd=bcrypt.encode(user.getPassword());
+        user.setPassword(encrpytedPwd);
         userRepo.save(user);
     }
     @Override
