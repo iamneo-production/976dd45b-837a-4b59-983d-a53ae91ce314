@@ -19,7 +19,10 @@ export class AddaddmenuComponent implements OnInit{
   }
 
   saveAddMenu(){
-    this.addmenuService.addMenu(this.addmenu).subscribe( data => {
+    // calling the addMenu function which is present in the addmenuservice to make post request and to pass this data
+    // If the status is success then will perform routing to addmenu component
+    // And now newly added data would get updated in addmenu component
+    this.addmenuService.addMenu(this.addmenu).subscribe( data => {      
       console.log(data);
       this.gotoAddmenu();
     },
@@ -27,10 +30,11 @@ export class AddaddmenuComponent implements OnInit{
   }
 
   gotoAddmenu(){
+    // routing to add menu component
     this.router.navigate(['/admin/addmenu'])
   }
 
-  onSubmit(){
+  onSubmit(){ 
     console.log(this.addmenu);
     this.saveAddMenu();
   }
