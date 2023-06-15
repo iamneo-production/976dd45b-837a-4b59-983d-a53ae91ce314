@@ -12,7 +12,6 @@ import { AdminsideComponent } from './components/adminside/adminside.component';
 import { AddeventComponent } from './components/customerside/addevent/addevent.component';
 import { EditEventComponent } from './components/customerside/edit-event/edit-event.component';
 import { MybookingComponent } from './components/customerside/mybooking/mybooking.component';
-import { NavbarUserComponent } from './components/customerside/navbar-user/navbar-user.component';
 import { UserHomepageComponent } from './components/customerside/user-homepage/user-homepage.component';
 import { BookingComponent } from './components/adminside/booking/booking.component';
 import { AddonsComponent } from './components/adminside/addons/addons.component';
@@ -35,6 +34,8 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { NavbarUserComponent } from './components/customerside/navbar-user/navbar-user.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    NgxSliderModule,
     Ng2SearchPipeModule,
     RouterModule.forRoot([
       

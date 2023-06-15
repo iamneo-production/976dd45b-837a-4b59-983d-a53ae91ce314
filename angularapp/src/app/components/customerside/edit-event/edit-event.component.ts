@@ -39,12 +39,12 @@ export class EditEventComponent implements OnInit {
   }
   ngOnInit(): void {
     this.eventId = this.route.snapshot.params['eventId'];
-      this.bookEventService.viewEvent(this.eventId).subscribe(data => {
+      this.bookEventService.viewEventbyId(this.eventId).subscribe(data => {
       this.formData = data;
     });
     
     //addon price
-    this.ser.getList().subscribe((data)=>{
+    this.ser.getAddon().subscribe((data)=>{
       this.lis = data;
       console.log(data);
      }
@@ -62,7 +62,7 @@ export class EditEventComponent implements OnInit {
      
      ) 
      //foodmenu
-     this.foodService.getAddMenu().subscribe((data)=>{
+     this.foodService.getMenu().subscribe((data)=>{
       this.foodlis = data;
       console.log(data);
      }
@@ -164,7 +164,7 @@ export class EditEventComponent implements OnInit {
     }
     else{
       console.log(id);
-      this.subtract(id);
+      this.subtractFood(id);
       this.j.splice(this.j.indexOf(id),1);
       
     }

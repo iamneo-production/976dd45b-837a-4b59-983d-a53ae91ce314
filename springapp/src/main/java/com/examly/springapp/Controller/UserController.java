@@ -1,35 +1,39 @@
 package com.examly.springapp.Controller;
 
-import com.testing.springAngular.bean.UserModel;
-import com.testing.springAngular.service.UserService;
+import com.examly.springapp.Model.UserModel;
+import com.examly.springapp.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 @RestController
 @CrossOrigin(origins = "https://8081-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io")
-@RestController
+@RequestMapping
 
 public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/getUser")
-    public List<User> getAllUsers(){
+    @GetMapping("/getUser")
+    public List<UserModel> getAllUsers(){
         return userService.getAllusers();
     }
-    @RequestMapping(method = RequestMethod.POST, value = "/addUser")
-    public void addUser(@RequestBody User user){
+    @PostMapping("/addUser")
+    public String addUser(@RequestBody UserModel user){
+
         userService.addUser(user);
+        return "User/ Admin added";
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "/editUser/{id}")
-    public void editUser(@PathVariable String id, @RequestBody User user){
-        userService.editUser(id,  user);
+    @PutMapping("/editUser/{userId}")
+    public ResponseEntity<UserModel> editUser(@PathVariable long userId, @RequestBody UserModel user){
+        UserModel updatedUser =userService.editUser(userId,  user);
+        return ResponseEntity.ok(updatedUser);
     }
-    @RequestMapping(method = RequestMethod.DELETE, value = "/deleteUser/{id}")
-    public void deleteUser(@PathVariable String id) {
-        userService.deleteUser(id);
-    }
-    
+    @DeleteMapping("/deleteUser/{userId}")
+    public String deleteUser(@PathVariable long userId) {
+        userService.deleteUser(userId);
+        return "User/Admin deleted";
+    }
 }

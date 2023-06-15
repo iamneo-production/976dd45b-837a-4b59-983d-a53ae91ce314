@@ -40,7 +40,7 @@ export class AddeventComponent implements OnInit {
 
   ngOnInit():void {
     //addon
-    this.ser.getList().subscribe((data)=>{
+    this.ser.getAddon().subscribe((data)=>{
       this.lis = data;
       console.log(data);
      }
@@ -60,7 +60,7 @@ export class AddeventComponent implements OnInit {
      this.bookevent.eventCost=String(this.totalCost);
 
      //foodmenu
-    this.foodService.getAddMenu().subscribe((data)=>{
+    this.foodService.getMenu().subscribe((data)=>{
       this.foodlis = data;
       console.log(data);
      }
@@ -160,7 +160,7 @@ export class AddeventComponent implements OnInit {
     }
     else{
       console.log(id);
-      this.subtract(id);
+      this.subtractFood(id);
       this.j.splice(this.j.indexOf(id),1);
       
     }
