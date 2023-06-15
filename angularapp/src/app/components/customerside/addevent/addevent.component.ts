@@ -160,7 +160,7 @@ export class AddeventComponent implements OnInit {
     }
     else{
       console.log(id);
-      this.subtract(id);
+      this.subtractFood(id);
       this.j.splice(this.j.indexOf(id),1);
       
     }
