@@ -8,11 +8,19 @@ import com.examly.springapp.Model.FoodMenu;
 public interface FoodMenuService {
     FoodMenu addMenu(FoodMenu add);
 
-    List<FoodMenu> getAllFoodMenus();
+    //getting all food menus
 
-    FoodMenu getFoodMenuById(Long foodMenuID);
+    List<FoodMenu> getAllFoodMenus();      
 
-    void deleteFoodMenu(Long foodMenuID);
+    //getting food menu by Id
 
-    FoodMenu updateFoodMenu(FoodMenu foodMenuDetails);
+    FoodMenu getFoodMenuById(Long foodMenuID);   
+
+    // delete food menu by Id
+
+    void deleteFoodMenu(Long foodMenuID);       
+
+    // update food menu by Id
+    
+    FoodMenu updateFoodMenu(FoodMenu foodMenuDetails);      
 }

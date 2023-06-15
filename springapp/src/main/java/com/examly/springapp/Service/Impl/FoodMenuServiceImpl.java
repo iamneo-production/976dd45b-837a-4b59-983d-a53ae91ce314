@@ -16,7 +16,7 @@ public class FoodMenuServiceImpl implements FoodMenuService{
 
     // adding menu
     // post request from front end
-    
+
     @Override
     public FoodMenu addMenu(FoodMenu add){
         return foodMenuRepository.save(add);
