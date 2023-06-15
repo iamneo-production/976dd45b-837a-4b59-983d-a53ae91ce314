@@ -30,6 +30,6 @@ public interface UserService {
     // User CRUD Operation
     List<UserModel> getAllusers();
     void addUser(UserModel user);
-    void editUser(long userId, UserModel user);
+    UserModel editUser(long userId, UserModel user);
     void deleteUser(long userId);
 }
