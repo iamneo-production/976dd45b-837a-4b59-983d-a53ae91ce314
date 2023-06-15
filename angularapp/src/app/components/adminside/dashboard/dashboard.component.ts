@@ -2,12 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Theme } from 'src/app/class/theme';
 import { ThemeService } from 'src/app/services/theme.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
+// @NgModule({
+//   imports: [
+//     CommonModule]
+//   })
 export class DashboardComponent implements OnInit {
 
   theme: Theme[] = [];

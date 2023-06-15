@@ -30,6 +30,6 @@ public interface UserService {
     // User CRUD Operation
     List<UserModel> getAllusers();
     void addUser(UserModel user);
-    void editUser(String userId, UserModel user);
-    void deleteUser(String userId);
+    UserModel editUser(long userId, UserModel user);
+    void deleteUser(long userId);
 }
