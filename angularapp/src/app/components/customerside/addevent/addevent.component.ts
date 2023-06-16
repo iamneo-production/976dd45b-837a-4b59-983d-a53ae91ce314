@@ -3,7 +3,7 @@ import { BookEventService } from '../../../services/bookevent.service';
 import { AddonserviceService } from 'src/app/services/addonservice.service';
 import { addon } from 'src/app/class/addon';
 import { DataService } from 'src/app/services/data.service';
-import { bookevent } from '../../../class/bookevent';
+import { BookEvent } from '../../../class/bookevent';
 import { Router } from '@angular/router';
 import { Theme } from 'src/app/class/theme';
 import { Addmenu } from 'src/app/class/addmenu';
@@ -23,17 +23,17 @@ export class AddeventComponent implements OnInit {
   currentPage = 1;
   addOnCost:number=0;
   flag:boolean=false;
-  
-  bookevent: bookevent= new bookevent();
+
+  bookevent: BookEvent= new BookEvent();
   theme:Theme= new Theme();
-  
+
    //addon table checkbox
    lis : addon[]=[];
    l : Array<number> = []
    //foodmenu table checkbox
    foodlis : Addmenu[]=[];
    j : Array<number> = []
-   
+
 
   constructor(private bookEventService: BookEventService,private ser: AddonserviceService,
     private data: DataService, private router: Router, private foodService: AddmenuserviceService) {}
@@ -44,9 +44,9 @@ export class AddeventComponent implements OnInit {
       this.lis = data;
       console.log(data);
      }
-     ) 
+     )
      //themName bind
-     
+
      this.data.share1.subscribe(x => this.name = x);
      this.data.share2.subscribe(y => this.loc = y);
      this.data.share3.subscribe(z => this.cost = z);
@@ -64,9 +64,9 @@ export class AddeventComponent implements OnInit {
       this.foodlis = data;
       console.log(data);
      }
-     ) 
+     )
      //addonid/menuid
-     
+
   }
 
   nextPage() {
@@ -81,7 +81,7 @@ export class AddeventComponent implements OnInit {
     }
   }
 
-  
+
   onSubmit(){
     console.log(this.bookevent);
     this.saveBookevent();
@@ -109,21 +109,21 @@ export class AddeventComponent implements OnInit {
     console.log(id);
     this.l.push(id);
     this.adding(id);
-    
+
     }
     else{
       console.log(id);
       this.subtract(id);
       this.l.splice(this.l.indexOf(id),1);
-      
+
     }
     console.log(this.totalCost);
-    
+
     this.bookevent.eventCost=String(this.totalCost);
     this.bookevent.addonId=(this.l);
     console.log(this.l)
   }
-  
+
   adding(i : number){
 
     for(let index = 0; index < this.lis.length; index++){
@@ -133,8 +133,8 @@ export class AddeventComponent implements OnInit {
    this.totalCost += (Number(this.lis[index].addAddonPrice));
       }
     }
-    
-     
+
+
   }
 
   subtract(i: number){
@@ -145,7 +145,7 @@ export class AddeventComponent implements OnInit {
    this.totalCost -= (Number(this.lis[index].addAddonPrice));
       }
     }
-  
+
   }
 
   //foodmenu table
@@ -156,20 +156,20 @@ export class AddeventComponent implements OnInit {
     console.log(id);
     this.j.push(id);
     this.addingFood(id);
-    
+
     }
     else{
       console.log(id);
       this.subtractFood(id);
       this.j.splice(this.j.indexOf(id),1);
-      
+
     }
     console.log(this.totalCost);
-    
+
     this.bookevent.eventCost=String(this.totalCost);
     this.bookevent.eventMenuId=(this.j);
   }
-  
+
   addingFood(i : number){
 
     for(let index = 0; index < this.foodlis.length; index++){
@@ -179,8 +179,8 @@ export class AddeventComponent implements OnInit {
    this.totalCost += (Number(this.foodlis[index].foodMenuCost));
       }
     }
-    
-     
+
+
   }
 
   subtractFood(i: number){
@@ -191,7 +191,7 @@ export class AddeventComponent implements OnInit {
    this.totalCost -= (Number(this.foodlis[index].foodMenuCost));
       }
     }
-  
+
   }
 
 

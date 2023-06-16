@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Addmenu } from 'src/app/class/addmenu';
 import { addon } from 'src/app/class/addon';
-import { bookevent } from 'src/app/class/bookevent';
+import { BookEvent } from 'src/app/class/bookevent';
 import { Theme } from 'src/app/class/theme';
 import { AddmenuserviceService } from 'src/app/services/addmenuservice.service';
 import { AddonserviceService } from 'src/app/services/addonservice.service';
@@ -18,13 +18,13 @@ import { ThemeService } from 'src/app/services/theme.service';
 export class EditEventComponent implements OnInit {
 
   eventId : number = 0;
-  formData: bookevent= new bookevent();
-  cost=''  
+  formData: BookEvent= new BookEvent();
+  cost=''
   totalCost:number=0;
   addOnCost:number=0;
   themeCost:number=0;
   currentPage = 1;
-  
+
   themeData : Theme[]=[];
   //price
   lis : addon[]=[];
@@ -42,13 +42,13 @@ export class EditEventComponent implements OnInit {
       this.bookEventService.viewEventbyId(this.eventId).subscribe(data => {
       this.formData = data;
     });
-    
+
     //addon price
     this.ser.getAddon().subscribe((data)=>{
       this.lis = data;
       console.log(data);
      }
-     ) 
+     )
      //themecost
      this.themeService.getTheme().subscribe((data)=>{
       this.themeData = data;
@@ -59,15 +59,15 @@ export class EditEventComponent implements OnInit {
      console.log(this.totalCost);
      this.formData.eventCost=String(this.totalCost);
      }
-     
-     ) 
+
+     )
      //foodmenu
      this.foodService.getMenu().subscribe((data)=>{
       this.foodlis = data;
       console.log(data);
      }
-     ) 
-     
+     )
+
   }
 
   getThemecost(){
@@ -89,7 +89,7 @@ export class EditEventComponent implements OnInit {
       this.currentPage--;
     }
   }
-  
+
 
 
   //update
@@ -107,19 +107,19 @@ export class EditEventComponent implements OnInit {
   //addon table
 
   Nothing(id:number){
-    
+
     console.log("Clicked");
     if(!(this.l.includes(id))){
     console.log(id);
     this.l.push(id);
     this.adding(id);
-    
+
     }
     else{
       console.log(id);
       this.subtract(id);
       this.l.splice(this.l.indexOf(id),1);
-      
+
     }
 
     this.formData.eventCost=String(this.totalCost);
@@ -128,7 +128,7 @@ export class EditEventComponent implements OnInit {
 
 
 
-  
+
 
   adding(i : number){
 
@@ -139,8 +139,8 @@ export class EditEventComponent implements OnInit {
    this.totalCost += (Number(this.lis[index].addAddonPrice));
       }
     }
-    
-  
+
+
   }
 
   subtract(i: number){
@@ -160,20 +160,20 @@ export class EditEventComponent implements OnInit {
     console.log(id);
     this.j.push(id);
     this.addingFood(id);
-    
+
     }
     else{
       console.log(id);
       this.subtractFood(id);
       this.j.splice(this.j.indexOf(id),1);
-      
+
     }
     console.log(this.totalCost);
-    
+
     this.formData.eventCost=String(this.totalCost);
     this.formData.eventMenuId=(this.j);
   }
-  
+
   addingFood(i : number){
 
     for(let index = 0; index < this.foodlis.length; index++){
@@ -183,8 +183,8 @@ export class EditEventComponent implements OnInit {
    this.totalCost += (Number(this.foodlis[index].foodMenuCost));
       }
     }
-    
-     
+
+
   }
 
   subtractFood(i: number){
@@ -195,6 +195,6 @@ export class EditEventComponent implements OnInit {
    this.totalCost -= (Number(this.foodlis[index].foodMenuCost));
       }
     }
-  
+
   }
 }
