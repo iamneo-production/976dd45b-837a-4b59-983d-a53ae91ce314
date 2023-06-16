@@ -1,11 +1,12 @@
 export class Theme{
-    themeId  : number = 0;  
-    themePhotographer!:String;
-    themeReturnGift!:String;
-    themeName!:String;
-    themeImageURL !:String;
-    themeVideographer !:String;
-    themeCost !:number;
-    themeDescription !:String;
-    ratings :number=0;
+
+    themeId!: number;
+    themePhotographer!: string;
+    themeReturnGift!: string;
+    themeName!: string;
+    themeImageURL !: string;
+    themeVideographer!: string;
+    themeCost!: number;
+    themeDescription!: string;
+    ratings!: number;
     }
