@@ -11,17 +11,16 @@ import { AddonserviceService } from '../../../services/addonservice.service';
 export class AddonsComponent implements OnInit {
 
 
-  add(){
+  add(): void{
     this.router.navigate(['admin/addon/addAddon']);
   }
 
 
-  constructor(private router:Router,private addservice:AddonserviceService){
+  constructor(private router: Router, private addservice: AddonserviceService){
 
   }
 
   ngOnInit(): void{
-    
   }
 
 }
