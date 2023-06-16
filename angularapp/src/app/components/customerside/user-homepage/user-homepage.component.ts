@@ -29,16 +29,13 @@ i: any;
   city='all';
   n=0;
 
-
-  floor=0;
-  ceil=50000;
   showThemes=1;
 
 
   theme: Theme= new Theme();
   filteredThemes: any[]=[];
   options: Options = {
-
+    floor:0, ceil:50000,
     translate: (value: number, label: LabelType): string => {
         switch (label) {
             default:

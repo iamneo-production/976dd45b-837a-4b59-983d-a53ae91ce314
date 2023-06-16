@@ -1,14 +1,14 @@
 export class BookEvent{
-    eventId: number = 0;
-    eventName: string = "";
-    applicantName: string = "";
-    applicantAddress: string = "";
-    applicantMobile: string = "";
-    applicantEmail: string = "";
-    eventAddress: string = "";
-    eventDate: string = "";
-    eventTime: string = "";
+    eventId= 0;
+    eventName= '';
+    applicantName= '';
+    applicantAddress= '';
+    applicantMobile= '';
+    applicantEmail= '';
+    eventAddress= '';
+    eventDate= '';
+    eventTime= '';
     eventMenuId: Array<number> = [];
     addonId: Array<number> = [];
-    eventCost: string = "";
+    eventCost= '';
 }
