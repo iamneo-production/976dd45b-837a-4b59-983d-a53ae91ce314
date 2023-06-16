@@ -19,7 +19,7 @@ export class EditEventComponent implements OnInit {
 
   // eventId: number = 0;
   eventId: number;
-  formData: bookevent = new bookevent();
+  formData: BookEvent = new BookEvent();
   cost = '';
   totalCost: number;
   addOnCost: number;
@@ -67,11 +67,6 @@ export class EditEventComponent implements OnInit {
   }
 
   getThemecost(): void {
-    // for (let index = 0; index < this.themeData.length; index++) {
-    //   if (this.formData.eventName === this.themeData[index].themeName) {
-    //     this.themeCost = this.themeData[index].themeCost;
-    //   }
-    // }
     for (const theme of this.themeData) {
       if (this.formData.eventName === theme.themeName) {
         this.themeCost = theme.themeCost;
@@ -116,7 +111,7 @@ export class EditEventComponent implements OnInit {
     this.formData.eventCost = String(this.totalCost);
     this.formData.addonId = (this.l);
   }
-  
+
   adding(i: number): void {
     for (let index = 0; index < this.lis.length; index++) {
       if (this.lis[index].addOnid === i) {
@@ -175,4 +170,3 @@ export class EditEventComponent implements OnInit {
     }
   }
 }
-

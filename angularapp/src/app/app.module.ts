@@ -76,7 +76,7 @@ import { NavbarUserComponent } from './components/customerside/navbar-user/navba
     NgxSliderModule,
     Ng2SearchPipeModule,
     RouterModule.forRoot([
-      
+
     ]),
     FormsModule,
     ReactiveFormsModule,

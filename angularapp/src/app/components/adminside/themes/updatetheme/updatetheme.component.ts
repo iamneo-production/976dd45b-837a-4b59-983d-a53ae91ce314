@@ -21,7 +21,7 @@ export class UpdatethemeComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.themeId);
-    this.themeId=this.route.snapshot.params['themeId'];
+    this.themeId=this.route.snapshot.params[`themeId`];
     console.log(this.themeId);
     this.themeService.getThemebyId(this.themeId).subscribe(data =>{
       this.theme = data;
