@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Addmenu } from 'src/app/class/addmenu';
 import { addon } from 'src/app/class/addon';
-import { bookevent } from 'src/app/class/bookevent';
+import { BookEvent } from 'src/app/class/bookevent';
 import { Theme } from 'src/app/class/theme';
 import { AddmenuserviceService } from 'src/app/services/addmenuservice.service';
 import { AddonserviceService } from 'src/app/services/addonservice.service';
@@ -37,13 +37,13 @@ export class EditEventComponent implements OnInit {
               private route: ActivatedRoute,
               private ser: AddonserviceService, private themeService: ThemeService,
               private foodService: AddmenuserviceService) {
-
   }
   ngOnInit(): void {
     this.eventId = this.route.snapshot.params[`eventId`];
     this.bookEventService.viewEventbyId(this.eventId).subscribe(data => {
       this.formData = data;
     });
+
     // addon price
     this.ser.getAddon().subscribe((data) => {
       this.lis = data;
@@ -116,6 +116,7 @@ export class EditEventComponent implements OnInit {
     this.formData.eventCost = String(this.totalCost);
     this.formData.addonId = (this.l);
   }
+  
   adding(i: number): void {
     for (let index = 0; index < this.lis.length; index++) {
       if (this.lis[index].addOnid === i) {
@@ -174,3 +175,4 @@ export class EditEventComponent implements OnInit {
     }
   }
 }
+

@@ -1,14 +1,14 @@
-export class bookevent{
-    eventId : number = 0;
-    eventName:string = "";
+export class BookEvent{
+    eventId: number = 0;
+    eventName: string = "";
     applicantName: string = "";
-    applicantAddress: String="";
+    applicantAddress: string = "";
     applicantMobile: string = "";
-    applicantEmail:string="";
-    eventAddress:string="";
-    eventDate:string="";
-    eventTime:string="";
-    eventMenuId:Array<number> = [];
-    addonId:Array<number> = []
-    eventCost:String="";
+    applicantEmail: string = "";
+    eventAddress: string = "";
+    eventDate: string = "";
+    eventTime: string = "";
+    eventMenuId: Array<number> = [];
+    addonId: Array<number> = [];
+    eventCost: string = "";
 }
