@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { bookevent } from 'src/app/class/bookevent';
+import { BookEvent } from 'src/app/class/bookevent';
 import { BookEventService } from 'src/app/services/bookevent.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { BookEventService } from 'src/app/services/bookevent.service';
 })
 export class MybookingComponent {
   // events: bookevent=new bookevent();
-  events: bookevent[] = [];
+  events: BookEvent[] = [];
   constructor(private bookEventService: BookEventService, private router: Router) {}
 
   ngOnInit(): void {
