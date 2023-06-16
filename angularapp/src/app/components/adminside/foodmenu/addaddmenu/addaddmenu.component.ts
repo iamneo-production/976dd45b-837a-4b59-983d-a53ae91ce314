@@ -11,31 +11,29 @@ import { Router } from '@angular/router';
 export class AddaddmenuComponent implements OnInit{
 
   addmenu: Addmenu = new Addmenu();
-  constructor(private addmenuService: AddmenuserviceService,
-    private router: Router){ }
+  constructor(private addmenuService: AddmenuserviceService, private router: Router)
+  {
 
-
-  ngOnInit(): void {  
   }
-
-  saveAddMenu(){
-    // calling the addMenu function which is present in the addmenuservice to make post request and to pass this data
-    // If the status is success then will perform routing to addmenu component
-    // And now newly added data would get updated in addmenu component
-    this.addmenuService.addMenu(this.addmenu).subscribe( data => {      
-      console.log(data);
-      this.gotoAddmenu();
+  ngOnInit(): void{}
+  saveAddMenu(): void{
+    // calling the addMenu function which is present in the addmenu service to make post request and to pass this data
+    // If the status is success,then will perform routing operation to addmenu component
+    // And now newly added data would get updated in foodmenu component
+    this.addmenuService.addMenu(this.addmenu).subscribe(data => {
+    console.log(data);
+    this.gotoAddmenu();
     },
     error => console.log(error));
   }
 
-  gotoAddmenu(){
-    // routing to add menu component
-    this.router.navigate(['/admin/addmenu'])
+  gotoAddmenu(): void{
+    // routing to food menu component
+    this.router.navigate(['/admin/addmenu']);
   }
-
-  onSubmit(){ 
+  onSubmit(): void{
     console.log(this.addmenu);
+    // here addmenu contains the data which we entered in the form from front end
     this.saveAddMenu();
   }
 
