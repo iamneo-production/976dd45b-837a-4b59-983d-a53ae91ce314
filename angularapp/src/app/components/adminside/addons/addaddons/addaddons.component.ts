@@ -11,29 +11,26 @@ import { AddonserviceService } from '../../../../services/addonservice.service';
 
 export class AddaddonsComponent implements OnInit{
 
-  newaddon : addon = new addon();
+  newaddon: addon = new addon();
 
-  constructor(private router:Router,private addservice:AddonserviceService){
+  constructor(private router: Router, private addservice: AddonserviceService){
 
   }
-  saves(){
-    this.addservice.addAddon(this.newaddon).subscribe(data=>{
-      console.log(data);
-      this.gotoaddon();
-    });
+  saves(): void{
+    this.addservice.addAddon(this.newaddon).subscribe(data => {
+    console.log(data);
+    this.gotoaddon(); } );
   }
 
   ngOnInit(): void{
 
   }
 
-  gotoaddon(){
+  gotoaddon(): void{
     this.router.navigate(['admin/addon']);
   }
 
-  onSubmit(){
+  onSubmit(): void{
     this.saves();
   }
-
-  
 }
