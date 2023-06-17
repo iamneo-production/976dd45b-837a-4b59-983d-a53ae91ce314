@@ -3,5 +3,5 @@ export class Addmenu {
     foodMenuType = '';
     foodMenuItems = '';
     foodMenuCost = '';
-    foodMenuImage ='';
+    foodMenuImage = '';
 }

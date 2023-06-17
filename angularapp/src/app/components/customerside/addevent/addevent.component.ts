@@ -60,8 +60,7 @@ export class AddeventComponent implements OnInit {
     console.log(this.themeCost);
     this.totalCost = Number(this.themeCost);
     this.bookevent.eventCost=String(this.totalCost);
-
-    // foodmenu
+    
     this.foodService.getMenu().subscribe((data) => {
       this.foodlis = data;
       console.log(data);
@@ -76,6 +75,7 @@ export class AddeventComponent implements OnInit {
   }
 
   previousPage(): void {
+
     if (this.currentPage > 1) {
       this.currentPage--;
     }
@@ -127,6 +127,7 @@ export class AddeventComponent implements OnInit {
         console.log(index);
         console.log(this.lis[index].addAddonPrice);
         this.totalCost += (Number(this.lis[index].addAddonPrice));
+
       }
     }
   }
@@ -150,6 +151,7 @@ export class AddeventComponent implements OnInit {
       this.j.push(id);
       this.addingFood(id);
     }
+
     else{
       console.log(id);
       this.subtractFood(id);
@@ -157,8 +159,8 @@ export class AddeventComponent implements OnInit {
     }
     console.log(this.totalCost);
 
-    this.bookevent.eventCost=String(this.totalCost);
-    this.bookevent.eventMenuId=(this.j);
+    this.bookevent.eventCost = String(this.totalCost);
+    this.bookevent.eventMenuId = (this.j);
   }
 
   addingFood(i: number): void {
