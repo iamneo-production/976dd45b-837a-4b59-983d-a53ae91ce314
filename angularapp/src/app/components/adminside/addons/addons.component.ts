@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { addon } from '../../../class/addon';
+import { Addon } from '../../../class/addon';
 import { Router } from '@angular/router';
 import { AddonserviceService } from '../../../services/addonservice.service';
 
