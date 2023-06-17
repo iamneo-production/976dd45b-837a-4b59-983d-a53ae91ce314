@@ -1,0 +1,107 @@
+<app-navbar-user></app-navbar-user>
+<div class="back" style=" background-image: url('assets/images/user-home-bg-img.jpg');  background-position: center center;
+ background-size: 100%;  
+  background-size: cover; 
+  min-height: 1100px;
+">
+<div class="input-group">
+  <div class="form-outline">
+      <i style="margin-top: 10px; margin-right: 10px; align-items: center;" class="fa fa-search fa-1.8x" aria-hidden="true"></i>
+      <input class="search-icon" (click)="CloseFilteredThemes()" type="text" id="form1" name="search" [(ngModel)]="searchText" autocomplete="off"  placeholder=" Search " class="form-control" />
+    <i  (click)="onClickOpenForm()"  style="margin-left:20px; padding-bottom: 10px; padding: 2px; border: 2px solid black;"  class="fa fa-filter fa-2x"></i>
+  </div>
+</div>
+<br>
+
+<div  [hidden]="!openform" class="custom-slider">
+  <div class="remove_btn" >
+  <i id="remove" (click)="closeOpenedForm()" class="fa fa-remove fa-1x" aria-hidden="true"></i>
+</div>
+  <br>
+  <label>Price Range</label>
+  <ngx-slider  style=" margin-right:15px;" [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ngx-slider>
+  <br><br>
+  <label style=" margin-right:5px;">Location  </label>
+  <select  style=" margin: auto; margin-left:20px; margin-right:10px; align-items: center;" #values (change)="findLocation(values.value)" class="form-select form-select-lg mb-3">
+    <option  value="all">Select All</option>
+      <option *ngFor="let theme of themes" [value]="theme.themeDescription" >{{theme.themeDescription}}</option>
+      
+    </select>
+    
+  <div class="btn">
+  <button  style="padding: 5px 10px; " type="button"  (click)="onClickCloseThemes()"class="btn btn-dark">Search</button>
+  &nbsp;&nbsp;
+  <button  style=" padding: 5px 10px;" type="button"  (click)="onClickReset()"class="btn btn-dark">Reset</button>
+</div>
+</div>   
+
+
+
+
+<div [hidden]="!showThemes"class="back">
+<div class = "container ">
+  
+  <div class = "row row-cols-1 row-cols-md-3 g-4">
+    <ng-container *ngFor = "let theme of themes |  filter:searchText ; let i=index">
+      <div class="col" id="eventGrid{{i+1}}">
+      <div class="card  shadow p-3 mb-4 bg-body rounded thumbcard">
+          <img routerLink="/user/bookevent" (click)="updateText(theme.themeName,theme.themeDescription, theme.themeCost)" src = "{{ theme.themeImageURL }}" class=" pic card-img-top mt-1">
+          <div class="card-body" style="display: block;">
+              <div style="text-align: center; margin-bottom:20px;">
+              <h5  class = "card-title text-center">{{theme.themeName}}</h5>
+              </div>
+              <div class="rate" >
+                <ngb-rating [max]="5" [readonly]="true" [rate] = "theme.ratings">:</ngb-rating>
+
+              </div>
+              <div style="text-align: center; margin-top:55px;">
+                <h5  class = "card-title text-center">Cost:{{theme.themeCost}}</h5>
+                <!-- </div>
+                <div style="text-align: center;"> -->
+                  <h5  >Location: {{theme.themeDescription}}</h5>
+                  </div>
+
+          </div>
+          </div>
+    
+          
+    </div>
+    </ng-container>
+  </div>
+</div>
+</div>
+
+
+<div [hidden]="!showFilteredThemes"class=" back ">
+<div class = "container ">
+    
+    <div class = "row row-cols-1 row-cols-md-3 g-4">
+      <ng-container *ngFor = "let theme of filteredThemes ; let i=index">
+        <div class="col" id="eventGrid{{i+1}}">
+        <div class="card  shadow p-3 mb-4 bg-body rounded thumbcard">
+            <img routerLink="/user/bookevent" (click)="updateText(theme.themeName,theme.themeDescription, theme.themeCost)" src = "{{ theme.themeImageURL }}" class=" pic card-img-top mt-1">
+            <div class="card-body" style="display: block;">
+                <div style="text-align: center; margin-bottom:20px;">
+                <h5  class = "card-title text-center">{{theme.themeName}}</h5>
+                </div>
+                <div class="rate" >
+                  <ngb-rating [max]="5" [readonly]="true" [rate] = "theme.ratings">:</ngb-rating>
+  
+                </div>
+                <div style="text-align: center; margin-top:55px;">
+                  <h5  class = "card-title text-center">Cost:{{theme.themeCost}}</h5>
+                  <!-- </div>
+                  <div style="text-align: center;"> -->
+                    <h5  >Location: {{theme.themeDescription}}</h5>
+                    </div>
+  
+            </div>
+            </div>
+      
+            
+      </div>
+      </ng-container>
+    </div>
+</div>
+</div>
+</div>

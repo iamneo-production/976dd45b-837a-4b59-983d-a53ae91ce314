@@ -1,0 +1,19 @@
+.width{
+    width: 280px;
+}
+.container {
+    height: 100vh;
+    min-height: 700px;
+    margin-top: 0;
+    width: 50%;
+
+
+  }
+  .addonForm{
+    background-color: rgba(84, 93, 103, 0.233);
+    width: 320px;
+    border-radius: 10px;
+    padding: 15px 30px 10px 15px;
+  }
+
+ 

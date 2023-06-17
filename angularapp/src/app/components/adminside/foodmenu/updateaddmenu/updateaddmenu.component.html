@@ -1,0 +1,28 @@
+<div class="col-md-8 offset-md-2">
+    <h2 >Update Food Item</h2>
+    <br>
+        <form (ngSubmit) = "onSubmit()">
+            <div class ="form-group">
+                <input type = "text" class="form-control" id = "foodMenuImage" 
+                    [(ngModel)] = "addmenus.foodMenuImage" name = "foodMenuImage">
+            </div>
+            <br>
+            <div class ="form-group">
+                <input type = "text" class="form-control" id = "foodMenuItems" 
+                    [(ngModel)] = "addmenus.foodMenuItems" name = "foodMenuItems">
+            </div>
+            <br>
+            <div class ="form-group">
+                <input type = "text" class="form-control" id = "foodMenuType" 
+                    [(ngModel)] = "addmenus.foodMenuType" name = "foodMenuType">
+            </div>
+            <br>
+            <div class ="form-group">
+                <input type = "text" class="form-control" id = "foodMenuCost" 
+                    [(ngModel)] = "addmenus.foodMenuCost" name = "foodMenuCost">
+            </div>
+            <br>
+            <button class = "btn btn-success" type = "submit" id = "UpdateaddMenu" >SUBMIT</button>
+        </form>
+        
+    </div>
