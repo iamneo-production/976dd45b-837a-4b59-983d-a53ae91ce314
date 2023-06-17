@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { addon } from '../../../../class/addon';
+import { Addon } from '../../../../class/addon';
 import { Router } from '@angular/router';
 import { AddonserviceService } from '../../../../services/addonservice.service';
 
@@ -11,7 +11,7 @@ import { AddonserviceService } from '../../../../services/addonservice.service';
 
 export class AddaddonsComponent implements OnInit{
 
-  newaddon: addon = new addon();
+  newaddon: Addon = new Addon();
 
   constructor(private router: Router, private addservice: AddonserviceService){
 

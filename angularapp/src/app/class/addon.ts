@@ -1,4 +1,4 @@
-export class addon {
+export class Addon {
     addOnid = 0;
     addonDescription = '';
     addOnName = '';

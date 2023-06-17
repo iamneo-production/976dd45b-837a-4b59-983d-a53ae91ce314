@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { addon } from '../../../../class/addon';
+import { Addon } from '../../../../class/addon';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AddonserviceService } from '../../../../services/addonservice.service';
 
@@ -10,7 +10,7 @@ import { AddonserviceService } from '../../../../services/addonservice.service';
 })
 export class UpdateaddonsComponent implements OnInit{
   addOnid = 0;
-  newaddon: addon = new addon();
+  newaddon: Addon = new Addon();
   addonid = 'addOnid';
 
 

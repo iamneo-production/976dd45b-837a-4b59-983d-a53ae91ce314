@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BookEventService } from '../../../services/bookevent.service';
 import { AddonserviceService } from 'src/app/services/addonservice.service';
-import { addon } from 'src/app/class/addon';
+import { Addon } from 'src/app/class/addon';
 import { DataService } from 'src/app/services/data.service';
 import { BookEvent } from '../../../class/bookevent';
 import { Router } from '@angular/router';
@@ -28,7 +28,7 @@ export class AddeventComponent implements OnInit {
   theme: Theme = new Theme();
 
   // addon table checkbox
-  lis: addon[] = [];
+  lis: Addon[] = [];
   l: Array<number> = [];
   // foodmenu table checkbox
   foodlis: Addmenu[] = [];
@@ -60,7 +60,7 @@ export class AddeventComponent implements OnInit {
     console.log(this.themeCost);
     this.totalCost = Number(this.themeCost);
     this.bookevent.eventCost=String(this.totalCost);
-    
+
     this.foodService.getMenu().subscribe((data) => {
       this.foodlis = data;
       console.log(data);
