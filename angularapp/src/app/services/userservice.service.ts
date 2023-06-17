@@ -7,28 +7,28 @@ import { User } from 'src/app/class/user';
   providedIn: 'root'
 })
 export class UserserviceService {
-  
-  constructor(private httpclient :HttpClient) { }
 
-  checkEmail(email:String):Observable<Boolean>{
+  constructor(private httpclient: HttpClient) { }
+
+  checkEmail(email: string): Observable<boolean>{
     console.log(email);
-    return this.httpclient.get<Boolean>(`https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/user/signup/`+email);
+    return this.httpclient.get<boolean>(`https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/user/signup/`+email);
   }
 
-  storeUser(newUser: User):Observable<any>{
-    const requestOptions: Object = {
+  storeUser(newUser: User): Observable<any>{
+    const requestOptions: object = {
       responseType: 'text'
-    }
+    };
     return this.httpclient.post('https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/user/signup', newUser, requestOptions);
   }
 
-  storeAdmin(newUser: User):Observable<any>{
-    const requestOptions: Object = {
+  storeAdmin(newUser: User): Observable<any>{
+    const requestOptions: object = {
       responseType: 'text'
-    }
+    };
     return this.httpclient.post('https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/signup', newUser, requestOptions);
   }
 
 
-  
+
 }

@@ -26,28 +26,28 @@ import { EditEventComponent } from './components/customerside/edit-event/edit-ev
 
 const routes: Routes = [
       { path: '', component: LoginComponent},
-      { path: 'admin', component: AdminsideComponent, 
+      { path: 'admin', component: AdminsideComponent,
         children:[
-          {path:"themeHome",component:DashboardComponent},
-          {path:"",component:DashboardComponent},
+          {path:'themeHome',component:DashboardComponent},
+          {path:'',component:DashboardComponent},
           { path: 'addtheme', component: ThemesComponent,
           children:[
-            {path: "",component:NewThemeComponent},            
-            {path: "updatetheme/:themeId", component: UpdatethemeComponent}
+            {path: '',component:NewThemeComponent},
+            {path: 'updatetheme/:themeId', component: UpdatethemeComponent}
           ]
         },
-          { path: "addmenu", component: FoodmenuComponent,
+          { path: 'addmenu', component: FoodmenuComponent,
           children:[
-            {path: "",component:AddmenuHomeComponent},
-            {path:"Addaddmenu", component: AddaddmenuComponent},
-            {path: "Updateaddmenu/:foodMenuID", component: UpdateaddmenuComponent}
+            {path: '',component:AddmenuHomeComponent},
+            {path:'Addaddmenu', component: AddaddmenuComponent},
+            {path: 'Updateaddmenu/:foodMenuID', component: UpdateaddmenuComponent}
           ]
         },
           { path: 'addon', component: AddonsComponent,
           children:[
-            {path : "", component:AddonHomeComponent},
-            {path : "addAddon",component:AddaddonsComponent},
-            {path : "updateaddons/:addOnid", component:UpdateaddonsComponent}
+            {path : '', component:AddonHomeComponent},
+            {path : 'addAddon',component:AddaddonsComponent},
+            {path : 'updateaddons/:addOnid', component:UpdateaddonsComponent}
         ]
         }
       ],
@@ -68,7 +68,7 @@ const routes: Routes = [
       { path: 'login', component: LoginComponent},
 
 
-      
+
 ];
 
 @NgModule({

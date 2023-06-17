@@ -12,107 +12,125 @@ import { LabelType, Options } from '@angular-slider/ngx-slider';
   styleUrls: ['./user-homepage.component.css']
 })
 export class UserHomepageComponent implements OnInit{
-  
+
   text1='';
   text2='';
   cost='';
-  searchText!:string;
-  themes:Theme[]=[];
-  
+  searchText!: string;
+  themes: Theme[] =[];
+  showFilteredThemes=0;
+  count=1;
+  t: any;
+i: any;
 
-  private getEvents(){
+  minValue=0;
+  maxValue=50000;
+  openform=0;
+  city='all';
+  n=0;
+
+  showThemes=1;
+
+
+  theme: Theme= new Theme();
+  filteredThemes: any[]=[];
+  options: Options = {
+    floor:0, ceil:50000,
+    translate: (value: number, label: LabelType): string => {
+        switch (label) {
+            default:
+                return value+ ' INR';
+        }
+    }
+};
+  constructor(private router: Router,private eventservice: ThemeService, private data: DataService) { }
+
+  ngOnInit(): void{
+    this.getEvents();
+  }
+
+
+  private getEvents(): void{
     this.eventservice.getTheme().subscribe(data=>{
       console.log(data);
       this.themes = data;
     });
+
   }
 
-  constructor(private router:Router,private eventservice:ThemeService, private data: DataService) { }
 
-  ngOnInit(): void{
-    this.getEvents()
-  }
 
-  updateText(text1,text2,cost){
+  updateText(text1,text2,cost): void{
     this.data.updateData(text1,text2,cost);
   }
 
 
-  //filter
-
-  showFilteredThemes=0;
-  count=1;
-  t:any;
-  city="all";
-  n=0;
-  showThemes=1;
-  filteredThemes:any[]=[];
-  theme:Theme= new Theme();
 
 
-  
 
 
-  minValue:number=0;
-  maxValue:number=50000;
-  openform=0;
-  options: Options = {  
-    floor: 0,  
-    ceil: 50000,  
-    translate: (value: number, label: LabelType): string => {  
-        switch (label) {  
-            default:  
-                return value+ " INR";  
-        }  
-    }  
-};   
 
 
-findLocation(value:any){
+
+
+
+
+
+
+
+
+
+
+
+findLocation(value: any): void{
   this.city=value;
     }
 
-  filterThemes(){
-    for(let i=0;i<this.themes.length;i++){
-      if(this.themes[i].themeDescription==this.city || this.city=="all" ){
-      if(this.themes[i].themeCost >=this.minValue && this.themes[i].themeCost<=this.maxValue ){
-        this.filteredThemes[this.n++]=this.themes[i];
+  filterThemes(): any{
+    for(this.i=0;this.i<this.themes.length;this.i++){
+      if(this.themes[this.i].themeDescription===this.city || this.city==='all' ){
+      if(this.themes[this.i].themeCost >=this.minValue && this.themes[this.i].themeCost<=this.maxValue ){
+        this.filteredThemes[this.n++]=this.themes[this.i];
         }
       }
     }
   }
-  onClickOpenForm(){
+
+
+  onClickOpenForm(): void{
     this.openform=1;
   }
-  closeOpenedForm(){
+
+
+  closeOpenedForm(): void
+  {
     this.openform=0;
-    
-    
+
+
   }
-  onClickCloseForm(){
-    
+  onClickCloseForm(): void{
+
     this.openform=0;
   }
-  onClickCloseThemes(){
+  onClickCloseThemes(): void{
     this.n=0;
     this.filteredThemes=[];
     this.showThemes=0;
     this.filterThemes();
     this.showFilteredThemes=1;
   }
-  CloseFilteredThemes(){
+  CloseFilteredThemes(): void{
     this.showFilteredThemes=0;
     this.openform=0;
     this.showThemes=1;
   }
-  onClickReset(){
+  onClickReset(): void{
     this.minValue=0;
     this.maxValue=50000;
-    this.city="all";
+    this.city='all';
     this.filteredThemes=[];
     this.n=0;
     this.filterThemes();
-    alert("Filter resetted");
-  }
-
+    alert('Filter resetted');
+}
 }
