@@ -1,28 +1,28 @@
 <!-- Author: Navya -->
 <app-navbar-user> </app-navbar-user>
 <div class="L_container" style=" background-image: url('assets/images/user-home-bg-img.jpg');  background-position: center center;
-background-size: 100%;  
- background-size: cover; 
+background-size: 100%;
+ background-size: cover;
  min-height: 1200px;
  padding-top: 20px;
 ">
-    
+
 
     <div class="image">
-    
-    
+
+
         <div class="container">
             <header style="text-align: center;"><b><h3> Book Event Details</h3></b></header>
             <div class="row mb-3"></div>
             <div *ngIf="currentPage === 1">
-    
+
                 <form >
                     <div class="form first">
                         <div class="details event">
                             <span class="title" class="btn4"><b>Event Details</b></span>
                             <div class="row mb-3"></div>
                             <div class="row mb-3"></div>
-        
+
                             <div class="fields; row g-3">
                                 <div class="form-group; mb-3 row">
                                     <label for="eventName" class="col-sm-2 col-form-label">Event Name</label><br>
@@ -31,79 +31,79 @@ background-size: 100%;
                                 </div>
                                 </div>
                                 <div class="row mb-3"></div>
-        
+
                                 <div class="form-group; mb-3 row">
                                     <label for="applicantName" class="col-sm-2 col-form-label">Applicant <br> name</label><br>
                                     <div class="col-md-6">
                                     <input id="applicantName" type="text" name="applicantName" [(ngModel)]="bookevent.applicantName" class="form-control" placeholder="Enter your name"  >
                                     </div>
                                 </div>
-        
+
                                 <div class="row mb-3"></div>
-        
+
                                 <div class="form-group; mb-3 row">
                                     <label for="applicantAddress" class="col-sm-2 col-form-label">Applicant <br> Address</label><br>
                                     <div class="col-md-6">
                                     <input id="applicantAddress" type="text" name="applicantAddress" [(ngModel)]="bookevent.applicantAddress" class="form-control" placeholder="Enter your permanent address"  >
                                     </div>
                                 </div>
-        
+
                                 <div class="row mb-3"></div>
-        
+
                                 <div class="form-group; mb-3 row">
                                     <label for="applicantMobileNo" class="col-sm-2 col-form-label">Applicant <br> Mobile Number</label><br>
                                     <div class="col-md-6">
                                     <input id="applicantMobileNo" type="text" name="applicantMobile" [(ngModel)]="bookevent.applicantMobile" class="form-control" placeholder="Enter your mobile number"  >
                                     </div>
                                 </div>
-        
+
                                 <div class="row mb-3"></div>
-        
+
                                 <div class="form-group; mb-3 row">
                                     <label for="applicantEmailId" class="col-sm-2 col-form-label">Applicant <br> Email Id</label><br>
                                     <div class="col-md-6">
                                     <input id="applicantEmailId" type="email" name="applicantEmail" class="form-control"[(ngModel)]="bookevent.applicantEmail"  placeholder="Enter your email Id"  >
                                     </div>
                                 </div>
-        
+
                                 <div class="row mb-3"></div>
-        
+
                                 <div class="InputWithIcon" class="form-group; mb-3 row">
                                     <label for="eventAddress" class="col-sm-2 col-form-label">Event <br> Location</label><br>
                                     <div class="col-md-6">
                                     <input [value]="loc"  id="eventAddress" type="text"  name="eventAddress" class="form-control"  placeholder="Enter location of event"  >
                                     </div>
                                 </div>
-        
+
                                 <div class="row mb-3"></div>
-        
+
                                 <div class="form-group; mb-3 row">
                                     <label for="eventDate" class="col-sm-2 col-form-label">Event Date</label><br>
                                     <div class="col-md-6">
                                     <input id="eventDate" type="date"  name="eventDate" class="form-control" [(ngModel)]="bookevent.eventDate" placeholder="Enter date of event"  >
                                     </div>
                                 </div>
-        
+
                                 <div class="row mb-3"></div>
-        
+
                                 <div class="form-group; mb-3 row">
                                     <label for="eventTime" class="col-sm-2 col-form-label">Event Time</label><br>
                                     <div class="col-md-6">
                                         <input id="eventTime" type="text"  name="eventTime" class="form-control"  [(ngModel)]="bookevent.eventTime" placeholder="Eg.5pm-10pm" required="" >
                                     </div>
                                 </div>
-        
+
                                 <div class="row mb-3"></div>
-        
+
                                 <div class="form-group; mb-3 row">
                                     <label for="noOfPeople" class="col-sm-2 col-form-label">People Count</label><br>
                                     <div class="col-md-6">
                                     <input type="text"  id="noOfPeople" class="form-control"  placeholder="Enter number of people"  >
                                     </div>
                                 </div>
-        
+
                                 <div class="row mb-3"></div>
-        
+
                             </div>
                             <div class="buttons">
                                 <div class="row mb-3"></div>
@@ -113,14 +113,14 @@ background-size: 100%;
                                         <i class="uil uil-navigator"></i>
                                     </button>
                                 </div>
-        
+
                                 <div class="row mb-3"></div>
-        
+
                                 <div class="btn-toolbar; col-md-6 "  style="margin-left: 50px;" role="toolbar" aria-label="Toolbar with button groups">
                                     <div class="btn-group me-2 page" role="group" aria-label="First group">
                                         <button disabled="" type="button" class="btn btn-outline-dark" class="btn">Page1</button>&nbsp;&nbsp;
                                         <button type="button"  (click)="nextPage()" class="btn btn-outline-dark" class="btn">Page2</button>&nbsp;&nbsp;
-                                    </div>                        
+                                    </div>
                                 </div>
                                 <br/><br/>
                             </div>
@@ -128,8 +128,8 @@ background-size: 100%;
                     </div>
                 </form>
             </div>
-            
-            
+
+
             <div *ngIf="currentPage === 2">
                 <form action="#" (ngSubmit) = "onSubmit()">
                     <div class="form second">
@@ -169,12 +169,12 @@ background-size: 100%;
                                         </table>
                                 </ul>
                                 </div>
-                            
-                                
-                                
+
+
+
                                 </div>
                             </div>
-                        
+
 
                         <div class="row mb-3"></div>
 
@@ -198,11 +198,11 @@ background-size: 100%;
                             </div>
                         </div>
 
-        
+
                         <div class="details AddOn">
                             <span class="title" class="btn4"><b>AddOn Details</b></span>
                             <div class="row mb-3"></div>
-        
+
                             <div class="fields; row g-3">
                                 <div class="form-group;  mb-3 row">
                                     <label for="selectAddOnsCategory" class="col-sm-2 col-form-label">AddOns Type</label><br>
@@ -228,14 +228,14 @@ background-size: 100%;
                                         </tr>
                                         </tbody>
                                         </table>
-                                        
+
                                     </ul>
                                 </div>
                             </div>
-        
-        
+
+
                             <div class="buttons">
-                                
+
                                 <div class="backBtn; col-md-6 text-end">
                                     <button class="nextBtn; btn btn-dark" class="btn" style="
                                     margin-left: 285px;">
@@ -243,14 +243,14 @@ background-size: 100%;
                                         <i class="uil uil-navigator"></i>
                                     </button>
                                 </div>
-        
+
                                 <div class="row mb-3"></div>
-        
+
                                 <div class="btn-toolbar; col-md-6 " style="margin-left: 255px;" role="toolbar" aria-label="Toolbar with button groups">
                                     <div class="btn-group me-2" role="group" aria-label="First group">
                                     <button type="button" (click)="previousPage()" class="btn btn-outline-dark"class="btn">Page1</button>&nbsp;&nbsp;
                                     <button disabled="" type="button" class="btn btn-outline-dark" class="btn">Page2</button>&nbsp;&nbsp;
-                                    </div>                        
+                                    </div>
                                 </div>
                                 <br>
                                 <div class="submit" style="margin-left: 300px;">
@@ -262,13 +262,13 @@ background-size: 100%;
                                 <br/><br/>
 
                             </div>
-                        </div> 
+                        </div>
                     </div>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-    
+
     </div>
 </div>
