@@ -1,7 +1,7 @@
 export class User {
-    email    !:String;
-    password   !:String;
-    mobileNumber !:String;
-    username !:String;
-    userRole !:String;
+    email    !: string;
+    password   !: string;
+    mobileNumber !: string;
+    username !: string;
+    userRole !: string;
 }
