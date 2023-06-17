@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BookEventService } from '../../../services/bookevent.service';
 import { AddonserviceService } from 'src/app/services/addonservice.service';
-import { addon } from 'src/app/class/addon';
+import { Addon } from 'src/app/class/addon';
 import { DataService } from 'src/app/services/data.service';
 import { BookEvent } from '../../../class/bookevent';
 import { Router } from '@angular/router';
@@ -15,79 +15,79 @@ import { AddmenuserviceService } from 'src/app/services/addmenuservice.service';
   styleUrls: ['./addevent.component.css']
 })
 export class AddeventComponent implements OnInit {
-  name='';
-  loc='';
-  cost='';
-  themeCost='';
-  totalCost:number=0;
+  name = '';
+  loc = '';
+  cost = '';
+  themeCost = '';
+  totalCost = 0;
   currentPage = 1;
-  addOnCost:number=0;
-  flag:boolean=false;
+  addOnCost = 0;
+  flag =false;
 
-  bookevent: BookEvent= new BookEvent();
-  theme:Theme= new Theme();
+  bookevent: BookEvent = new BookEvent();
+  theme: Theme = new Theme();
 
-   //addon table checkbox
-   lis : addon[]=[];
-   l : Array<number> = []
-   //foodmenu table checkbox
-   foodlis : Addmenu[]=[];
-   j : Array<number> = []
+  // addon table checkbox
+  lis: Addon[] = [];
+  l: Array<number> = [];
+  // foodmenu table checkbox
+  foodlis: Addmenu[] = [];
+  j: Array<number> = [];
 
 
-  constructor(private bookEventService: BookEventService,private ser: AddonserviceService,
-    private data: DataService, private router: Router, private foodService: AddmenuserviceService) {}
+  constructor(private bookEventService: BookEventService,
+              private ser: AddonserviceService,
+              private data: DataService,
+              private router: Router,
+              private foodService: AddmenuserviceService) {}
 
-  ngOnInit():void {
-    //addon
-    this.ser.getAddon().subscribe((data)=>{
+  ngOnInit(): void {
+    // addon
+    this.ser.getAddon().subscribe((data) => {
       this.lis = data;
       console.log(data);
-     }
-     )
-     //themName bind
+    });
+    // themName bind
 
-     this.data.share1.subscribe(x => this.name = x);
-     this.data.share2.subscribe(y => this.loc = y);
-     this.data.share3.subscribe(z => this.cost = z);
-     this.bookevent.eventName=this.name;
-     this.bookevent.eventAddress=this.loc;
-     this.themeCost=(this.cost);
-     console.log(this.bookevent.eventName);
-     console.log(this.bookevent.eventAddress);
-     console.log(this.themeCost);
-     this.totalCost=Number(this.themeCost);
-     this.bookevent.eventCost=String(this.totalCost);
+    this.data.share1.subscribe(x => this.name = x);
+    this.data.share2.subscribe(y => this.loc = y);
+    this.data.share3.subscribe(z => this.cost = z);
+    this.bookevent.eventName = this.name;
+    this.bookevent.eventAddress = this.loc;
+    this.themeCost = (this.cost);
+    console.log(this.bookevent.eventName);
+    console.log(this.bookevent.eventAddress);
+    console.log(this.themeCost);
+    this.totalCost = Number(this.themeCost);
+    this.bookevent.eventCost=String(this.totalCost);
 
-     //foodmenu
-    this.foodService.getMenu().subscribe((data)=>{
+    this.foodService.getMenu().subscribe((data) => {
       this.foodlis = data;
       console.log(data);
-     }
-     )
-     //addonid/menuid
-
+    });
+    // addonid/menuid
   }
 
-  nextPage() {
+  nextPage(): void {
     if (this.currentPage < 2) {
       this.currentPage++;
     }
   }
 
-  previousPage() {
+  previousPage(): void {
+
     if (this.currentPage > 1) {
       this.currentPage--;
     }
   }
 
 
-  onSubmit(){
+  onSubmit(): void {
     console.log(this.bookevent);
     this.saveBookevent();
   }
 
-  saveBookevent(){
+  saveBookevent(): void {
     this.bookEventService.bookEvent(this.bookevent).subscribe( data => {
       console.log(data);
       this.gotoViewBook();
@@ -95,104 +95,91 @@ export class AddeventComponent implements OnInit {
     error => console.log(error));
   }
 
-  gotoViewBook(){
-    this.router.navigate(['/user/viewbookevent'])
+  gotoViewBook(): void {
+    this.router.navigate(['/user/viewbookevent']);
   }
 
+ // addon table
 
- //addon table
-
-  Nothing(id:number){
+  Nothing(id: number): void {
     this.flag=true;
-    console.log("Clicked");
+    console.log('Clicked');
     if(!(this.l.includes(id))){
-    console.log(id);
-    this.l.push(id);
-    this.adding(id);
-
+      console.log(id);
+      this.l.push(id);
+      this.adding(id);
     }
     else{
       console.log(id);
       this.subtract(id);
-      this.l.splice(this.l.indexOf(id),1);
-
+      this.l.splice(this.l.indexOf(id), 1);
     }
     console.log(this.totalCost);
 
-    this.bookevent.eventCost=String(this.totalCost);
+    this.bookevent.eventCost = String(this.totalCost);
     this.bookevent.addonId=(this.l);
-    console.log(this.l)
+    console.log(this.l);
   }
 
-  adding(i : number){
-
+  adding(i: number): void {
     for(let index = 0; index < this.lis.length; index++){
-      if(this.lis[index].addOnid == i){
-        console.log(index)
-    console.log(this.lis[index].addAddonPrice);
-   this.totalCost += (Number(this.lis[index].addAddonPrice));
+      if(this.lis[index].addOnid === i){
+        console.log(index);
+        console.log(this.lis[index].addAddonPrice);
+        this.totalCost += (Number(this.lis[index].addAddonPrice));
+
       }
     }
-
-
   }
 
-  subtract(i: number){
+  subtract(i: number): void {
     for(let index = 0; index < this.lis.length; index++){
-      if(this.lis[index].addOnid == i){
-    console.log(index)
-    console.log(this.lis[index].addAddonPrice);
-   this.totalCost -= (Number(this.lis[index].addAddonPrice));
+      if(this.lis[index].addOnid === i){
+        console.log(index);
+        console.log(this.lis[index].addAddonPrice);
+        this.totalCost -= (Number(this.lis[index].addAddonPrice));
       }
     }
+  }
 
-  }
-
-  //foodmenu table
-  FoodMenu(id:number){
-    this.flag=true;
-    console.log("F Clicked");
+  // foodmenu table
+  FoodMenu(id: number): void {
+    this.flag = true;
+    console.log('F Clicked');
     if(!(this.j.includes(id))){
-    console.log(id);
-    this.j.push(id);
-    this.addingFood(id);
-
+      console.log(id);
+      this.j.push(id);
+      this.addingFood(id);
     }
+
     else{
       console.log(id);
       this.subtractFood(id);
       this.j.splice(this.j.indexOf(id),1);
-
     }
     console.log(this.totalCost);
 
-    this.bookevent.eventCost=String(this.totalCost);
-    this.bookevent.eventMenuId=(this.j);
+    this.bookevent.eventCost = String(this.totalCost);
+    this.bookevent.eventMenuId = (this.j);
   }
 
-  addingFood(i : number){
-
+  addingFood(i: number): void {
     for(let index = 0; index < this.foodlis.length; index++){
-      if(this.foodlis[index].foodMenuID == i){
-        console.log(index)
-    console.log(this.foodlis[index].foodMenuCost);
-   this.totalCost += (Number(this.foodlis[index].foodMenuCost));
+      if(this.foodlis[index].foodMenuID === i){
+        console.log(index);
+        console.log(this.foodlis[index].foodMenuCost);
+        this.totalCost += (Number(this.foodlis[index].foodMenuCost));
       }
     }
-
-
   }
 
-  subtractFood(i: number){
+  subtractFood(i: number): void {
     for(let index = 0; index < this.foodlis.length; index++){
-      if(this.foodlis[index].foodMenuID == i){
-    console.log(index)
-    console.log(this.foodlis[index].foodMenuCost);
-   this.totalCost -= (Number(this.foodlis[index].foodMenuCost));
+      if(this.foodlis[index].foodMenuID === i){
+        console.log(index);
+        console.log(this.foodlis[index].foodMenuCost);
+        this.totalCost -= (Number(this.foodlis[index].foodMenuCost));
       }
     }
-
-  }
-
-
+  }
 }
