@@ -22,10 +22,11 @@ export class AddeventComponent implements OnInit {
   totalCost = 0;
   currentPage = 1;
   addOnCost = 0;
-  flag = false;
+  flag =false;
 
   bookevent: BookEvent = new BookEvent();
   theme: Theme = new Theme();
+
   // addon table checkbox
   lis: addon[] = [];
   l: Array<number> = [];
@@ -58,9 +59,8 @@ export class AddeventComponent implements OnInit {
     console.log(this.bookevent.eventAddress);
     console.log(this.themeCost);
     this.totalCost = Number(this.themeCost);
-    this.bookevent.eventCost = String(this.totalCost);
-
-    // foodmenu
+    this.bookevent.eventCost=String(this.totalCost);
+    
     this.foodService.getMenu().subscribe((data) => {
       this.foodlis = data;
       console.log(data);
@@ -74,7 +74,8 @@ export class AddeventComponent implements OnInit {
     }
   }
 
-  previousPage(): void  {
+  previousPage(): void {
+
     if (this.currentPage > 1) {
       this.currentPage--;
     }
@@ -87,7 +88,7 @@ export class AddeventComponent implements OnInit {
   }
 
   saveBookevent(): void {
-      this.bookEventService.bookEvent(this.bookevent).subscribe( data => {
+    this.bookEventService.bookEvent(this.bookevent).subscribe( data => {
       console.log(data);
       this.gotoViewBook();
     },
@@ -98,9 +99,10 @@ export class AddeventComponent implements OnInit {
     this.router.navigate(['/user/viewbookevent']);
   }
 
-  // addon table
+ // addon table
+
   Nothing(id: number): void {
-    this.flag = true;
+    this.flag=true;
     console.log('Clicked');
     if(!(this.l.includes(id))){
       console.log(id);
@@ -114,17 +116,18 @@ export class AddeventComponent implements OnInit {
     }
     console.log(this.totalCost);
 
-    this.bookevent.eventCost=String(this.totalCost);
+    this.bookevent.eventCost = String(this.totalCost);
     this.bookevent.addonId=(this.l);
     console.log(this.l);
   }
 
   adding(i: number): void {
     for(let index = 0; index < this.lis.length; index++){
-        if(this.lis[index].addOnid === i){
-          console.log(index);
-          console.log(this.lis[index].addAddonPrice);
-          this.totalCost += (Number(this.lis[index].addAddonPrice));
+      if(this.lis[index].addOnid === i){
+        console.log(index);
+        console.log(this.lis[index].addAddonPrice);
+        this.totalCost += (Number(this.lis[index].addAddonPrice));
+
       }
     }
   }
@@ -152,7 +155,7 @@ export class AddeventComponent implements OnInit {
     else{
       console.log(id);
       this.subtractFood(id);
-      this.j.splice(this.j.indexOf(id), 1);
+      this.j.splice(this.j.indexOf(id),1);
     }
     console.log(this.totalCost);
 

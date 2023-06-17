@@ -8,10 +8,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AddonserviceService {
 
-  private baseUrl = "https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/addAddon";
-  private baseUrl2 = "https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/editAddon";
-  private baseUrl3 = "https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/getAddon";
-  private baseUrl4 = "https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/deleteAddon";
+  private baseUrl = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/addAddon';
+  private baseUrl2 = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/editAddon';
+  private baseUrl3 = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/getAddon';
+  private baseUrl4 = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/deleteAddon';
 
   constructor(private httpclient: HttpClient) { }
 
@@ -26,13 +26,13 @@ export class AddonserviceService {
     getAddonId(addOnid: number): Observable<addon>
 {
   return this.httpclient.get<addon>(`${this.baseUrl3}/${addOnid}`);
-}     
+}
 
-  editAddon(addOnid : number, ad : addon): Observable<Object>{
+  editAddon(addOnid: number, ad: addon): Observable<object>{
     return this.httpclient.put(`${this.baseUrl2}/${addOnid}`, ad);
   }
 
-  deleteAddon(addOnid : number): Observable<Object>{
+  deleteAddon(addOnid: number): Observable<object>{
     return this.httpclient.delete(`${this.baseUrl4}/${addOnid}`);
   }
 }
