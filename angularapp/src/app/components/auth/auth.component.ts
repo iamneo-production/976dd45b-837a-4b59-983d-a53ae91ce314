@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Injectable } from "@angular/core";
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from "@angular/router";
-import { Observable } from "rxjs";
+import { Injectable } from '@angular/core';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
+import { Observable } from 'rxjs';
 import { LoginService } from 'src/app/services/loginservice.service';
 
 @Component({
@@ -16,14 +16,14 @@ import { LoginService } from 'src/app/services/loginservice.service';
 
 export class AuthComponent implements CanActivate {
 
-  status: boolean = false;
+  status= false;
 
-  constructor(private loginServices: LoginService, private route :Router) {}
+  constructor(private loginServices: LoginService, private route: Router) {}
 
   canActivate(
-    route: ActivatedRouteSnapshot, 
+    route: ActivatedRouteSnapshot,
     router: RouterStateSnapshot
-  ): 
+  ):
 
   boolean {
     if(this.isloggedIn()){
@@ -33,7 +33,7 @@ export class AuthComponent implements CanActivate {
     return false;
   }
 
-  public isloggedIn(){
+  public isloggedIn(): any{
     let status = false;
     if(this.loginServices.loginStatus===true){
       status=true;

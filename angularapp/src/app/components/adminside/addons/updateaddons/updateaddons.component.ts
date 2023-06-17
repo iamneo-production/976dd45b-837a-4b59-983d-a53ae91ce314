@@ -9,32 +9,31 @@ import { AddonserviceService } from '../../../../services/addonservice.service';
   styleUrls: ['./updateaddons.component.css']
 })
 export class UpdateaddonsComponent implements OnInit{
-  addOnid : number = 0;
-  newaddon : addon = new addon();
+  addOnid = 0;
+  newaddon: addon = new addon();
+  addonid = 'addOnid';
 
-  
 
-  constructor(private router:Router,private addservice:AddonserviceService,private route:ActivatedRoute){
+
+  constructor(private router: Router, private addservice: AddonserviceService, private route: ActivatedRoute){
 
   }
 
 
   ngOnInit(): void{
-    this.addOnid = this.route.snapshot.params['addOnid'];
-      this.addservice.getAddonId(this.addOnid).subscribe(data => {
-      this.newaddon = data;
+    this.addOnid = this.route.snapshot.params[this.addonid];
+    this.addservice.getAddonId(this.addOnid).subscribe(data => {
+    this.newaddon = data;
     });
   }
 
-  gotoaddon(){
+  gotoaddon(): void{
     this.router.navigate(['admin/addon']);
   }
 
-  onSubmit(){
-    this.addservice.editAddon(this.addOnid,this.newaddon).subscribe(data =>{
-      this.gotoaddon();
-    })
+  onSubmit(): void{
+    this.addservice.editAddon(this.addOnid, this.newaddon).subscribe(data => {
+    this.gotoaddon();
+    } );
   }
-
-  
 }
