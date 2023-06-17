@@ -11,14 +11,9 @@ import { ThemeService } from 'src/app/services/theme.service';
 export class NewThemeComponent {
 
   newtheme: Theme = new Theme();
-  constructor(private themeService: ThemeService,
-    private router: Router){ }
+  constructor(private themeService: ThemeService, private router: Router){ }
 
-
-  ngOnInit(): void {  
-  }
-
-  saveTheme(){
+  saveTheme(): any{
     this.themeService.addTheme(this.newtheme).subscribe( data => {
       console.log(data);
       this.gotoTheme();
@@ -26,15 +21,15 @@ export class NewThemeComponent {
     error => console.log(error));
   }
 
-  gotoTheme(){
-    this.router.navigate(['/admin/'])
+  gotoTheme(): any{
+    this.router.navigate(['/admin/']);
   }
 
-  onSubmit(){
+  onSubmit(): any{
     console.log(this.newtheme);
     this.saveTheme();
   }
 
- 
+
 
 }

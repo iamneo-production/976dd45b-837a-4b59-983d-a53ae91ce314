@@ -11,8 +11,8 @@ import { LoginService } from 'src/app/services/loginservice.service';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
-  constructor(private loginService:LoginService,private fb: FormBuilder, private router : Router) { }
-  loginFlag!:Boolean;
+  constructor(private loginService: LoginService,private fb: FormBuilder, private router: Router) { }
+  loginFlag!: boolean;
   login: Login= new Login();
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -27,73 +27,76 @@ export class LoginComponent implements OnInit {
       ],
       password: ['', [Validators.required
         // , Validators.minLength(6)
-      ]]  
+      ]]
     });
   }
 
-  get f() { return this.loginForm.controls; }
-  
-    onSubmit(){
-      
+  get f(): any { return this.loginForm.controls; }
+
+    onSubmit(): void{
+
       this.checkUserRole();
-      
+
     }
 
-    checkUserRole(){
-      
+    checkUserRole(): any{
+
       this.loginService.checkUserRolebyEmail(this.login.email).subscribe(data =>{
         console.log(data);
-        if(data=="User" ){
+        if(data==='User' ){
           this.loginUser();
         }
-        else if(data=="Admin"){
+        else if(data==='Admin'){
           this.loginAdmin();
         }
-        else if(data=="Email ID not found")
-          alert("Email ID does not exist");
+        else if(data==='Email ID not found'){
+          alert('Email ID does not exist');
+        }
         },
-      
-        error => console.log(error)); 
+
+        error => console.log(error));
   }
 
-  loginUser(){
+  loginUser(): any{
       this.loginService.isUserPresent(this.login).subscribe(data =>
         {
-          
+
           console.log(data);
-          
-          if(data== true)
+
+          if(data=== true)
           {
             this.loginService.loginStatus = true;
-            alert("User Login successfully");
+            alert('User Login successfully');
             this.goToUserPage();
           }
-          
-          else if(data==false)
-          alert("Invalid User Credentials");
-      }, error => console.log(error)); 
-      
+
+          else if(data===false){
+          alert('Invalid User Credentials');
+          }
+      }, error => console.log(error));
+
   }
 
-  loginAdmin(){
+  loginAdmin(): any{
     this.loginService.isAdminPresent(this.login).subscribe(data =>{
       console.log(data);
-      if(data==true){
+      if(data===true){
         this.loginService.loginStatus = true;
-      alert("Admin Login successfully");
-      this.goToAdminPage();
+        alert('Admin Login successfully');
+        this.goToAdminPage();
       }
-      else if(data==false)
-      alert("Invalid Admin Credentials");
+      else if(data===false){
+      alert('Invalid Admin Credentials');
+      }
     },
-      
-      error => console.log(error)); 
+
+      error => console.log(error));
   }
-  goToUserPage(){
+  goToUserPage(): any{
     this.router.navigate(['/user']);
   }
 
-  goToAdminPage(){
+  goToAdminPage(): any{
     this.router.navigate(['/admin']);
   }
 }
