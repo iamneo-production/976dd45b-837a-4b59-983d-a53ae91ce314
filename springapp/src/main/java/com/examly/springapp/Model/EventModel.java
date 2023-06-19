@@ -10,6 +10,7 @@ public class EventModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int eventId;
+    private long userId;
     private String eventName;
     private String applicantName;
     private String applicantAddress;
@@ -135,9 +136,17 @@ public class EventModel {
     }
 
     public void setEventMenuId(List<Integer> eventMenuId)
-     {
+    {
         this.eventMenuId = eventMenuId;
-}
+    }
+
+    public long getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
 
 
 }

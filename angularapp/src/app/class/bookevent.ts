@@ -11,4 +11,5 @@ export class BookEvent{
     eventMenuId: Array<number> = [];
     addonId: Array<number> = [];
     eventCost= '';
+    userId= 0;
 }

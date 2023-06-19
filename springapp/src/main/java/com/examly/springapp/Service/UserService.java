@@ -32,4 +32,7 @@ public interface UserService {
     void addUser(UserModel user);
     UserModel editUser(long userId, UserModel user);
     void deleteUser(long userId);
+    //unique
+    long  getUserIdbyEmail(String email);
+    UserModel getElementsByuserId(long userId);
 }
