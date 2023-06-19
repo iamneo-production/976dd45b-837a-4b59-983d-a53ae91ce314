@@ -16,5 +16,9 @@ public interface Userrepository extends JpaRepository<UserModel,Long>{
     @Query("FROM UserModel WHERE password = ?1  ")
 	public UserModel findByPassword(String password);
 
+    //unique
+    @Query("FROM UserModel WHERE userId = ?1  ")
+    UserModel findByuserId(long userId);
+
     
 }   

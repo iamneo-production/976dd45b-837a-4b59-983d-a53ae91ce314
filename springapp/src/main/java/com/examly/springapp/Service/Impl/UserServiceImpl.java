@@ -119,5 +119,18 @@ public class UserServiceImpl implements UserService{
     public void deleteUser(long userId) {
         userRepo.deleteById(userId);
     }
-
+    //unique
+    @Override
+    public long  getUserIdbyEmail(String email){
+         UserModel user=userRepo.findByEmail(email);
+        if(user != null)
+            return user.getUserId();
+        else
+            return 0;
+    }
+    //getuserid
+    @Override
+    public UserModel getElementsByuserId(long userId){
+       return userRepo.findByuserId(userId);
+    }
 }

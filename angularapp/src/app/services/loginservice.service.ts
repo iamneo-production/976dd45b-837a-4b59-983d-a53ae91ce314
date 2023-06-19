@@ -31,4 +31,12 @@ export class LoginService {
     return this.httpclient.post<boolean>
     ('https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/login', login);
   }
+  // unique
+  getUserIdbyEmail(email: string): Observable<any>{
+    console.log(email);
+    const requestOptions: object = {
+      responseType: 'text'
+    };
+    return this.httpclient.get<any>(`https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/login/getUserId/`+email,requestOptions);
+  }
 }

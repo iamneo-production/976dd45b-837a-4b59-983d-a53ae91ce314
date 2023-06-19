@@ -7,7 +7,6 @@ import { Theme } from 'src/app/class/theme';
 import { AddmenuserviceService } from 'src/app/services/addmenuservice.service';
 import { AddonserviceService } from 'src/app/services/addonservice.service';
 import { BookEventService } from 'src/app/services/bookevent.service';
-// import { DataService } from 'src/app/services/data.service';
 import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
