@@ -21,13 +21,18 @@
   
   
   .login {
-    position: relative;
-    background: #fff;
+    backdrop-filter: blur(10px);
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255,255,255,0.5);
+    font-weight: 600;
+    /* background-color: white;
+    background: #fff; */
+    position: relative;       
     margin-top: 300px;
     max-height : 450px;
     height:440px;
     overflow: hidden;
-    background-color: white;
     padding: 15px 30px 10px 30px;
     border-radius: 10px;
     /* position: absolute; */
@@ -140,6 +145,11 @@
     text-decoration: none;
     color: rgba(255, 255, 255, 0.6);
     
+  }
+  .reg-btn,.error{
+    font-weight: 700;
+    color: red;
+    font-family: "Asap", sans-serif;
   }
   
   
