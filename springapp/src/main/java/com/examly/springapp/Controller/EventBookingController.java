@@ -52,12 +52,14 @@ public class EventBookingController
     event.setApplicantMobile(e.getApplicantMobile());
     event.setApplicantAddress(e.getApplicantAddress());
     event.setEventDate(e.getEventDate());
+    event.setEventFromTime(e.getEventFromTime());
+    event.setEventToTime(e.getEventToTime());
     event.setEventTime(e.getEventTime());
     event.setEventCost(e.getEventCost());
     event.setAddonId(e.getAddonId());
     event.setEventMenuId(e.getEventMenuId());
     eservice.editEvent(event);
-
+   
     return   "\"Updated Successfully\" ";
 
   }
