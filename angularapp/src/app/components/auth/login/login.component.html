@@ -1,5 +1,5 @@
   
-  <div class="hero" style="background-image: url('assets/images/img(11).webp');  background-position: center center;
+  <div class="hero" style="background-image: url('assets/images/login-bg5.jpeg');  background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -23,8 +23,8 @@
               <input type="text" id="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors }"
               placeholder="Ex: email@gmail.com" [(ngModel)] = "login.email" />
               <div *ngIf="f.email.touched && f.email.errors" class="invalid-feedback">
-                  <div *ngIf="f.email.errors.required">Email is required</div>
-                  <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                  <div class="error" *ngIf="f.email.errors.required">Email is required</div>
+                  <div class="error" *ngIf="f.email.errors.email">Email must be a valid email address</div>
               </div>
           </div>
             
@@ -33,14 +33,14 @@
               <input class="form-control" placeholder="Your Password" type="password" id="password" 
               formControlName="password"  [(ngModel)] = "login.password"
               [ngClass]="{ 'is-invalid': f.password.touched && f.password.errors}" />
-              <div *ngIf="f.password.touched && f.password.errors" class="invalid-feedback">
-                <div *ngIf="f.password.errors.required">Password is required</div>
+              <div class="error" *ngIf="f.password.touched && f.password.errors" class="invalid-feedback">
+                <div class="error" *ngIf="f.password.errors.required">Password is required</div>
             </div>
             </div>
             
 
             <div  class="form-check d-flex justify-content-center mb-3">
-              <p>New User/Admin? <a id="submitButton" routerLink="/signup" class="link-danger">Register </a></p>
+              <p>New User/Admin? <a id="submitButton" routerLink="/signup" class="reg-btn">Register </a></p>
             </div>
             <div  class="form-check d-flex justify-content-center mb-3">
               <input id="loginButton" type="submit" value="Login" (click)="onSubmit()" class="btn btn-block btn-primary">
