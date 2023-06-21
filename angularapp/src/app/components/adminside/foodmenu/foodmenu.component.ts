@@ -9,22 +9,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./foodmenu.component.css']
 })
 export class FoodmenuComponent implements OnInit {
-
-  add(){
+  addmenus: Addmenu[] = [];
+  add(): any{
     this.router.navigate(['admin/addmenu/Addaddmenu']);
   }
 
-  addmenus: Addmenu[] = [];
-
-  constructor(private router:Router){}
+  constructor(private router: Router){}
 
   ngOnInit(): void {
-      
+
   }
 
 
-  
 
-  
+
+
 
 }

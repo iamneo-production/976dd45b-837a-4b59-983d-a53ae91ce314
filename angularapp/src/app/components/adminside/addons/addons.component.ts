@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { addon } from '../../../class/addon';
+import { Addon } from '../../../class/addon';
 import { Router } from '@angular/router';
 import { AddonserviceService } from '../../../services/addonservice.service';
 
@@ -11,17 +11,16 @@ import { AddonserviceService } from '../../../services/addonservice.service';
 export class AddonsComponent implements OnInit {
 
 
-  add(){
+  add(): void{
     this.router.navigate(['admin/addon/addAddon']);
   }
 
 
-  constructor(private router:Router,private addservice:AddonserviceService){
+  constructor(private router: Router, private addservice: AddonserviceService){
 
   }
 
   ngOnInit(): void{
-    
   }
 
 }

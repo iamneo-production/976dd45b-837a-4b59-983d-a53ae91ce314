@@ -79,7 +79,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NgxSliderModule,
     Ng2SearchPipeModule,
     RouterModule.forRoot([
-      
+
     ]),
     FormsModule,
     ReactiveFormsModule,

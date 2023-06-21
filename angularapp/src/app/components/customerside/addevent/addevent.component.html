@@ -53,7 +53,7 @@ background-size: 100%;
                                 <div class="form-group; mb-3 row">
                                     <label for="applicantMobileNo" class="col-sm-2 col-form-label">Applicant <br> Mobile Number</label><br>
                                     <div class="col-md-6">
-                                    <input id="applicantMobileNo" type="text" name="applicantMobile" [(ngModel)]="bookevent.applicantMobile" class="form-control" placeholder="Enter your mobile number"  >
+                                    <input id="applicantMobileNo" type="number" name="applicantMobile" [(ngModel)]="bookevent.applicantMobile" class="form-control" placeholder="Enter your mobile number"  >
                                     </div>
                                 </div>
         
@@ -98,7 +98,7 @@ background-size: 100%;
                                 <div class="form-group; mb-3 row">
                                     <label for="noOfPeople" class="col-sm-2 col-form-label">People Count</label><br>
                                     <div class="col-md-6">
-                                    <input type="text"  id="noOfPeople" class="form-control"  placeholder="Enter number of people"  >
+                                    <input type="number"  id="noOfPeople" class="form-control"  placeholder="Enter number of people"  >
                                     </div>
                                 </div>
         
@@ -197,8 +197,6 @@ background-size: 100%;
                         <div class="row mb-3"></div>
                             </div>
                         </div>
-
-                        <h1>{{totalCost}}</h1>
 
         
                         <div class="details AddOn">

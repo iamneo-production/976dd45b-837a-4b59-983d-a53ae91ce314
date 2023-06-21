@@ -7,25 +7,36 @@ import { Login } from 'src/app/class/login';
   providedIn: 'root'
 })
 export class LoginService {
-  loginStatus: boolean = false;
-  constructor(private httpclient :HttpClient) { }
+  loginStatus= false;
+  constructor(private httpclient: HttpClient) { }
 
-  checkUserRolebyEmail(email:String):Observable<any>{
+  checkUserRolebyEmail(email: string): Observable<any>{
     console.log(email);
-    const requestOptions: Object = {
+    const requestOptions: object = {
       responseType: 'text'
-    }
-    return this.httpclient.get<any>(`https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/login/checkUserRole/`+email,requestOptions);
+    };
+    return this.httpclient.get<any>
+    (`https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/login/checkUserRole/`+email, requestOptions);
   }
 
-  //login to Admin/User page
-  isUserPresent(login: Login):Observable<Boolean>{
+  // login to Admin/User page
+  isUserPresent(login: Login): Observable<boolean>{
 
-    return this.httpclient.post<Boolean>('https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/user/login', login);
+    return this.httpclient.post<boolean>
+    ('https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/user/login', login);
   }
 
-  isAdminPresent(login: Login):Observable<Boolean>{
+  isAdminPresent(login: Login): Observable<boolean>{
 
-    return this.httpclient.post<Boolean>('https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/login', login);
+    return this.httpclient.post<boolean>
+    ('https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/login', login);
+  }
+  // unique
+  getUserIdbyEmail(email: string): Observable<any>{
+    console.log(email);
+    const requestOptions: object = {
+      responseType: 'text'
+    };
+    return this.httpclient.get<any>(`https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/login/getUserId/`+email,requestOptions);
   }
 }
