@@ -31,7 +31,7 @@ export class EditEventComponent implements OnInit {
   // foodmenu table checkbox
   foodlis: Addmenu[] = [];
   j: Array<number> = [];
-
+  eventDuration='';
   constructor(private router: Router, private bookEventService: BookEventService,
               private route: ActivatedRoute,
               private ser: AddonserviceService, private themeService: ThemeService,
@@ -168,4 +168,11 @@ export class EditEventComponent implements OnInit {
       }
     }
   }
+  onChangeHour()
+{
+  
+    this.eventDuration=this.formData.eventFromTime+'-'+this.formData.eventToTime;
+  this.formData.eventTime=this.eventDuration;
+}
+
 }

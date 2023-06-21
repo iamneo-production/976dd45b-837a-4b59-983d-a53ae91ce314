@@ -60,12 +60,20 @@ background-size: 100%; background-size: cover; padding-top: 20px;">
                             <div class="row mb-3"></div>
     
                             <div class="form-group; mb-3 row">
-                                <label for="eventTime" class="col-sm-2 col-form-label">Event Time</label><br>
+                                <label for="eventTime" class="col-sm-2 col-form-label">Event Time from</label><br>
                                 <div class="col-md-6">
-                                <input id="eventTime" type="text"  name="eventTime" class="form-control"  [(ngModel)]="formData.eventTime" placeholder="Eg.5pm-10pm" required="" >
+                                    <ngx-timepicker-field  [format]="12" name="fromtime"  [(ngModel)]="formData.eventFromTime" (timeChanged)="onChangeHour()"> </ngx-timepicker-field>
                                 </div>
                             </div>
+
+                            <div class="row mb-3"></div>
     
+                            <div class="form-group; mb-3 row">
+                                <label for="eventTime" class="col-sm-2 col-form-label">Event Time To</label><br>
+                                <div class="col-md-6">
+                                    <ngx-timepicker-field  [format]="12" name="totime"  [(ngModel)]="formData.eventToTime" (timeChanged)="onChangeHour()"> </ngx-timepicker-field>
+                                </div>
+                            </div>
                             <div class="row mb-3"></div>
     
                             <div class="form-group; mb-3 row">

@@ -7,6 +7,8 @@ export class BookEvent{
     applicantEmail= '';
     eventAddress= '';
     eventDate= '';
+    eventFromTime= '';
+    eventToTime= '';
     eventTime= '';
     eventMenuId: Array<number> = [];
     addonId: Array<number> = [];
