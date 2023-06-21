@@ -23,7 +23,7 @@ export class AddeventComponent implements OnInit {
   currentPage = 1;
   addOnCost = 0;
   flag =false;
-
+  eventDuration='';
   bookevent: BookEvent = new BookEvent();
   theme: Theme = new Theme();
 
@@ -182,4 +182,11 @@ export class AddeventComponent implements OnInit {
       }
     }
   }
+  onChangeHour()
+{
+  
+    this.eventDuration=this.bookevent.eventFromTime+'-'+this.bookevent.eventToTime;
+  this.bookevent.eventTime=this.eventDuration;
+}
+
 }

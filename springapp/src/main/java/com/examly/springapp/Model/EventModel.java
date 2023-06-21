@@ -28,10 +28,8 @@ public class EventModel {
     @CollectionTable(name = "event_ids")
     
     private List<Integer> eventMenuId;
-
-    
-    
-
+    private String eventFromTime; 
+    private String eventToTime;
     private String eventCost;
     public int getEventId()
      {
@@ -96,6 +94,22 @@ public class EventModel {
     public void setEventDate(String eventDate)
      {
         this.eventDate = eventDate;
+    }
+    public String getEventFromTime() 
+    {
+        return eventFromTime;
+    }
+    public void setEventFromTime(String eventFromTime) 
+    {
+        this.eventFromTime = eventFromTime;
+    }
+    public String getEventToTime()
+     {
+        return eventToTime;
+    }
+    public void setEventToTime(String eventToTime) 
+    {
+        this.eventToTime = eventToTime;
     }
     public String getEventTime() 
     {
