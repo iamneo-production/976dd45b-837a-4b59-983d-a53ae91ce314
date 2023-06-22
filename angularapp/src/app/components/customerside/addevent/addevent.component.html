@@ -53,7 +53,7 @@ background-size: 100%;
                                 <div class="form-group; mb-3 row">
                                     <label for="applicantMobileNo" class="col-sm-2 col-form-label">Applicant <br> Mobile Number</label><br>
                                     <div class="col-md-6">
-                                    <input id="applicantMobileNo" type="text" name="applicantMobile" [(ngModel)]="bookevent.applicantMobile" class="form-control" placeholder="Enter your mobile number"  >
+                                    <input id="applicantMobileNo" type="number" name="applicantMobile" [(ngModel)]="bookevent.applicantMobile" class="form-control" placeholder="Enter your mobile number"  >
                                     </div>
                                 </div>
 
@@ -87,18 +87,27 @@ background-size: 100%;
                                 <div class="row mb-3"></div>
 
                                 <div class="form-group; mb-3 row">
-                                    <label for="eventTime" class="col-sm-2 col-form-label">Event Time</label><br>
+                                    <label for="eventTime" class="col-sm-2 col-form-label">Event Time From</label><br>
                                     <div class="col-md-6">
-                                        <input id="eventTime" type="text"  name="eventTime" class="form-control"  [(ngModel)]="bookevent.eventTime" placeholder="Eg.5pm-10pm" required="" >
+                                        <ngx-timepicker-field  [format]="12"  name="fromtime"  [(ngModel)]="bookevent.eventFromTime" (timeChanged)="onChangeHour()"> </ngx-timepicker-field>
                                     </div>
                                 </div>
+
+                                <div class="row mb-3"></div>
+    
+                            <div class="form-group; mb-3 row">
+                                <label for="eventTime" class="col-sm-2 col-form-label">Event Time To</label><br>
+                                <div class="col-md-6">
+                                    <ngx-timepicker-field  [format]="12"   name="totime"  [(ngModel)]="bookevent.eventToTime" (timeChanged)="onChangeHour()"> </ngx-timepicker-field>
+                                </div>
+                            </div>
 
                                 <div class="row mb-3"></div>
 
                                 <div class="form-group; mb-3 row">
                                     <label for="noOfPeople" class="col-sm-2 col-form-label">People Count</label><br>
                                     <div class="col-md-6">
-                                    <input type="text"  id="noOfPeople" class="form-control"  placeholder="Enter number of people"  >
+                                    <input type="number"  id="noOfPeople" class="form-control"  placeholder="Enter number of people"  >
                                     </div>
                                 </div>
 

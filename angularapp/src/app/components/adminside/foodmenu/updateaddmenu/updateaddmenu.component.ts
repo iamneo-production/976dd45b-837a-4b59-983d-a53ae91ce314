@@ -9,28 +9,36 @@ import { AddmenuserviceService } from '../../../../services/addmenuservice.servi
   styleUrls: ['./updateaddmenu.component.css']
 })
 export class UpdateaddmenuComponent implements OnInit {
-  foodMenuID = 0;
-  foodmenuid = 'foodMenuID';
+
+  foodMenuID= 0;
   addmenus: Addmenu = new Addmenu();
 
 
-  constructor(private router: Router, private addmenuService: AddmenuserviceService, private route: ActivatedRoute){}
+  constructor(private router: Router,private addmenuService: AddmenuserviceService, private route: ActivatedRoute){
+
+  }
 
 
   ngOnInit(): void {
-    this.foodMenuID=this.route.snapshot.params[this.foodmenuid];
-    this.addmenuService.getAddmenuById(this.foodMenuID).subscribe(data => {
+    this.foodMenuID=this.route.snapshot.params[`foodMenuID`];
+    this.addmenuService.getAddmenuById(this.foodMenuID).subscribe(data =>{
+
       this.addmenus = data;
     });
   }
 
-  gotoAddmenu(): void{
+
+  gotoAddmenu(): any{
+
     this.router.navigate(['admin/addmenu']);
   }
 
   onSubmit(): void{
-    this.addmenuService.editMenu(this.foodMenuID,this.addmenus).subscribe(data => {
+
+    this.addmenuService.editMenu(this.foodMenuID,this.addmenus).subscribe(data =>{
       this.gotoAddmenu();
     });
   }
+
+
 }

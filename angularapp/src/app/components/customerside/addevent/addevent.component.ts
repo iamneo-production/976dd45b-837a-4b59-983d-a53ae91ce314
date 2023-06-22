@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BookEventService } from '../../../services/bookevent.service';
 import { AddonserviceService } from 'src/app/services/addonservice.service';
-import { addon } from 'src/app/class/addon';
+import { Addon } from 'src/app/class/addon';
 import { DataService } from 'src/app/services/data.service';
 import { BookEvent } from '../../../class/bookevent';
 import { Router } from '@angular/router';
@@ -23,12 +23,11 @@ export class AddeventComponent implements OnInit {
   currentPage = 1;
   addOnCost = 0;
   flag =false;
-
+  eventDuration='';
   bookevent: BookEvent = new BookEvent();
   theme: Theme = new Theme();
-
   // addon table checkbox
-  lis: addon[] = [];
+  lis: Addon[] = [];
   l: Array<number> = [];
   // foodmenu table checkbox
   foodlis: Addmenu[] = [];
@@ -61,7 +60,7 @@ export class AddeventComponent implements OnInit {
     this.totalCost = Number(this.themeCost);
     this.bookevent.eventCost=String(this.totalCost);
 
-    // foodmenu
+
     this.foodService.getMenu().subscribe((data) => {
       this.foodlis = data;
       console.log(data);
@@ -76,6 +75,8 @@ export class AddeventComponent implements OnInit {
   }
 
   previousPage(): void {
+
+
     if (this.currentPage > 1) {
       this.currentPage--;
     }
@@ -127,6 +128,7 @@ export class AddeventComponent implements OnInit {
         console.log(index);
         console.log(this.lis[index].addAddonPrice);
         this.totalCost += (Number(this.lis[index].addAddonPrice));
+
       }
     }
   }
@@ -150,6 +152,7 @@ export class AddeventComponent implements OnInit {
       this.j.push(id);
       this.addingFood(id);
     }
+
     else{
       console.log(id);
       this.subtractFood(id);
@@ -157,8 +160,8 @@ export class AddeventComponent implements OnInit {
     }
     console.log(this.totalCost);
 
-    this.bookevent.eventCost=String(this.totalCost);
-    this.bookevent.eventMenuId=(this.j);
+    this.bookevent.eventCost = String(this.totalCost);
+    this.bookevent.eventMenuId = (this.j);
   }
 
   addingFood(i: number): void {
@@ -180,4 +183,13 @@ export class AddeventComponent implements OnInit {
       }
     }
   }
+
+  onChangeHour()
+{
+  
+    this.eventDuration=this.bookevent.eventFromTime+'-'+this.bookevent.eventToTime;
+  this.bookevent.eventTime=this.eventDuration;
+}
+
+
 }

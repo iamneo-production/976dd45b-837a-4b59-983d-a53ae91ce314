@@ -10,11 +10,14 @@ import { Router } from '@angular/router';
 })
 export class FoodmenuComponent implements OnInit {
   addmenus: Addmenu[] = [];
-  add(): void{
+
+  add(): any{
     this.router.navigate(['admin/addmenu/Addaddmenu']);
   }
 
   constructor(private router: Router){}
 
-  ngOnInit(): void{}
+  ngOnInit(): void {
+
+
 }

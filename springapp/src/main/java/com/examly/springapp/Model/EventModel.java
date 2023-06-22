@@ -10,6 +10,7 @@ public class EventModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int eventId;
+    private long userId;
     private String eventName;
     private String applicantName;
     private String applicantAddress;
@@ -27,10 +28,8 @@ public class EventModel {
     @CollectionTable(name = "event_ids")
     
     private List<Integer> eventMenuId;
-
-    
-    
-
+    private String eventFromTime; 
+    private String eventToTime;
     private String eventCost;
     public int getEventId()
      {
@@ -96,6 +95,22 @@ public class EventModel {
      {
         this.eventDate = eventDate;
     }
+    public String getEventFromTime() 
+    {
+        return eventFromTime;
+    }
+    public void setEventFromTime(String eventFromTime) 
+    {
+        this.eventFromTime = eventFromTime;
+    }
+    public String getEventToTime()
+     {
+        return eventToTime;
+    }
+    public void setEventToTime(String eventToTime) 
+    {
+        this.eventToTime = eventToTime;
+    }
     public String getEventTime() 
     {
         return eventTime;
@@ -135,9 +150,17 @@ public class EventModel {
     }
 
     public void setEventMenuId(List<Integer> eventMenuId)
-     {
+    {
         this.eventMenuId = eventMenuId;
-}
+    }
+
+    public long getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
 
 
 }

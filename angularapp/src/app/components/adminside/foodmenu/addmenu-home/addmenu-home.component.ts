@@ -21,19 +21,26 @@ export class AddmenuHomeComponent implements OnInit {
   }
 
 
-  private getAddmenus(): void{
+
+  private getAddmenus(): any{
+
     this.addmenuService.getMenu().subscribe(data => {
       console.log(data);
       this.addmenus = data;
     });
   }
 
-  updateFoodMenu(foodMenuID: number): void{
+
+  updateFoodMenu(foodMenuID: number): any{
     this.router.navigate(['admin/addmenu/Updateaddmenu',foodMenuID]);
   }
 
-  deleteFoodMenu(foodMenuID: number): void{
+  deleteFoodMenu(foodMenuID: number): any{
     this.addmenuService.deleteMenu(foodMenuID).subscribe( data => {
       this.getAddmenus();
-    }); }
+    });
+  }
+
+
+
 }

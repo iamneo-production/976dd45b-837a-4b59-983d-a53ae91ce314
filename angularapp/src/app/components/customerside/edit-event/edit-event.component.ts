@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Addmenu } from 'src/app/class/addmenu';
-import { addon } from 'src/app/class/addon';
+import { Addon } from 'src/app/class/addon';
 import { BookEvent } from 'src/app/class/bookevent';
 import { Theme } from 'src/app/class/theme';
 import { AddmenuserviceService } from 'src/app/services/addmenuservice.service';
 import { AddonserviceService } from 'src/app/services/addonservice.service';
 import { BookEventService } from 'src/app/services/bookevent.service';
-// import { DataService } from 'src/app/services/data.service';
 import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
@@ -27,12 +26,12 @@ export class EditEventComponent implements OnInit {
   currentPage = 1;
   themeData: Theme[] = [];
   // price
-  lis: addon[] = [];
+  lis: Addon[] = [];
   l: Array<number> = [];
   // foodmenu table checkbox
   foodlis: Addmenu[] = [];
   j: Array<number> = [];
-
+  eventDuration='';
   constructor(private router: Router, private bookEventService: BookEventService,
               private route: ActivatedRoute,
               private ser: AddonserviceService, private themeService: ThemeService,
@@ -169,4 +168,11 @@ export class EditEventComponent implements OnInit {
       }
     }
   }
+  onChangeHour()
+{
+  
+    this.eventDuration=this.formData.eventFromTime+'-'+this.formData.eventToTime;
+  this.formData.eventTime=this.eventDuration;
+}
+
 }

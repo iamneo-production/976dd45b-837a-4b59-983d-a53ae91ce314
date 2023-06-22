@@ -1,7 +1,10 @@
 export class Addmenu {
-    foodMenuID = 0;
-    foodMenuType = '';
-    foodMenuItems = '';
-    foodMenuCost = '';
-    foodMenuImage ='';
+
+
+    foodMenuID= 0;
+    foodMenuType= '';
+    foodMenuItems= '';
+    foodMenuCost= '';
+    foodMenuImage= '';
+
 }
