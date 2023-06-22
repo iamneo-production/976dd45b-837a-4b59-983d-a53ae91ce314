@@ -36,4 +36,20 @@ public class UserController {
         userService.deleteUser(userId);
         return "User/Admin deleted";
     }
+
+    //unique
+    @GetMapping("/login/getUserId/{email}")
+    public long getUserIdbyEmail(@PathVariable String email)
+    {
+        long userId = userService.getUserIdbyEmail(email);
+        return userId;
+    }
+
+    //get by  userId
+    @GetMapping("/getUser/{userId}")
+    public ResponseEntity<UserModel> getcustomerByuserId(@PathVariable long userId)
+    {
+        UserModel customer= userService.getElementsByuserId(userId);
+        return ResponseEntity.ok(customer);
+    }
 }

@@ -3,6 +3,7 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Login } from '../../../class/login';
 import { LoginService } from 'src/app/services/loginservice.service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-login',
@@ -11,9 +12,12 @@ import { LoginService } from 'src/app/services/loginservice.service';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
-  constructor(private loginService: LoginService,private fb: FormBuilder, private router: Router) { }
   loginFlag!: boolean;
   login: Login= new Login();
+  userId= 0;
+
+  constructor(private loginService: LoginService,private fb: FormBuilder, private router: Router,private data: DataService) { }
+
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       email: [
@@ -36,6 +40,7 @@ export class LoginComponent implements OnInit {
     onSubmit(): void{
 
       this.checkUserRole();
+      this.getUserId();
 
     }
 
@@ -55,6 +60,16 @@ export class LoginComponent implements OnInit {
         },
 
         error => console.log(error));
+  }
+
+  getUserId(): any{
+    this.loginService.getUserIdbyEmail(this.login.email).subscribe(data =>{
+      console.log(data);
+      this.userId=data;
+      this.storeUserId(this.userId);
+    },
+
+    error => console.log(error));
   }
 
   loginUser(): any{
@@ -98,5 +113,9 @@ export class LoginComponent implements OnInit {
 
   goToAdminPage(): any{
     this.router.navigate(['/admin']);
+  }
+
+  storeUserId(text1): any{
+    this.data.storeUserId(text1);
   }
 }

@@ -14,7 +14,8 @@ p {
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: "Roboto", sans-serif; }
+  font-family: "Roboto", sans-serif;
+  color: white; }
 
 a {
   -webkit-transition: .3s all ease;
@@ -80,9 +81,12 @@ h2 {
   font-size: 14px; }
 
   .form-block {
+    backdrop-filter: blur(10px);
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.5);
+    /* background: #fff; */
     position: relative;
     width: 470px;
-    background: #fff;
     padding: 40px;
     margin-top:-150px; 
     margin-left: 11%;

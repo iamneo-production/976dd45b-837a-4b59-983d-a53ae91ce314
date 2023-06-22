@@ -7,7 +7,6 @@ import { Theme } from 'src/app/class/theme';
 import { AddmenuserviceService } from 'src/app/services/addmenuservice.service';
 import { AddonserviceService } from 'src/app/services/addonservice.service';
 import { BookEventService } from 'src/app/services/bookevent.service';
-// import { DataService } from 'src/app/services/data.service';
 import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
@@ -32,7 +31,7 @@ export class EditEventComponent implements OnInit {
   // foodmenu table checkbox
   foodlis: Addmenu[] = [];
   j: Array<number> = [];
-
+  eventDuration='';
   constructor(private router: Router, private bookEventService: BookEventService,
               private route: ActivatedRoute,
               private ser: AddonserviceService, private themeService: ThemeService,
@@ -169,4 +168,11 @@ export class EditEventComponent implements OnInit {
       }
     }
   }
+  onChangeHour()
+{
+  
+    this.eventDuration=this.formData.eventFromTime+'-'+this.formData.eventToTime;
+  this.formData.eventTime=this.eventDuration;
+}
+
 }
