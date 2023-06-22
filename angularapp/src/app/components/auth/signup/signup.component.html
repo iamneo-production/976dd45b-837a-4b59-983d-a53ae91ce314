@@ -1,0 +1,97 @@
+
+  <div class="half full-height">
+    <div class="bg order-1 order-md-2" style="background-image: url('assets/images/reg_bg1.jpg');"></div>
+    <div class="contents order-2 order-md-1">
+  <div class="container">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-md-6">
+
+        <div class="form-block">
+          <div class="reg">
+          <div class="text-center mb-5">
+          <h3>Register Form</h3>
+          </div>
+         <form [formGroup]="registrationForm" action="#" method="post" class="registerForm" (ngSubmit)="onSubmit(admin_user.value)">
+            <div class="form-group first">
+              <label for="name">Admin/User</label>
+
+              <select id="admin/user" #admin_user formControlName="userRole" class="form-select"  >
+                <option value="" disabled selected>Select Admin/User</option>
+                <option value="admin">Admin</option>
+                <option value="user">User</option>
+              </select>
+
+            </div>
+            <div class="form-group form__field">
+              <label>Email Address</label>
+              <input id="email" type="text"  formControlName="email" class="form-control form__input"
+              [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors }"
+              placeholder="Ex: email@gmail.com" pattern=".{10,}" required
+              [(ngModel)]="newuser.email"/>
+              <span class="icon1"></span>
+              <span class="text-danger" *ngIf="f.email.hasError('required') && (f.email.dirty || f.email.touched)">Email is required</span>
+			<span class="text-danger" *ngIf="f.email.hasError('pattern') && (f.email.dirty || f.email.touched)">Email must be a valid email address</span>
+          </div>
+
+            <!-- Username -->
+
+            <div class="form-group first">
+              <label for="username">User Name</label>
+              <input id="username" type="text" formControlName="username" class="form-control"
+              [ngClass]="{ 'is-invalid': f.username.touched && f.username.errors }" placeholder="Enter your name"
+              [(ngModel)]="newuser.username"/>
+                <div *ngIf="f.username.touched && f.username.errors" class="invalid-feedback">
+                    <div *ngIf="f.username.errors.required">User Name is required</div>
+                </div>
+            </div>
+
+            <!-- Mobile Number -->
+
+          <div class="form-group first form__field">
+            <label for="mobileNumber">Enter Mobile Number</label>
+            <input id="mobileNumber" type="text" formControlName="mobileNumber" class="form-control form__input"
+            [ngClass]="{ 'is-invalid': f.mobileNumber.touched && f.mobileNumber.errors}" placeholder="Enter your mobile number"
+            autocomplete="off" pattern=".{10,}" required   [(ngModel)]="newuser.mobileNumber"/>
+            <span class="icon2"></span>
+              <div *ngIf="f.mobileNumber.touched && f.mobileNumber.errors" class="invalid-feedback">
+                <div *ngIf="f.mobileNumber.errors.required">Mobile Number is required</div>
+                <div *ngIf="f.mobileNumber.errors.minlength">Mobile Number must be atleast 10 digits</div>
+              </div>
+          </div>
+          <!-- Password -->
+
+            <div class="form-group">
+              <label  id="password" for="password">Password</label>
+              <input class="form-control" placeholder="Your Password" type="password"
+              formControlName="password"  [(ngModel)]="newuser.password"
+              [ngClass]="{ 'is-invalid': f.password.touched && f.password.errors}" />
+              <div *ngIf="f.password.touched && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Password is required</div>
+            </div>
+            </div>
+
+            <div class="form-group last mb-3">
+              <label id="confirmPassword" for="confirmPassword">Confirm Password</label>
+              <input class="form-control" placeholder="Re-type Your Password" type="password" id="confirmPassword" formControlName="confirmPassword" >
+              <div>
+                <small class="text-danger" *ngIf="registrationForm.hasError('passwordMismatch') && registrationForm.get('confirmPassword')?.dirty">Passwords does not match.</small>
+              </div>
+            </div>
+
+            <!-- Reg/Login -->
+
+            <div  class="form-check d-flex justify-content-center mb-3">
+              <p id="loginButton">Already have an account?  <a routerLink="/login" class="link-danger">Login here </a></p>
+            </div>
+            <div  class="form-check d-flex justify-content-center mb-3">
+              <input type="submit"  value="Register"  class="btn btn-block btn-primary">
+             </div>
+
+          </form>
+        </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
