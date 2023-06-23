@@ -26,6 +26,9 @@ export class AddeventComponent implements OnInit {
   eventDuration='';
   bookevent: BookEvent = new BookEvent();
   theme: Theme = new Theme();
+  userid= 0;
+  cusId='';
+
   // addon table checkbox
   lis: Addon[] = [];
   l: Array<number> = [];
@@ -41,6 +44,11 @@ export class AddeventComponent implements OnInit {
               private foodService: AddmenuserviceService) {}
 
   ngOnInit(): void {
+    this.data.share4.subscribe(x => this.cusId = x);
+    console.log(this.cusId);
+    this.userid=Number(this.cusId);
+    console.log(this.userid);
+    this.bookevent.userId=this.userid;
     // addon
     this.ser.getAddon().subscribe((data) => {
       this.lis = data;
