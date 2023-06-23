@@ -28,13 +28,13 @@ public class EventServiceImpl implements EventService{
         return eRepo.findAll();
     }
     @Override
-    public  void deleteEvent(int eventid)
+    public void deleteEvent(int eventid)
     {
         eRepo.deleteById(eventid);
         
     }
     @Override
-    public  void editEvent(EventModel event)
+    public void editEvent(EventModel event)
     {
         eRepo.save(event);
     }

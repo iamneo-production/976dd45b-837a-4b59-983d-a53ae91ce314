@@ -9,6 +9,7 @@ import { AddmenuserviceService } from '../../../../services/addmenuservice.servi
   styleUrls: ['./updateaddmenu.component.css']
 })
 export class UpdateaddmenuComponent implements OnInit {
+
   foodMenuID= 0;
   addmenus: Addmenu = new Addmenu();
 
@@ -21,18 +22,23 @@ export class UpdateaddmenuComponent implements OnInit {
   ngOnInit(): void {
     this.foodMenuID=this.route.snapshot.params[`foodMenuID`];
     this.addmenuService.getAddmenuById(this.foodMenuID).subscribe(data =>{
+
       this.addmenus = data;
     });
   }
 
+
   gotoAddmenu(): any{
+
     this.router.navigate(['admin/addmenu']);
   }
 
   onSubmit(): void{
+
     this.addmenuService.editMenu(this.foodMenuID,this.addmenus).subscribe(data =>{
       this.gotoAddmenu();
     });
   }
+
 
 }
