@@ -184,11 +184,10 @@ export class AddeventComponent implements OnInit {
     }
   }
 
-  onChangeHour()
+  onChangeHour(): void
 {
-  
     this.eventDuration=this.bookevent.eventFromTime+'-'+this.bookevent.eventToTime;
-  this.bookevent.eventTime=this.eventDuration;
+    this.bookevent.eventTime=this.eventDuration;
 }
 
 
