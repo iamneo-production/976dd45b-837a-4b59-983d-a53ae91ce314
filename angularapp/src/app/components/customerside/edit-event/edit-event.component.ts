@@ -168,11 +168,10 @@ export class EditEventComponent implements OnInit {
       }
     }
   }
-  onChangeHour()
+  onChangeHour(): void
 {
-  
     this.eventDuration=this.formData.eventFromTime+'-'+this.formData.eventToTime;
-  this.formData.eventTime=this.eventDuration;
+    this.formData.eventTime=this.eventDuration;
 }
 
 }

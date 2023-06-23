@@ -28,7 +28,39 @@ public class EventBookingController
     List<EventModel> events = eservice.viewAllEvent();
     return events;
   }
-  
+  @GetMapping("/user/getBookedTheme/{themeId}")
+  public EventModel viewEventbyId(@PathVariable int themeId)
+  {
+    EventModel add = eservice.viewEvent(themeId);
+    return add;
+  }
+  @PutMapping("/user/editTheme/{themeId}")
+  public String editEvent(@PathVariable int themeId,@RequestBody EventModel e)
+  {
+
+    EventModel event = eservice.findById(themeId);
+    if(event==null)
+    {
+      return "\"No data Exist\" ";
+    }
+    event.setEventName(e.getEventName());
+    event.setEventAddress(e.getEventAddress());
+    event.setApplicantName(e.getApplicantName());
+    event.setApplicantEmail(e.getApplicantEmail());
+    event.setApplicantMobile(e.getApplicantMobile());
+    event.setApplicantAddress(e.getApplicantAddress());
+    event.setEventDate(e.getEventDate());
+    event.setEventFromTime(e.getEventFromTime());
+    event.setEventToTime(e.getEventToTime());
+    event.setEventTime(e.getEventTime());
+    event.setEventCost(e.getEventCost());
+    event.setAddonId(e.getAddonId());
+    event.setEventMenuId(e.getEventMenuId());
+    eservice.editEvent(event);
+   
+    return "\"Updated Successfully\" ";
+
+  }
   @DeleteMapping("/user/deleteTheme/{themeId}")
   public String deleteEvent(@PathVariable int themeId)
   {
