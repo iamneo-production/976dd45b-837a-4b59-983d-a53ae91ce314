@@ -26,7 +26,6 @@ export class AddeventComponent implements OnInit {
   eventDuration='';
   bookevent: BookEvent = new BookEvent();
   theme: Theme = new Theme();
-
   // addon table checkbox
   lis: Addon[] = [];
   l: Array<number> = [];
@@ -61,6 +60,7 @@ export class AddeventComponent implements OnInit {
     this.totalCost = Number(this.themeCost);
     this.bookevent.eventCost=String(this.totalCost);
 
+
     this.foodService.getMenu().subscribe((data) => {
       this.foodlis = data;
       console.log(data);
@@ -75,6 +75,7 @@ export class AddeventComponent implements OnInit {
   }
 
   previousPage(): void {
+
 
     if (this.currentPage > 1) {
       this.currentPage--;
@@ -182,11 +183,13 @@ export class AddeventComponent implements OnInit {
       }
     }
   }
+
   onChangeHour()
 {
   
     this.eventDuration=this.bookevent.eventFromTime+'-'+this.bookevent.eventToTime;
   this.bookevent.eventTime=this.eventDuration;
 }
+
 
 }

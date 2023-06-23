@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class FoodmenuComponent implements OnInit {
   addmenus: Addmenu[] = [];
+
   add(): any{
     this.router.navigate(['admin/addmenu/Addaddmenu']);
   }
@@ -17,12 +18,6 @@ export class FoodmenuComponent implements OnInit {
   constructor(private router: Router){}
 
   ngOnInit(): void {
-
-  }
-
-
-
-
 
 
 }

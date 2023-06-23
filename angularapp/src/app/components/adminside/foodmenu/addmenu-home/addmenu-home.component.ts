@@ -21,12 +21,15 @@ export class AddmenuHomeComponent implements OnInit {
   }
 
 
+
   private getAddmenus(): any{
+
     this.addmenuService.getMenu().subscribe(data => {
       console.log(data);
       this.addmenus = data;
     });
   }
+
 
   updateFoodMenu(foodMenuID: number): any{
     this.router.navigate(['admin/addmenu/Updateaddmenu',foodMenuID]);
@@ -37,6 +40,7 @@ export class AddmenuHomeComponent implements OnInit {
       this.getAddmenus();
     });
   }
+
 
 
 }
