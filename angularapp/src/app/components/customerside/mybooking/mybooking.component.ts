@@ -45,6 +45,7 @@ export class MybookingComponent implements OnInit{
     this.router.navigate(['user/editEvent',eventId]);
   }
 
+
   deleteBookedEvent(eventId: number): any{
     if(window.confirm('You are going to delete the Booked Event !')){
       this.bookEventService.deleteEvent(eventId).subscribe( data =>{
@@ -54,3 +55,4 @@ export class MybookingComponent implements OnInit{
     }
   }
 }
+
