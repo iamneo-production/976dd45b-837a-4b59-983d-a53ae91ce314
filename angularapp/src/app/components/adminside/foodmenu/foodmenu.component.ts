@@ -19,5 +19,5 @@ export class FoodmenuComponent implements OnInit {
 
   ngOnInit(): void {
 
-
+  }
 }
