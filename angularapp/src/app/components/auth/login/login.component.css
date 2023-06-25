@@ -146,7 +146,12 @@
     color: rgba(255, 255, 255, 0.6);
     
   }
-  .reg-btn,.error{
+  .reg-btn{
+    font-weight: 700;
+    color: rgb(141, 207, 254);
+    font-family: "Asap", sans-serif;
+  }
+  .error{
     font-weight: 700;
     color: red;
     font-family: "Asap", sans-serif;
