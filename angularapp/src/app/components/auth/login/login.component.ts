@@ -55,7 +55,8 @@ export class LoginComponent implements OnInit {
           this.loginAdmin();
         }
         else if(data==='Email ID not found'){
-          alert('Email ID does not exist');
+          // alert('Email ID does not exist');
+          // this.toastr.error('Email ID does not exist', 'Login Status');
         }
         },
 
