@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Login } from '../../../class/login';
 import { LoginService } from 'src/app/services/loginservice.service';
 import { DataService } from 'src/app/services/data.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
   login: Login= new Login();
   userId= 0;
 
-  constructor(private loginService: LoginService,private fb: FormBuilder, private router: Router,private data: DataService) { }
+  constructor(private loginService: LoginService,private fb: FormBuilder, private router: Router,private data: DataService,
+              private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -55,8 +57,9 @@ export class LoginComponent implements OnInit {
           this.loginAdmin();
         }
         else if(data==='Email ID not found'){
-          // alert('Email ID does not exist');
-          // this.toastr.error('Email ID does not exist', 'Login Status');
+          this.toastr.error('Email ID does not exist', 'Login Status',{
+            timeOut: 5000,
+          });
         }
         },
 
@@ -82,12 +85,12 @@ export class LoginComponent implements OnInit {
           if(data=== true)
           {
             this.loginService.loginStatus = true;
-            alert('User Login successfully');
+            this.toastr.success('User Login successful','Login Status' );
             this.goToUserPage();
           }
 
           else if(data===false){
-          alert('Invalid User Credentials');
+            this.toastr.error( 'Invalid User Credentials','Login Status');
           }
       }, error => console.log(error));
 
@@ -98,11 +101,11 @@ export class LoginComponent implements OnInit {
       console.log(data);
       if(data===true){
         this.loginService.loginStatus = true;
-        alert('Admin Login successfully');
+        this.toastr.success( 'Admin Login successful','Login Status',);
         this.goToAdminPage();
       }
       else if(data===false){
-      alert('Invalid Admin Credentials');
+        this.toastr.error( 'Invalid Admin Credentials','Login Status');
       }
     },
 

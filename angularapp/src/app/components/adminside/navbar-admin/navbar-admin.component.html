@@ -26,7 +26,8 @@
         </ul>
         <ul class="navbar-nav">
           <li class="nav-item dropdown">
-              <a id="logout" class="nav-link " routerLink="/login" routerLinkActive="active" aria-current="page" (click)= "logoutalrt()"> 
+              <a id="logout" class="nav-link " routerLink="/login" routerLinkActive="active" aria-current="page" (click)= "logoutalrt()"
+              data-bs-toggle="modal" data-bs-target="#showout"> 
                 <i class="fa fa-sign-out" aria-hidden="true"></i> &nbsp;Logout </a>
               
           </li>
@@ -34,3 +35,18 @@
     </div>
     </div>
   </nav>
+  
+  <div class="modal fade" tabindex="-1" id="showout">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title col-11 text-center">Log Out Alert</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
+        </div>
+        <div class="modal-body">
+            Successfully Logged Out!
+          </div>
+        
+      </div>
+    </div>
+  </div>

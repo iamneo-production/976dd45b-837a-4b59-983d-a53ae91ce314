@@ -17,6 +17,7 @@ export class MybookingComponent implements OnInit{
   cusId='';
   id= 0;
   customer: User = new User();
+  item: number;
   constructor(private bookEventService: BookEventService,
               private router: Router,private route: ActivatedRoute,
               private data: DataService) {}
@@ -47,12 +48,18 @@ export class MybookingComponent implements OnInit{
 
 
   deleteBookedEvent(eventId: number): any{
-    if(window.confirm('You are going to delete the Booked Event !')){
-      this.bookEventService.deleteEvent(eventId).subscribe( data =>{
-        this.ngOnInit();
-        console.log('deleted');
-      });
-    }
+    this.item=eventId;
+  }
+
+  deleteItem(): any{
+    this.bookEventService.deleteEvent(this.item).subscribe( data =>{
+      this.ngOnInit();
+      console.log('Event deleted');
+    });
+  }
+
+  closeModal(): any{
+    this.deleteItem();
   }
 }
 
