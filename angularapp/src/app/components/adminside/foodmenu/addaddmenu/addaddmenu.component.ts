@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Addmenu } from '../../../../class/addmenu';
 import { AddmenuserviceService } from '../../../../services/addmenuservice.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-addaddmenu',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class AddaddmenuComponent implements OnInit{
 
   addmenu: Addmenu = new Addmenu();
-  constructor(private addmenuService: AddmenuserviceService, private router: Router)
+  constructor(private addmenuService: AddmenuserviceService, private router: Router,private toastr: ToastrService)
   {
 
   }
@@ -20,6 +21,7 @@ export class AddaddmenuComponent implements OnInit{
     // calling the addMenu function which is present in the addmenu service to make post request and to pass this data
     // If the status is success,then will perform routing operation to addmenu component
     // And now newly added data would get updated in foodmenu component
+    this.toastr.success('New Food Menu is added successfully!','Addon Status' );
     this.addmenuService.addMenu(this.addmenu).subscribe(data => {
     console.log(data);
     this.gotoAddmenu();

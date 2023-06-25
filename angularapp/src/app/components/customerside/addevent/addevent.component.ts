@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { Theme } from 'src/app/class/theme';
 import { Addmenu } from 'src/app/class/addmenu';
 import { AddmenuserviceService } from 'src/app/services/addmenuservice.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-addevent',
@@ -38,7 +39,7 @@ export class AddeventComponent implements OnInit {
 
 
   constructor(private bookEventService: BookEventService,
-              private ser: AddonserviceService,
+              private ser: AddonserviceService, private toastr: ToastrService,
               private data: DataService,
               private router: Router,
               private foodService: AddmenuserviceService) {}
@@ -97,6 +98,7 @@ export class AddeventComponent implements OnInit {
   }
 
   saveBookevent(): void {
+    this.toastr.success('New Event is booked successfully!','Booking Status' );
     this.bookEventService.bookEvent(this.bookevent).subscribe( data => {
       console.log(data);
       this.gotoViewBook();

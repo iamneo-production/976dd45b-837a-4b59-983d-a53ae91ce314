@@ -8,6 +8,7 @@ import { AddmenuserviceService } from 'src/app/services/addmenuservice.service';
 import { AddonserviceService } from 'src/app/services/addonservice.service';
 import { BookEventService } from 'src/app/services/bookevent.service';
 import { ThemeService } from 'src/app/services/theme.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-event',
@@ -35,7 +36,7 @@ export class EditEventComponent implements OnInit {
   constructor(private router: Router, private bookEventService: BookEventService,
               private route: ActivatedRoute,
               private ser: AddonserviceService, private themeService: ThemeService,
-              private foodService: AddmenuserviceService) {
+              private foodService: AddmenuserviceService,private toastr: ToastrService) {
   }
   ngOnInit(): void {
     this.eventId = this.route.snapshot.params[`eventId`];
@@ -91,6 +92,7 @@ export class EditEventComponent implements OnInit {
     });
   }
   gotoviewBook(): void {
+    this.toastr.info(this.formData.eventName+' is updated successfully','Update Status' );
     this.router.navigate(['user/viewbookevent']);
   }
   // addon price
