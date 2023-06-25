@@ -67,5 +67,11 @@ public class EventBookingController
     eservice.deleteEvent(themeId);
     return "\"Event deleted\"";
   }
+  //unique
+  @GetMapping("/mybooking/{userId}")
+  public List<EventModel> getbookingById(@PathVariable long userId) {
+    List<EventModel> booking = eservice.getbookingById(userId);
+   return booking;
+ }
 
 }
