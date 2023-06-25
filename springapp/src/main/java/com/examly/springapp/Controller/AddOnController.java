@@ -48,16 +48,12 @@ public AddOnModel  getAddonId(@PathVariable Long addOnid){
 
 @PutMapping("/admin/editAddon/{addOnid}")
 public ResponseEntity<AddOnModel> editAddon(@PathVariable Long addOnid,@RequestBody AddOnModel addOn){
+  AddOnModel addonItems = addonservice.getAddonId(addOnid);  
+  addonItems.setAddOnName(addOn.getAddOnName());
+  addonItems.setaddAddonPrice(addOn.getaddAddonPrice());
+  addonItems.setaddonDescription(addOn.getaddonDescription());
 
-  
-  
-  addOn.setAddOnName(addOn.getAddOnName());
-  addOn.setaddAddonPrice(addOn.getaddAddonPrice());
-  addOn.setaddonDescription(addOn.getaddonDescription());
-
-  AddOnModel updatedAdd = addonservice.editAddon(addOn);
-
-  return ResponseEntity.ok(updatedAdd);
+  return ResponseEntity.ok(addonItems);
 
 }
 

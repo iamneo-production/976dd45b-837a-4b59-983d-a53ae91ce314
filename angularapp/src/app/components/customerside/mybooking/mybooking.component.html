@@ -4,9 +4,9 @@
     background-size: cover; 
     min-height: 1100px;
   ">
-<div class="back rounded">
-
-    <table class = "table table-striped table-hover">
+<div class="back rounded" >
+    <!-- style="background-image: url("/assets/images/tt.jpeg.jpg");" -->
+    <table class = "table table-striped table-hover table-primary">
         <thead class="thead-dark">
             <tr>
                 <th >Event Name</th>
@@ -27,7 +27,8 @@
                     <button id="editBooking" class="btn btn-primary me-2" (click) = "updateEvent(e.eventId)">Edit &nbsp;
                         <i class="fa fa-pencil-square-o" aria-hidden="true" ></i>
                     </button>
-                    <button id="deleteBooking" class="btn bg-danger text-white " (click)="deleteBookedEvent(e.eventId)">Delete&nbsp;
+                    <button id="deleteBooking" class="btn bg-danger text-white " (click)="deleteBookedEvent(e.eventId)"
+                    data-bs-toggle="modal" data-bs-target="#showDelete">Delete&nbsp;
                         <i class="fa fa-trash" aria-hidden="true" ></i>
                     </button>
                 </td>
@@ -35,3 +36,21 @@
         </tbody>
     </table></div>
 </div>
+
+<div class="modal fade"  id="showDelete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title col-11 text-center">Confirmation for Delete</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
+        </div>
+        <div class="modal-body">
+            Are you sure you want to delete this item?
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="closeModal()">Yes, Delete</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" >Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -46,21 +46,20 @@ public class ThemeController {
 
 
   @PutMapping("admin/editTheme/{themeId}")
-  public ResponseEntity<ThemeModel> EditTheme(@PathVariable Long themeId,@RequestBody ThemeModel themeDetails){
-
-    themeDetails.setThemeName(themeDetails.getThemeName());
-    themeDetails.setThemeImageURL(themeDetails.getThemeImageURL());
-    themeDetails.setThemeDescription(themeDetails.getThemeDescription());
-    themeDetails.setThemePhotographer(themeDetails.getThemePhotographer());
-    themeDetails.setThemeVideographer(themeDetails.getThemeVideographer());
-    themeDetails.setThemeReturnGift(themeDetails.getThemeReturnGift());
-    themeDetails.setThemeCost(themeDetails.getThemeCost());
-    themeDetails.setRatings(themeDetails.getRatings());
-
-		ThemeModel updatedTheme =  themeService.EditTheme(themeDetails);
-
-    return ResponseEntity.ok(updatedTheme);
-
+  public ResponseEntity<ThemeModel> EditTheme(@PathVariable Long themeId,@RequestBody ThemeModel t){
+      ThemeModel theme = themeService.getThemebyId(themeId);
+      
+      theme.setThemeName(t.getThemeName());
+      theme.setThemeImageURL(t.getThemeImageURL());
+      theme.setThemeDescription(t.getThemeDescription());
+      theme.setThemePhotographer(t.getThemePhotographer());
+      theme.setThemeVideographer(t.getThemeVideographer());
+      theme.setThemeReturnGift(t.getThemeReturnGift());
+      theme.setThemeCost(t.getThemeCost());
+      theme.setRatings(t.getRatings());
+  
+      return ResponseEntity.ok(theme);
+  
   }
 
 
