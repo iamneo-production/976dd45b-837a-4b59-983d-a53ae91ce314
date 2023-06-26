@@ -52,7 +52,7 @@ public ResponseEntity<AddOnModel> editAddon(@PathVariable Long addOnid,@RequestB
   addonItems.setAddOnName(addOn.getAddOnName());
   addonItems.setaddAddonPrice(addOn.getaddAddonPrice());
   addonItems.setaddonDescription(addOn.getaddonDescription());
-
+  addonservice.editAddon(addonItems);
   return ResponseEntity.ok(addonItems);
 
 }

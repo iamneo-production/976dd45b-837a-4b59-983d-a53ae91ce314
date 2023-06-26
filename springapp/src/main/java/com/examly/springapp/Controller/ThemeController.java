@@ -45,7 +45,7 @@ public class ThemeController {
   }
 
 
-  @PutMapping("admin/editTheme/{themeId}")
+  @PutMapping("/admin/editTheme/{themeId}")
   public ResponseEntity<ThemeModel> EditTheme(@PathVariable Long themeId,@RequestBody ThemeModel t){
       ThemeModel theme = themeService.getThemebyId(themeId);
       
@@ -57,7 +57,7 @@ public class ThemeController {
       theme.setThemeReturnGift(t.getThemeReturnGift());
       theme.setThemeCost(t.getThemeCost());
       theme.setRatings(t.getRatings());
-  
+      themeService.EditTheme(theme);
       return ResponseEntity.ok(theme);
   
   }
