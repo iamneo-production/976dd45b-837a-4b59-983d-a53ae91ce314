@@ -34,8 +34,9 @@ export class UpdatethemeComponent implements OnInit {
   }
 
   onSubmit(): any{
-    this.toastr.info(this.theme.themeName+' is updated successfully','Update Status' );
+    // this.toastr.info(this.theme.themeName+' is updated successfully','Update Status' );
     this.themeService.EditTheme(this.themeId,this.theme).subscribe(data =>{
+      console.log(data)
       this.gotoAddtheme();
     });
   }
