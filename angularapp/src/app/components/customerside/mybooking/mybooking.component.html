@@ -20,7 +20,7 @@
             <tr class="record" *ngFor = "let e of events">
                
                 <td style="padding: 25px;"><strong>{{e.eventName}}</strong></td>
-                <td style="padding: 25px;"><strong>{{e.eventDate}}</strong></td>
+                <td style="padding: 25px;"><strong>{{e.eventDate.split('-').reverse().join('-')}}</strong></td>
                 <td style="padding:25px;"><strong>{{e.eventTime}}</strong></td>
                 <td style="padding: 25px;"><strong>{{e.eventCost}}</strong></td>
                 <td style="padding:25px">

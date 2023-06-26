@@ -13,5 +13,5 @@ public interface FoodMenuService {
 
     void deleteFoodMenu(Long foodMenuID);       
 
-    FoodMenu updateFoodMenu(FoodMenu foodMenuDetails);      
+    void updateFoodMenu(FoodMenu foodMenuDetails);      
 }
