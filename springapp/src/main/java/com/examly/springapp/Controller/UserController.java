@@ -34,6 +34,7 @@ public class UserController {
         allUsers.setUsername(user.getUsername());
         allUsers.setMobileNumber(user.getMobileNumber());
         allUsers.setUserRole(user.getUserRole());
+        userService.editUser(allUsers);
         return ResponseEntity.ok(allUsers);
     }
     @DeleteMapping("/deleteUser/{userId}")

@@ -29,8 +29,8 @@ public class ThemeServiceImpl implements ThemeService{
     }
 
     @Override
-    public ThemeModel EditTheme(ThemeModel themeDetails) {
-        return themeRepo.save(themeDetails);
+    public void EditTheme(ThemeModel themeDetails) {
+        themeRepo.save(themeDetails);
     }
 
     @Override

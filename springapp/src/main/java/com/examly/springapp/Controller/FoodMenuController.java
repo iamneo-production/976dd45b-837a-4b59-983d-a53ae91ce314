@@ -50,7 +50,7 @@ public class FoodMenuController {
 		foodMenu.setFoodMenuItems(foodMenuDetails.getFoodMenuItems());
 		foodMenu.setFoodMenuCost(foodMenuDetails.getFoodMenuCost());
 		foodMenu.setFoodMenuImage(foodMenuDetails.getFoodMenuImage());
-		
+		foodMenuservice.updateFoodMenu(foodMenu);
 		return ResponseEntity.ok(foodMenu);
 	}
 	
