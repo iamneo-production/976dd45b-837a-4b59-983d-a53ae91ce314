@@ -4,6 +4,7 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 import { User } from '../../../class/user';
 import { UserserviceService } from 'src/app/services/userservice.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-signup',
@@ -12,12 +13,11 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class SignupComponent implements OnInit {
   registrationForm: FormGroup;
-  role ?:String;
+  role ?: string;
 
-  constructor(private userService:UserserviceService,private fb: FormBuilder, 
-    private router : Router) { }
-  newuser : User = new User();
-    
+  constructor(private userService: UserserviceService,private fb: FormBuilder, private router: Router,private toastr: ToastrService) { }
+  newuser: User = new User();
+
     ngOnInit(): void {
     this.registrationForm = this.fb.group({
       userRole: ['', Validators.required],
@@ -38,67 +38,67 @@ export class SignupComponent implements OnInit {
     },  { validator: this.passwordMatchValidator }
     );
   }
-  passwordMatchValidator(formGroup: FormGroup) {
+  passwordMatchValidator(formGroup: FormGroup): any{
     const password = formGroup.get('password')?.value;
     const confirmPassword = formGroup.get('confirmPassword')?.value;
     return password === confirmPassword ? null : { passwordMismatch: true };
   }
 
-  get f() { return this.registrationForm.controls; }
+  get f(): any { return this.registrationForm.controls; }
 
 
-  
-  onSubmit(val:string){
+
+  onSubmit(val: string): any{
     this.role=val;
-    if(val=="admin"){
-      this.newuser.userRole="Admin";
+    if(val==='admin'){
+      this.newuser.userRole='Admin';
     }
-    else if(val=="user"){
-      this.newuser.userRole="User";
+    else if(val==='user'){
+      this.newuser.userRole='User';
     }
-      this.checkEmail();
+    this.checkEmail();
   }
-  
-   checkEmail(){
+
+   checkEmail(): any{
     this.userService.checkEmail(this.newuser.email).subscribe(data =>{
       console.log(data);
       console.log(this.role);
-      if(data==false && this.role=="user"){
+      if(data===false && this.role==='user'){
         this.saveuser();
       }
-      else if(data==false && this.role=="admin"){
+      else if(data===false && this.role==='admin'){
         this.saveadmin();
       }
-      else if(data==true)
-        alert("Email already exist");
-      
+      else if(data===true){
+        alert('Email already exist');}
+
     },
-      
-    error => console.log(error)); 
+
+    error => console.log(error));
   }
-  saveuser(){
+  saveuser(): any{
     console.log(this.registrationForm.value);
-      this.userService.storeUser(this.newuser).subscribe(data =>{
-        console.log(data);
-        alert("User Account created successfully");
-        this.goTologin();
-      },
-        
-        error => console.log(error)); 
+    this.userService.storeUser(this.newuser).subscribe(data =>{
+      console.log(data);
+      this.toastr.success('User Account created successfully','Register Status' );
+      this.goTologin();
+    },
+
+        error => console.log(error));
   }
 
-  saveadmin(){
+  saveadmin(): any{
     console.log(this.registrationForm.value);
-      this.userService.storeAdmin(this.newuser).subscribe(data =>{
-        console.log(data);
-        alert("Admin Account created successfully");
-        this.goTologin();
-      },
-        
-        error => console.log(error)); 
+    this.userService.storeAdmin(this.newuser).subscribe(data =>{
+      console.log(data);
+      this.toastr.success('Admin Account created successfully','Register Status' );
+      this.goTologin();
+    },
+
+    error => console.log(error));
   }
 
-  goTologin()
+  goTologin(): void
   {
     this.router.navigate(['/login']);
   }

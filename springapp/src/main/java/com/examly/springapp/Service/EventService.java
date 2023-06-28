@@ -19,12 +19,7 @@ public interface EventService {
 
     EventModel findById(int eventid);
 
+    //unique
+   List<EventModel> getbookingById(long userId);
    
-
-    
-    
-
-   
-
-    
 }

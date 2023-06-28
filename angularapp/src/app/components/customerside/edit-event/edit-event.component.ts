@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Addmenu } from 'src/app/class/addmenu';
-import { addon } from 'src/app/class/addon';
-import { bookevent } from 'src/app/class/bookevent';
+import { Addon } from 'src/app/class/addon';
+import { BookEvent } from 'src/app/class/bookevent';
 import { Theme } from 'src/app/class/theme';
 import { AddmenuserviceService } from 'src/app/services/addmenuservice.service';
 import { AddonserviceService } from 'src/app/services/addonservice.service';
 import { BookEventService } from 'src/app/services/bookevent.service';
-// import { DataService } from 'src/app/services/data.service';
 import { ThemeService } from 'src/app/services/theme.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-event',
@@ -19,7 +19,7 @@ export class EditEventComponent implements OnInit {
 
   // eventId: number = 0;
   eventId: number;
-  formData: bookevent = new bookevent();
+  formData: BookEvent = new BookEvent();
   cost = '';
   totalCost: number;
   addOnCost: number;
@@ -27,23 +27,23 @@ export class EditEventComponent implements OnInit {
   currentPage = 1;
   themeData: Theme[] = [];
   // price
-  lis: addon[] = [];
+  lis: Addon[] = [];
   l: Array<number> = [];
   // foodmenu table checkbox
   foodlis: Addmenu[] = [];
   j: Array<number> = [];
-
+  eventDuration='';
   constructor(private router: Router, private bookEventService: BookEventService,
               private route: ActivatedRoute,
               private ser: AddonserviceService, private themeService: ThemeService,
-              private foodService: AddmenuserviceService) {
-
+              private foodService: AddmenuserviceService,private toastr: ToastrService) {
   }
   ngOnInit(): void {
     this.eventId = this.route.snapshot.params[`eventId`];
     this.bookEventService.viewEventbyId(this.eventId).subscribe(data => {
       this.formData = data;
     });
+
     // addon price
     this.ser.getAddon().subscribe((data) => {
       this.lis = data;
@@ -67,11 +67,6 @@ export class EditEventComponent implements OnInit {
   }
 
   getThemecost(): void {
-    // for (let index = 0; index < this.themeData.length; index++) {
-    //   if (this.formData.eventName === this.themeData[index].themeName) {
-    //     this.themeCost = this.themeData[index].themeCost;
-    //   }
-    // }
     for (const theme of this.themeData) {
       if (this.formData.eventName === theme.themeName) {
         this.themeCost = theme.themeCost;
@@ -97,6 +92,7 @@ export class EditEventComponent implements OnInit {
     });
   }
   gotoviewBook(): void {
+    this.toastr.info(this.formData.eventName+' is updated successfully','Update Status' );
     this.router.navigate(['user/viewbookevent']);
   }
   // addon price
@@ -116,6 +112,7 @@ export class EditEventComponent implements OnInit {
     this.formData.eventCost = String(this.totalCost);
     this.formData.addonId = (this.l);
   }
+
   adding(i: number): void {
     for (let index = 0; index < this.lis.length; index++) {
       if (this.lis[index].addOnid === i) {
@@ -173,4 +170,10 @@ export class EditEventComponent implements OnInit {
       }
     }
   }
+  onChangeHour(): void
+{
+    this.eventDuration=this.formData.eventFromTime+'-'+this.formData.eventToTime;
+    this.formData.eventTime=this.eventDuration;
+}
+
 }

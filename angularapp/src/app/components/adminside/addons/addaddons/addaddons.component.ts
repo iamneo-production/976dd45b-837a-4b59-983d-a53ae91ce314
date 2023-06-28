@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { addon } from '../../../../class/addon';
+import { Addon } from '../../../../class/addon';
 import { Router } from '@angular/router';
 import { AddonserviceService } from '../../../../services/addonservice.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-addaddons',
@@ -11,29 +12,27 @@ import { AddonserviceService } from '../../../../services/addonservice.service';
 
 export class AddaddonsComponent implements OnInit{
 
-  newaddon : addon = new addon();
+  newaddon: Addon = new Addon();
 
-  constructor(private router:Router,private addservice:AddonserviceService){
+  constructor(private router: Router, private addservice: AddonserviceService,private toastr: ToastrService){
 
   }
-  saves(){
-    this.addservice.addAddon(this.newaddon).subscribe(data=>{
-      console.log(data);
-      this.gotoaddon();
-    });
+  saves(): void{
+    this.toastr.success('New Addon is added successfully!','Addon Status' );
+    this.addservice.addAddon(this.newaddon).subscribe(data => {
+    console.log(data);
+    this.gotoaddon(); } );
   }
 
   ngOnInit(): void{
 
   }
 
-  gotoaddon(){
+  gotoaddon(): void{
     this.router.navigate(['admin/addon']);
   }
 
-  onSubmit(){
+  onSubmit(): void{
     this.saves();
   }
-
-  
 }
