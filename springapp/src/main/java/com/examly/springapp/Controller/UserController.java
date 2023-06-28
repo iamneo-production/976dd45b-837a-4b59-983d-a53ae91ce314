@@ -28,8 +28,14 @@ public class UserController {
 
     @PutMapping("/editUser/{userId}")
     public ResponseEntity<UserModel> editUser(@PathVariable long userId, @RequestBody UserModel user){
-        UserModel updatedUser =userService.editUser(userId,  user);
-        return ResponseEntity.ok(updatedUser);
+        UserModel allUsers = userService.getElementsByuserId(userId);  
+        allUsers.setEmail(user.getEmail());
+        allUsers.setPassword(user.getPassword());
+        allUsers.setUsername(user.getUsername());
+        allUsers.setMobileNumber(user.getMobileNumber());
+        allUsers.setUserRole(user.getUserRole());
+        userService.editUser(allUsers);
+        return ResponseEntity.ok(allUsers);
     }
     @DeleteMapping("/deleteUser/{userId}")
     public String deleteUser(@PathVariable long userId) {

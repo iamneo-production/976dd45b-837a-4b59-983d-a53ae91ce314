@@ -45,14 +45,13 @@ public class FoodMenuController {
 	// update foodMenu
 	@PutMapping("/editMenu/{foodMenuID}")
 	public ResponseEntity<FoodMenu> editMenu(@PathVariable Long foodMenuID, @RequestBody FoodMenu foodMenuDetails ){
-		
-		foodMenuDetails.setFoodMenuType(foodMenuDetails.getFoodMenuType());
-		foodMenuDetails.setFoodMenuItems(foodMenuDetails.getFoodMenuItems());
-		foodMenuDetails.setFoodMenuCost(foodMenuDetails.getFoodMenuCost());
-		foodMenuDetails.setFoodMenuImage(foodMenuDetails.getFoodMenuImage());
-		
-		FoodMenu updatedFoodMenu =  foodMenuservice.updateFoodMenu(foodMenuDetails);
-		return ResponseEntity.ok(updatedFoodMenu);
+		FoodMenu foodMenu = foodMenuservice.getFoodMenuById(foodMenuID);
+		foodMenu.setFoodMenuType(foodMenuDetails.getFoodMenuType());
+		foodMenu.setFoodMenuItems(foodMenuDetails.getFoodMenuItems());
+		foodMenu.setFoodMenuCost(foodMenuDetails.getFoodMenuCost());
+		foodMenu.setFoodMenuImage(foodMenuDetails.getFoodMenuImage());
+		foodMenuservice.updateFoodMenu(foodMenu);
+		return ResponseEntity.ok(foodMenu);
 	}
 	
 	// delete foodMenu

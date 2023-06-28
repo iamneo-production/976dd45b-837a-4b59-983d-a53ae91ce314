@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { Theme } from 'src/app/class/theme';
 import { Addmenu } from 'src/app/class/addmenu';
 import { AddmenuserviceService } from 'src/app/services/addmenuservice.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-addevent',
@@ -26,6 +27,9 @@ export class AddeventComponent implements OnInit {
   eventDuration='';
   bookevent: BookEvent = new BookEvent();
   theme: Theme = new Theme();
+  userid= 0;
+  cusId='';
+
   // addon table checkbox
   lis: Addon[] = [];
   l: Array<number> = [];
@@ -35,12 +39,17 @@ export class AddeventComponent implements OnInit {
 
 
   constructor(private bookEventService: BookEventService,
-              private ser: AddonserviceService,
+              private ser: AddonserviceService, private toastr: ToastrService,
               private data: DataService,
               private router: Router,
               private foodService: AddmenuserviceService) {}
 
   ngOnInit(): void {
+    this.data.share4.subscribe(x => this.cusId = x);
+    console.log(this.cusId);
+    this.userid=Number(this.cusId);
+    console.log(this.userid);
+    this.bookevent.userId=this.userid;
     // addon
     this.ser.getAddon().subscribe((data) => {
       this.lis = data;
@@ -89,6 +98,7 @@ export class AddeventComponent implements OnInit {
   }
 
   saveBookevent(): void {
+    this.toastr.success('New Event is booked successfully!','Booking Status' );
     this.bookEventService.bookEvent(this.bookevent).subscribe( data => {
       console.log(data);
       this.gotoViewBook();
@@ -184,11 +194,10 @@ export class AddeventComponent implements OnInit {
     }
   }
 
-  onChangeHour()
+  onChangeHour(): void
 {
-  
     this.eventDuration=this.bookevent.eventFromTime+'-'+this.bookevent.eventToTime;
-  this.bookevent.eventTime=this.eventDuration;
+    this.bookevent.eventTime=this.eventDuration;
 }
 
 

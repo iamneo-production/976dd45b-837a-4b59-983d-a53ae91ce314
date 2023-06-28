@@ -14,6 +14,6 @@ export class NavbarAdminComponent implements OnInit {
   // logout function
   logoutalrt(): void
   {
-    alert('Successfully Logged Out');
+    // alert('Successfully Logged Out');
   }
 }

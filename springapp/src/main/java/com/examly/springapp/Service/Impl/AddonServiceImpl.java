@@ -36,8 +36,8 @@ public class AddonServiceImpl implements AddonService{
     }
 
     @Override
-    public AddOnModel editAddon(AddOnModel addOn) {
-        return AddonRepo.save(addOn);
+    public void editAddon(AddOnModel addOn) {
+        AddonRepo.save(addOn);
     }
 
    

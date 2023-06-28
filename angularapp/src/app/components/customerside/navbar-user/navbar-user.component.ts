@@ -14,7 +14,7 @@ export class NavbarUserComponent implements OnInit {
 
   logoutalrt(): any
   {
-    alert('Successfully Logged Out');
+    // alert('Successfully Logged Out');
   }
 }
 
