@@ -36,7 +36,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { NavbarUserComponent } from './components/customerside/navbar-user/navbar-user.component';
-
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,14 +75,17 @@ import { NavbarUserComponent } from './components/customerside/navbar-user/navba
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    BrowserAnimationsModule,
+    NgxMaterialTimepickerModule,
     NgxSliderModule,
     Ng2SearchPipeModule,
     RouterModule.forRoot([
-      
+
     ]),
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

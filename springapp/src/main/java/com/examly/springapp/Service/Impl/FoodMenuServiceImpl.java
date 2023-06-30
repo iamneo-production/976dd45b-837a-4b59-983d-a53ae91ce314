@@ -35,8 +35,8 @@ public class FoodMenuServiceImpl implements FoodMenuService{
     }
 
     @Override
-    public FoodMenu updateFoodMenu(FoodMenu foodMenuDetails) {
-        return foodMenuRepository.save(foodMenuDetails);
+    public void updateFoodMenu(FoodMenu foodMenuDetails) {
+        foodMenuRepository.save(foodMenuDetails);
     }
-    
+
 }

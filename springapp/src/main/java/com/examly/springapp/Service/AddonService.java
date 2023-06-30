@@ -14,6 +14,6 @@ public interface AddonService {
 
     void deleteAddon(Long addOnid);
 
-    AddOnModel editAddon(AddOnModel addOn);
+    void editAddon(AddOnModel addOn);
 
 }

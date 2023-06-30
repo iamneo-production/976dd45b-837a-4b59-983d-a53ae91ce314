@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { addon } from '../class/addon';
+import { Addon } from '../class/addon';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
@@ -8,31 +8,33 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AddonserviceService {
 
-  private baseUrl = "https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/addAddon";
-  private baseUrl2 = "https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/editAddon";
-  private baseUrl3 = "https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/getAddon";
-  private baseUrl4 = "https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/deleteAddon";
+  private baseUrl = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/addAddon';
+  private baseUrl2 = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/editAddon';
+  private baseUrl3 = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/getAddon';
+  private baseUrl4 = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/deleteAddon';
 
   constructor(private httpclient: HttpClient) { }
 
-    getAddon(): Observable<addon[]>{
-      return this.httpclient.get<addon[]>(`${this.baseUrl3}`);
+    getAddon(): Observable<Addon[]>{
+      return this.httpclient.get<Addon[]>(`${this.baseUrl3}`);
     }
 
-    addAddon(add: addon): Observable<object>{
+    addAddon(add: Addon): Observable<object>{
       return this.httpclient.post(`${this.baseUrl}`, add);
     }
 
-    getAddonId(addOnid: number): Observable<addon>
+    getAddonId(addOnid: number): Observable<Addon>
 {
-  return this.httpclient.get<addon>(`${this.baseUrl3}/${addOnid}`);
-}     
 
-  editAddon(addOnid : number, ad : addon): Observable<Object>{
+  return this.httpclient.get<Addon>(`${this.baseUrl3}/${addOnid}`);
+}
+
+  editAddon(addOnid: number, ad: Addon): Observable<object>{
+
     return this.httpclient.put(`${this.baseUrl2}/${addOnid}`, ad);
   }
 
-  deleteAddon(addOnid : number): Observable<Object>{
+  deleteAddon(addOnid: number): Observable<object>{
     return this.httpclient.delete(`${this.baseUrl4}/${addOnid}`);
   }
 }

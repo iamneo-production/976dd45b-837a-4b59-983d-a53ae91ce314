@@ -112,12 +112,25 @@ public class UserServiceImpl implements UserService{
         userRepo.save(user);
     }
     @Override
-    public UserModel editUser(long userId, UserModel user) {
-        return userRepo.save(user);
+    public void editUser( UserModel user) {
+        userRepo.save(user);
     }
     @Override
     public void deleteUser(long userId) {
         userRepo.deleteById(userId);
     }
-
+    //unique
+    @Override
+    public long  getUserIdbyEmail(String email){
+         UserModel user=userRepo.findByEmail(email);
+        if(user != null)
+            return user.getUserId();
+        else
+            return 0;
+    }
+    //getuserid
+    @Override
+    public UserModel getElementsByuserId(long userId){
+       return userRepo.findByuserId(userId);
+    }
 }

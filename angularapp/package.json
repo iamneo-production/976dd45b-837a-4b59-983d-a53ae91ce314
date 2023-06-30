@@ -24,6 +24,8 @@
     "bootstrap": "^5.2.3",
     "font-awesome": "^4.7.0",
     "ng2-search-filter": "^0.5.1",
+    "ngx-material-timepicker": "^5.6.0",
+    "ngx-toastr": "^13.2.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

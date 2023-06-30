@@ -14,29 +14,33 @@ export class AddmenuHomeComponent implements OnInit {
 
   addmenus: Addmenu[] = [];
 
-  constructor(private router:Router, private addmenuService: AddmenuserviceService){}
+  constructor(private router: Router, private addmenuService: AddmenuserviceService){}
 
   ngOnInit(): void {
       this.getAddmenus();
   }
 
 
-  private getAddmenus(){
+
+  private getAddmenus(): any{
+
     this.addmenuService.getMenu().subscribe(data => {
-      console.log(data)
+      console.log(data);
       this.addmenus = data;
     });
   }
 
-  updateFoodMenu(foodMenuID: number){
+
+  updateFoodMenu(foodMenuID: number): any{
     this.router.navigate(['admin/addmenu/Updateaddmenu',foodMenuID]);
   }
 
-  deleteFoodMenu(foodMenuID: number){
+  deleteFoodMenu(foodMenuID: number): any{
     this.addmenuService.deleteMenu(foodMenuID).subscribe( data => {
       this.getAddmenus();
-    })
+    });
   }
+
 
 
 }

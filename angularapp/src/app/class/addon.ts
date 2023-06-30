@@ -1,8 +1,8 @@
-export class addon {
 
-    addOnid : number = 0;
-    addonDescription:string = "";
-    addOnName: string = "";
-    addAddonPrice: string = "";
+export class Addon {
+    addOnid= 0;
+    addonDescription= '';
+    addOnName= '';
+    addAddonPrice= '';
 
 }

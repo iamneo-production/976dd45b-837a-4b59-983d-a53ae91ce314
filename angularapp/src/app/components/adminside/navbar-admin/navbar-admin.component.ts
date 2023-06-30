@@ -7,14 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarAdminComponent implements OnInit {
 
-  
   constructor() { }
-
   ngOnInit(): void {
   }
 
-  logoutalrt()
+  // logout function
+  logoutalrt(): void
   {
-    alert("Successfully Logged Out");
+    // alert('Successfully Logged Out');
   }
 }
