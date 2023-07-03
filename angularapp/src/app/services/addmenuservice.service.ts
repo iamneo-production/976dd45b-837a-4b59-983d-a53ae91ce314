@@ -11,7 +11,7 @@ export class AddmenuserviceService {
 
   private baseUrl = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/addMenu';
   private baseUrl2 = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/editMenu';
-  private baseUrl3 = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/getMenu';
+  private baseUrl3 = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/menu';
   private baseUrl4 = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/deleteMenu';
 
   constructor(private httpclient: HttpClient) { }
