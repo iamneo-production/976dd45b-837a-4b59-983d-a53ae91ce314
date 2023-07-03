@@ -10,7 +10,7 @@ export class AddonserviceService {
 
   private baseUrl = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/addAddon';
   private baseUrl2 = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/editAddon';
-  private baseUrl3 = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/getAddon';
+  private baseUrl3 = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/add-on';
   private baseUrl4 = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/deleteAddon';
 
   constructor(private httpclient: HttpClient) { }
