@@ -42,6 +42,7 @@ export class AddeventComponent implements OnInit {
   //common add/sub
   foodsum = 0; 
   addsum=0;
+  currentDate: any;
 
 
   constructor(private bookEventService: BookEventService,
@@ -51,6 +52,7 @@ export class AddeventComponent implements OnInit {
               private foodService: AddmenuserviceService) {}
 
   ngOnInit(): void {
+    this.currentDate = new Date().toISOString().slice(0,10);
     this.data.share4.subscribe(x => this.cusId = x);
     console.log(this.cusId);
     this.userid=Number(this.cusId);
@@ -197,6 +199,27 @@ export class AddeventComponent implements OnInit {
     this.bookevent.eventMenuId = (this.j);
     console.log("Total after adding Food: "+this.bookevent.eventCost)
     }
+    selecteditemveg(){
+      if(this.j.length > 0){
+        console.log(this.j);
+        for(var  i of this.j){
+          console.log(i);
+          console.log(this.foodlis[i - 1].foodMenuType)
+          if(this.foodlis[i - 1].foodMenuType === "Veg"){
+            return true;
+          }
+        }
+      }
+    }
+      selecteditemnonveg(){
+        if(this.j.length > 0){
+          for(var i of this.j){
+            if(this.foodlis[i - 1].foodMenuType === "nonveg"){
+              return true;
+            }
+          }
+        }
+      }
 
   onChangeHour(): void
 {

@@ -14,6 +14,6 @@ export class BookEvent{
     addonId: Array<number> = [];
     eventCost= '';
     userId= 0;
-    nonvegCount=0;
-    vegCount=0;
+    nonvegCount= 1;
+    vegCount= 1;
 }
