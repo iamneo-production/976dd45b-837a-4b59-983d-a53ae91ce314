@@ -27,7 +27,7 @@ background-size: 100%;
                                 <div class="form-group; mb-3 row">
                                     <label for="eventName" class="col-sm-2 col-form-label">Event Name</label><br>
                                     <div class="col-md-6">
-                                    <input [value]="name" id="eventName" type="text" name="eventName"  class="form-control" placeholder="Enter event name"  >
+                                    <input [value]="name" id="eventName" type="text" name="eventName"  class="form-control" readonly placeholder="Enter event name"  >
                                 </div>
                                 </div>
                                 <div class="row mb-3"></div>
@@ -71,7 +71,7 @@ background-size: 100%;
                                 <div class="InputWithIcon" class="form-group; mb-3 row">
                                     <label for="eventAddress" class="col-sm-2 col-form-label">Event <br> Location</label><br>
                                     <div class="col-md-6">
-                                    <input [value]="loc"  id="eventAddress" type="text"  name="eventAddress" class="form-control"  placeholder="Enter location of event"  >
+                                    <input [value]="loc"  id="eventAddress" type="text"  name="eventAddress" class="form-control" readonly  placeholder="Enter location of event"  >
                                     </div>
                                 </div>
 
@@ -190,7 +190,8 @@ background-size: 100%;
                         <div class="form-group; mb-3 row">
                             <label for="quantityOfVeg" class="col-sm-2 col-form-label">Quantity of <br> Veg Items</label><br>
                             <div class="col-md-6">
-                            <input type="number"  id="quantityOfVeg" class="form-control" placeholder="Enter Quantity of Veg items" required="" >
+                            <input type="number"  id="quantityOfVeg" class="form-control" placeholder="Enter Quantity of Veg items" required="" 
+                            name="vegCount" [(ngModel)]="bookevent.vegCount">
                             </div>
                         </div>
 
@@ -199,7 +200,8 @@ background-size: 100%;
                         <div class="form-group; mb-3 row">
                             <label for="quantityOfNonVeg" class="col-sm-2 col-form-label">Quantity of <br> Non Veg Items</label><br>
                             <div class="col-md-6">
-                            <input type="number"  id="quantityOfNonVeg" class="form-control" placeholder="Enter Quality of Non veg items" required="" >
+                            <input type="number"  id="quantityOfNonVeg" class="form-control" placeholder="Enter Quality of Non veg items" required="" 
+                            name="nonvegCount" [(ngModel)]="bookevent.nonvegCount">
                             </div>
                         </div>
 

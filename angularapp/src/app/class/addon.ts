@@ -4,5 +4,5 @@ export class Addon {
     addonDescription= '';
     addOnName= '';
     addAddonPrice= '';
-
+    selected= false;
 }
