@@ -1,4 +1,4 @@
-package com.examly.springapp.Controller;
+package com.examly.springapp.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -21,7 +21,7 @@ public class FoodMenuController {
 	private FoodMenuService foodMenuservice;
 	
 	//get all food menus
-	@GetMapping("/getMenu")
+	@GetMapping("/menu")
 	public List<FoodMenu> getMenu(){
 		List<FoodMenu> foodMenus = foodMenuservice.getAllFoodMenus();
 		return foodMenus;
@@ -36,7 +36,7 @@ public class FoodMenuController {
 	}
 	
 	// get foodmenu by id
-	@GetMapping("/getMenu/{foodMenuID}")
+	@GetMapping("/menu/{foodMenuID}")
 	public FoodMenu getFoodMenuById(@PathVariable Long foodMenuID) {
 		FoodMenu foodmenu = foodMenuservice.getFoodMenuById(foodMenuID);
 		return foodmenu; 

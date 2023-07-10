@@ -33,8 +33,13 @@ export class UpdateaddmenuComponent implements OnInit {
     this.router.navigate(['admin/addmenu']);
   }
 
-  onSubmit(): void{
-
+  onSubmit(val: string): void{
+    if(val==='Veg'){
+      this.addmenus.foodMenuType='Veg';
+    }
+    else if(val==='Non-Veg'){
+      this.addmenus.foodMenuType='Non-Veg';
+    }
     this.addmenuService.editMenu(this.foodMenuID,this.addmenus).subscribe(data =>{
       this.gotoAddmenu();
     });
