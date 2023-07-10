@@ -31,6 +31,9 @@ public class EventModel {
     private String eventFromTime; 
     private String eventToTime;
     private String eventCost;
+    private int nonvegCount;
+    private int vegCount;
+    
     public int getEventId()
      {
         return eventId;
@@ -160,6 +163,22 @@ public class EventModel {
 
     public void setUserId(long userId) {
         this.userId = userId;
+    }
+
+    public int getNonvegCount() {
+        return this.nonvegCount;
+    }
+
+    public void setNonvegCount(int nonvegCount) {
+        this.nonvegCount = nonvegCount;
+    }
+
+    public int getVegCount() {
+        return this.vegCount;
+    }
+
+    public void setVegCount(int vegCount) {
+        this.vegCount = vegCount;
     }
 
 
