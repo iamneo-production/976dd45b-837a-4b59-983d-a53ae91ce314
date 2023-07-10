@@ -4,6 +4,7 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 import { User } from '../../../class/user';
 import { UserserviceService } from 'src/app/services/userservice.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +15,7 @@ export class SignupComponent implements OnInit {
   registrationForm: FormGroup;
   role ?: string;
 
-  constructor(private userService: UserserviceService,private fb: FormBuilder, private router: Router) { }
+  constructor(private userService: UserserviceService,private fb: FormBuilder, private router: Router,private toastr: ToastrService) { }
   newuser: User = new User();
 
     ngOnInit(): void {
@@ -79,7 +80,7 @@ export class SignupComponent implements OnInit {
     console.log(this.registrationForm.value);
     this.userService.storeUser(this.newuser).subscribe(data =>{
       console.log(data);
-      alert('User Account created successfully');
+      this.toastr.success('User Account created successfully','Register Status' );
       this.goTologin();
     },
 
@@ -90,7 +91,7 @@ export class SignupComponent implements OnInit {
     console.log(this.registrationForm.value);
     this.userService.storeAdmin(this.newuser).subscribe(data =>{
       console.log(data);
-      alert('Admin Account created successfully');
+      this.toastr.success('Admin Account created successfully','Register Status' );
       this.goTologin();
     },
 

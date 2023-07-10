@@ -2,7 +2,7 @@
 <div class="col-md-8 offset-md-2">
     <h2 >Add Food Item</h2>
     <br>
-        <form (ngSubmit) = "onSubmit()">
+        <form (ngSubmit) = "onSubmit(foodMenuType.value)">
             <!-- Url of the image is to be entered here -->
             <div class ="form-group">
                 <input type = "text" class="form-control" id = "foodMenuImage" 
@@ -17,8 +17,11 @@
             <br>
             <!-- Type/category of the foodmenu to be added is to be entered here -->
             <div class ="form-group">
-                <input type = "text" class="form-control" id = "foodMenuType" 
-                    [(ngModel)] = "addmenu.foodMenuType" name = "foodMenuType" placeholder="Enter Type">
+                    <select id="foodMenuType" #foodMenuType  class="form-select" [(ngModel)] = "addmenu.foodMenuType" name = "foodMenuType" >
+                        <option value="" disabled selected>Select a Food Type</option>
+                        <option value="Veg">Veg</option>
+                        <option value="Non-Veg">Non-Veg</option>
+                      </select>
             </div>
             <br>
             <!-- Cost of the foodmenu to be added is to be entered here -->

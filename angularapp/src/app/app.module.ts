@@ -38,6 +38,7 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { NavbarUserComponent } from './components/customerside/navbar-user/navbar-user.component';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,7 +84,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ]),
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-package com.examly.springapp.Controller;
+package com.examly.springapp.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -21,7 +21,7 @@ public class FoodMenuController {
 	private FoodMenuService foodMenuservice;
 	
 	//get all food menus
-	@GetMapping("/getMenu")
+	@GetMapping("/menu")
 	public List<FoodMenu> getMenu(){
 		List<FoodMenu> foodMenus = foodMenuservice.getAllFoodMenus();
 		return foodMenus;
@@ -36,7 +36,7 @@ public class FoodMenuController {
 	}
 	
 	// get foodmenu by id
-	@GetMapping("/getMenu/{foodMenuID}")
+	@GetMapping("/menu/{foodMenuID}")
 	public FoodMenu getFoodMenuById(@PathVariable Long foodMenuID) {
 		FoodMenu foodmenu = foodMenuservice.getFoodMenuById(foodMenuID);
 		return foodmenu; 
@@ -45,14 +45,13 @@ public class FoodMenuController {
 	// update foodMenu
 	@PutMapping("/editMenu/{foodMenuID}")
 	public ResponseEntity<FoodMenu> editMenu(@PathVariable Long foodMenuID, @RequestBody FoodMenu foodMenuDetails ){
-		
-		foodMenuDetails.setFoodMenuType(foodMenuDetails.getFoodMenuType());
-		foodMenuDetails.setFoodMenuItems(foodMenuDetails.getFoodMenuItems());
-		foodMenuDetails.setFoodMenuCost(foodMenuDetails.getFoodMenuCost());
-		foodMenuDetails.setFoodMenuImage(foodMenuDetails.getFoodMenuImage());
-		
-		FoodMenu updatedFoodMenu =  foodMenuservice.updateFoodMenu(foodMenuDetails);
-		return ResponseEntity.ok(updatedFoodMenu);
+		FoodMenu foodMenu = foodMenuservice.getFoodMenuById(foodMenuID);
+		foodMenu.setFoodMenuType(foodMenuDetails.getFoodMenuType());
+		foodMenu.setFoodMenuItems(foodMenuDetails.getFoodMenuItems());
+		foodMenu.setFoodMenuCost(foodMenuDetails.getFoodMenuCost());
+		foodMenu.setFoodMenuImage(foodMenuDetails.getFoodMenuImage());
+		foodMenuservice.updateFoodMenu(foodMenu);
+		return ResponseEntity.ok(foodMenu);
 	}
 	
 	// delete foodMenu

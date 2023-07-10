@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { Theme } from 'src/app/class/theme';
 import { Addmenu } from 'src/app/class/addmenu';
 import { AddmenuserviceService } from 'src/app/services/addmenuservice.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-addevent',
@@ -26,21 +27,37 @@ export class AddeventComponent implements OnInit {
   eventDuration='';
   bookevent: BookEvent = new BookEvent();
   theme: Theme = new Theme();
+  userid= 0;
+  cusId='';
+
   // addon table checkbox
   lis: Addon[] = [];
   l: Array<number> = [];
   // foodmenu table checkbox
   foodlis: Addmenu[] = [];
   j: Array<number> = [];
+  //veg/non-veg
+  vegCount = 0;
+  nonVegCount = 0;
+  //common add/sub
+  foodsum = 0; 
+  addsum=0;
+  currentDate: any;
 
 
   constructor(private bookEventService: BookEventService,
-              private ser: AddonserviceService,
+              private ser: AddonserviceService, private toastr: ToastrService,
               private data: DataService,
               private router: Router,
               private foodService: AddmenuserviceService) {}
 
   ngOnInit(): void {
+    this.currentDate = new Date().toISOString().slice(0,10);
+    this.data.share4.subscribe(x => this.cusId = x);
+    console.log(this.cusId);
+    this.userid=Number(this.cusId);
+    console.log(this.userid);
+    this.bookevent.userId=this.userid;
     // addon
     this.ser.getAddon().subscribe((data) => {
       this.lis = data;
@@ -85,10 +102,13 @@ export class AddeventComponent implements OnInit {
 
   onSubmit(): void {
     console.log(this.bookevent);
+    this.foodmenutotal();
+    this.addonstotal();
     this.saveBookevent();
   }
 
   saveBookevent(): void {
+    this.toastr.success('New Event is booked successfully!','Booking Status' );
     this.bookEventService.bookEvent(this.bookevent).subscribe( data => {
       console.log(data);
       this.gotoViewBook();
@@ -108,11 +128,9 @@ export class AddeventComponent implements OnInit {
     if(!(this.l.includes(id))){
       console.log(id);
       this.l.push(id);
-      this.adding(id);
     }
     else{
       console.log(id);
-      this.subtract(id);
       this.l.splice(this.l.indexOf(id), 1);
     }
     console.log(this.totalCost);
@@ -122,26 +140,21 @@ export class AddeventComponent implements OnInit {
     console.log(this.l);
   }
 
-  adding(i: number): void {
-    for(let index = 0; index < this.lis.length; index++){
-      if(this.lis[index].addOnid === i){
-        console.log(index);
-        console.log(this.lis[index].addAddonPrice);
-        this.totalCost += (Number(this.lis[index].addAddonPrice));
-
-      }
+  addonstotal(): any{
+    console.log(this.l);
+    for(var index of this.l){
+      console.log(this.l.length);
+      console.log(index);
+      this.addsum=this.addsum + (Number(this.lis[index - 1].addAddonPrice));
+    
+      console.log("Addon sum: "+this.addsum);
+      console.log(this.totalCost);
     }
-  }
-
-  subtract(i: number): void {
-    for(let index = 0; index < this.lis.length; index++){
-      if(this.lis[index].addOnid === i){
-        console.log(index);
-        console.log(this.lis[index].addAddonPrice);
-        this.totalCost -= (Number(this.lis[index].addAddonPrice));
-      }
+    
+    this.bookevent.eventCost = String(this.addsum+this.foodsum+this.totalCost);
+    console.log("Total after adding Addon: "+this.bookevent.eventCost);
+    this.bookevent.addonId = (this.l);
     }
-  }
 
   // foodmenu table
   FoodMenu(id: number): void {
@@ -150,12 +163,10 @@ export class AddeventComponent implements OnInit {
     if(!(this.j.includes(id))){
       console.log(id);
       this.j.push(id);
-      this.addingFood(id);
     }
 
     else{
       console.log(id);
-      this.subtractFood(id);
       this.j.splice(this.j.indexOf(id),1);
     }
     console.log(this.totalCost);
@@ -164,31 +175,56 @@ export class AddeventComponent implements OnInit {
     this.bookevent.eventMenuId = (this.j);
   }
 
-  addingFood(i: number): void {
-    for(let index = 0; index < this.foodlis.length; index++){
-      if(this.foodlis[index].foodMenuID === i){
-        console.log(index);
-        console.log(this.foodlis[index].foodMenuCost);
-        this.totalCost += (Number(this.foodlis[index].foodMenuCost));
+  foodmenutotal(): any{
+    console.log(this.j);
+    for(var index of this.j){
+      console.log(this.j.length);
+
+      console.log(index);
+      console.log(this.foodlis[index - 1].foodMenuType);
+      console.log(this.foodlis[index - 1]);
+      if(this.foodlis[index - 1].foodMenuType === "Veg"){
+
+        this.foodsum=this.foodsum + (Number(this.foodlis[index - 1].foodMenuCost) * this.bookevent.vegCount);
+    }
+    else{
+      this.foodsum=this.foodsum + (Number(this.foodlis[index - 1].foodMenuCost) * this.bookevent.nonvegCount);
+    }
+    console.log(this.foodsum);
+    console.log(this.totalCost);  
+    console.log(this.bookevent.nonvegCount);
+      }
+
+      this.bookevent.eventCost = String(this.foodsum+this.addsum+this.totalCost);
+    this.bookevent.eventMenuId = (this.j);
+    console.log("Total after adding Food: "+this.bookevent.eventCost)
+    }
+    selecteditemveg(){
+      if(this.j.length > 0){
+        console.log(this.j);
+        for(var  i of this.j){
+          console.log(i);
+          console.log(this.foodlis[i - 1].foodMenuType)
+          if(this.foodlis[i - 1].foodMenuType === "Veg"){
+            return true;
+          }
+        }
       }
     }
-  }
-
-  subtractFood(i: number): void {
-    for(let index = 0; index < this.foodlis.length; index++){
-      if(this.foodlis[index].foodMenuID === i){
-        console.log(index);
-        console.log(this.foodlis[index].foodMenuCost);
-        this.totalCost -= (Number(this.foodlis[index].foodMenuCost));
+      selecteditemnonveg(){
+        if(this.j.length > 0){
+          for(var i of this.j){
+            if(this.foodlis[i - 1].foodMenuType === "Non-Veg"){
+              return true;
+            }
+          }
+        }
       }
-    }
-  }
 
-  onChangeHour()
+  onChangeHour(): void
 {
-  
     this.eventDuration=this.bookevent.eventFromTime+'-'+this.bookevent.eventToTime;
-  this.bookevent.eventTime=this.eventDuration;
+    this.bookevent.eventTime=this.eventDuration;
 }
 
 
