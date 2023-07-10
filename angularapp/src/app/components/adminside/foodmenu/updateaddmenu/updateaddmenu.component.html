@@ -1,7 +1,7 @@
 <div class="col-md-8 offset-md-2">
     <h2 >Update Food Item</h2>
     <br>
-        <form (ngSubmit) = "onSubmit()">
+        <form (ngSubmit) = "onSubmit(foodMenuType.value)">
             <div class ="form-group">
                 <input type = "text" class="form-control" id = "foodMenuImage" 
                     [(ngModel)] = "addmenus.foodMenuImage" name = "foodMenuImage">
@@ -13,8 +13,13 @@
             </div>
             <br>
             <div class ="form-group">
-                <input type = "text" class="form-control" id = "foodMenuType" 
-                    [(ngModel)] = "addmenus.foodMenuType" name = "foodMenuType">
+                <div class ="form-group">
+                    <select id="foodMenuType" #foodMenuType  class="form-select" [(ngModel)] = "addmenus.foodMenuType" name = "foodMenuType" >
+                        <option value="" disabled selected>Select a Food Type</option>
+                        <option value="Veg">Veg</option>
+                        <option value="Non-Veg">Non-Veg</option>
+                      </select>
+            </div>
             </div>
             <br>
             <div class ="form-group">
