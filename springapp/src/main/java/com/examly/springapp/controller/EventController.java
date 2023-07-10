@@ -70,6 +70,8 @@ public class EventController
     event.setEventCost(e.getEventCost());
     event.setAddonId(e.getAddonId());
     event.setEventMenuId(e.getEventMenuId());
+    event.setVegCount(e.getVegCount());
+    event.setNonvegCount(e.getNonvegCount());
     eservice.editEvent(event);
    
     return "\"Updated Successfully\" ";
