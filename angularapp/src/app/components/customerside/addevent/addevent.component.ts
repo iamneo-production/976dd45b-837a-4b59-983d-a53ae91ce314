@@ -214,7 +214,7 @@ export class AddeventComponent implements OnInit {
       selecteditemnonveg(){
         if(this.j.length > 0){
           for(var i of this.j){
-            if(this.foodlis[i - 1].foodMenuType === "nonveg"){
+            if(this.foodlis[i - 1].foodMenuType === "Non-Veg"){
               return true;
             }
           }
