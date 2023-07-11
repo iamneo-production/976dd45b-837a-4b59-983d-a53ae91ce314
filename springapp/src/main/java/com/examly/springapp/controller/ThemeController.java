@@ -1,4 +1,4 @@
-package com.examly.springapp.Controller;
+package com.examly.springapp.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -30,7 +30,7 @@ public class ThemeController {
   }
 
 
-  @GetMapping("admin/getTheme")
+  @GetMapping("admin/theme")
   public List<ThemeModel> getTheme()
   {
     List<ThemeModel> themes = themeService.getTheme();
@@ -38,14 +38,14 @@ public class ThemeController {
   }
 
 
-  @GetMapping("admin/getTheme/{themeId}")
+  @GetMapping("admin/theme/{themeId}")
   public ThemeModel getThemebyId(@PathVariable Long themeId){
          ThemeModel theme = themeService.getThemebyId(themeId);
     		return theme;
   }
 
 
-  @PutMapping("admin/editTheme/{themeId}")
+  @PutMapping("/admin/editTheme/{themeId}")
   public ResponseEntity<ThemeModel> EditTheme(@PathVariable Long themeId,@RequestBody ThemeModel t){
       ThemeModel theme = themeService.getThemebyId(themeId);
       
@@ -57,7 +57,7 @@ public class ThemeController {
       theme.setThemeReturnGift(t.getThemeReturnGift());
       theme.setThemeCost(t.getThemeCost());
       theme.setRatings(t.getRatings());
-  
+      themeService.EditTheme(theme);
       return ResponseEntity.ok(theme);
   
   }

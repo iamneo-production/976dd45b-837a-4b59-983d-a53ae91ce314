@@ -1,4 +1,4 @@
-package com.examly.springapp.Controller;
+package com.examly.springapp.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,7 @@ import com.examly.springapp.Service.EventService;
 @RestController
 @CrossOrigin(origins = "https://8081-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io")
 @RequestMapping
-public class EventBookingController 
+public class EventController 
 {
 
   @Autowired
@@ -34,6 +34,20 @@ public class EventBookingController
     EventModel add = eservice.viewEvent(themeId);
     return add;
   }
+  //tc
+  @GetMapping("/admin/event")
+  public List<EventModel> viewAdminEvent()
+  {
+    List<EventModel> events = eservice.viewAllEvent();
+    return events;
+  }
+  @GetMapping("/admin/event/{themeId}")
+  public EventModel viewAdminEventbyId(@PathVariable int themeId)
+  {
+    EventModel add = eservice.viewEvent(themeId);
+    return add;
+  }
+  //...
   @PutMapping("/user/editTheme/{themeId}")
   public String editEvent(@PathVariable int themeId,@RequestBody EventModel e)
   {
@@ -56,6 +70,8 @@ public class EventBookingController
     event.setEventCost(e.getEventCost());
     event.setAddonId(e.getAddonId());
     event.setEventMenuId(e.getEventMenuId());
+    event.setVegCount(e.getVegCount());
+    event.setNonvegCount(e.getNonvegCount());
     eservice.editEvent(event);
    
     return "\"Updated Successfully\" ";

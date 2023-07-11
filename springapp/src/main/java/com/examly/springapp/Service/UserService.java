@@ -30,7 +30,7 @@ public interface UserService {
     // User CRUD Operation
     List<UserModel> getAllusers();
     void addUser(UserModel user);
-    UserModel editUser(long userId, UserModel user);
+    void editUser(UserModel user);
     void deleteUser(long userId);
     //unique
     long  getUserIdbyEmail(String email);

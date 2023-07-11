@@ -1,4 +1,4 @@
-package com.examly.springapp.Controller;
+package com.examly.springapp.controller;
 
 import java.util.*;
 
@@ -29,7 +29,7 @@ public AddOnModel addAddon(@RequestBody AddOnModel add){
 }
 
 
-@GetMapping("/admin/getAddon")
+@GetMapping("/admin/add-on")
 public List<AddOnModel> getAddon()
 {
   List<AddOnModel> addons = addonservice.getAddon();
@@ -38,7 +38,7 @@ public List<AddOnModel> getAddon()
 }
 
 
-@GetMapping("/admin/getAddon/{addOnid}")
+@GetMapping("/admin/add-on/{addOnid}")
 public AddOnModel  getAddonId(@PathVariable Long addOnid){
   AddOnModel add = addonservice.getAddonId(addOnid);
     
@@ -52,7 +52,7 @@ public ResponseEntity<AddOnModel> editAddon(@PathVariable Long addOnid,@RequestB
   addonItems.setAddOnName(addOn.getAddOnName());
   addonItems.setaddAddonPrice(addOn.getaddAddonPrice());
   addonItems.setaddonDescription(addOn.getaddonDescription());
-
+  addonservice.editAddon(addonItems);
   return ResponseEntity.ok(addonItems);
 
 }
