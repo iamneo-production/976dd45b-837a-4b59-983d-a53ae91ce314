@@ -4,7 +4,7 @@ import { Theme } from 'src/app/class/theme';
 import { DataService } from 'src/app/services/data.service';
 import { ThemeService } from 'src/app/services/theme.service';
 import { LabelType, Options } from '@angular-slider/ngx-slider';
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-user-homepage',
@@ -43,7 +43,7 @@ i: any;
         }
     }
 };
-  constructor(private router: Router,private eventservice: ThemeService, private data: DataService) { }
+  constructor(private router: Router,private eventservice: ThemeService, private data: DataService,private toastr: ToastrService,) { }
 
   ngOnInit(): void{
     this.getEvents();
@@ -58,29 +58,9 @@ i: any;
 
   }
 
-
-
   updateText(text1,text2,cost): void{
     this.data.updateData(text1,text2,cost);
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 findLocation(value: any): void{
   this.city=value;
@@ -101,15 +81,11 @@ findLocation(value: any): void{
     this.openform=1;
   }
 
-
   closeOpenedForm(): void
   {
     this.openform=0;
-
-
   }
   onClickCloseForm(): void{
-
     this.openform=0;
   }
   onClickCloseThemes(): void{
@@ -131,6 +107,8 @@ findLocation(value: any): void{
     this.filteredThemes=[];
     this.n=0;
     this.filterThemes();
-    alert('Filter resetted');
+    this.toastr.info('Filter is resetted!','Filter Status', {
+      timeOut: 3000,
+    } );
 }
 }

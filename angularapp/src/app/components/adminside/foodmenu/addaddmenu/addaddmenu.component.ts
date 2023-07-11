@@ -33,7 +33,13 @@ export class AddaddmenuComponent implements OnInit{
     // routing to food menu component
     this.router.navigate(['/admin/addmenu']);
   }
-  onSubmit(): void{
+  onSubmit(val: string): void{
+    if(val==='Veg'){
+      this.addmenu.foodMenuType='Veg';
+    }
+    else if(val==='Non-Veg'){
+      this.addmenu.foodMenuType='Non-Veg';
+    }
     console.log(this.addmenu);
     // here addmenu contains the data which we entered in the form from front end
     this.saveAddMenu();
