@@ -204,7 +204,7 @@ background-size: 100%;
                                                                 <div>
                                                                     <input class="form-check-input" type="checkbox"
                                                                         id="checkboxNoLabel" aria-label="..."
-                                                                        (click)="FoodMenu(f.foodMenuID)">
+                                                                        (click)="FoodMenu(f.foodMenuID)" [checked]="f.selected">                                                            
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -278,7 +278,7 @@ background-size: 100%;
                                                                 <div>
                                                                     <input class="form-check-input" type="checkbox"
                                                                         id="checkboxNoLabel" aria-label="..."
-                                                                        (click)="Nothing(i.addOnid)">
+                                                                        (click)="Nothing(i.addOnid)" [checked]="i.selected">
                                                                 </div>
                                                             </td>
                                                         </tr>
