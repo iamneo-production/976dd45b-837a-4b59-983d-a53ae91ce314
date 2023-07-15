@@ -1,4 +1,4 @@
-package com.examly.springapp.Controller;
+package com.examly.springapp.controller;
 
 import com.examly.springapp.Model.UserModel;
 import com.examly.springapp.Service.UserService;
@@ -28,12 +28,34 @@ public class UserController {
 
     @PutMapping("/editUser/{userId}")
     public ResponseEntity<UserModel> editUser(@PathVariable long userId, @RequestBody UserModel user){
-        UserModel updatedUser =userService.editUser(userId,  user);
-        return ResponseEntity.ok(updatedUser);
+        UserModel allUsers = userService.getElementsByuserId(userId);  
+        allUsers.setEmail(user.getEmail());
+        allUsers.setPassword(user.getPassword());
+        allUsers.setUsername(user.getUsername());
+        allUsers.setMobileNumber(user.getMobileNumber());
+        allUsers.setUserRole(user.getUserRole());
+        userService.editUser(allUsers);
+        return ResponseEntity.ok(allUsers);
     }
     @DeleteMapping("/deleteUser/{userId}")
     public String deleteUser(@PathVariable long userId) {
         userService.deleteUser(userId);
         return "User/Admin deleted";
+    }
+
+    //unique
+    @GetMapping("/login/getUserId/{email}")
+    public long getUserIdbyEmail(@PathVariable String email)
+    {
+        long userId = userService.getUserIdbyEmail(email);
+        return userId;
+    }
+
+    //get by  userId
+    @GetMapping("/getUser/{userId}")
+    public ResponseEntity<UserModel> getcustomerByuserId(@PathVariable long userId)
+    {
+        UserModel customer= userService.getElementsByuserId(userId);
+        return ResponseEntity.ok(customer);
     }
 }

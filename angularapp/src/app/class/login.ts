@@ -1,5 +1,6 @@
 export class Login {
-    email = '';
-    password = '';
+
+    email    !: string;
+    password   !: string;
 }
 

@@ -12,11 +12,13 @@ background-size: 100%;
 
 
         <div class="container">
-            <header style="text-align: center;"><b><h3> Book Event Details</h3></b></header>
+            <header style="text-align: center;"><b>
+                    <h3> Book Event Details</h3>
+                </b></header>
             <div class="row mb-3"></div>
             <div *ngIf="currentPage === 1">
 
-                <form >
+                <form>
                     <div class="form first">
                         <div class="details event">
                             <span class="title" class="btn4"><b>Event Details</b></span>
@@ -27,51 +29,66 @@ background-size: 100%;
                                 <div class="form-group; mb-3 row">
                                     <label for="eventName" class="col-sm-2 col-form-label">Event Name</label><br>
                                     <div class="col-md-6">
-                                    <input [value]="name" id="eventName" type="text" name="eventName"  class="form-control" placeholder="Enter event name"  >
-                                </div>
+                                        <input [value]="name" id="eventName" type="text" name="eventName"
+                                            class="form-control" readonly placeholder="Enter event name">
+                                    </div>
                                 </div>
                                 <div class="row mb-3"></div>
 
                                 <div class="form-group; mb-3 row">
-                                    <label for="applicantName" class="col-sm-2 col-form-label">Applicant <br> name</label><br>
+                                    <label for="applicantName" class="col-sm-2 col-form-label">Applicant <br>
+                                        name</label><br>
                                     <div class="col-md-6">
-                                    <input id="applicantName" type="text" name="applicantName" [(ngModel)]="bookevent.applicantName" class="form-control" placeholder="Enter your name"  >
+                                        <input id="applicantName" type="text" name="applicantName"
+                                            [(ngModel)]="bookevent.applicantName" class="form-control"
+                                            placeholder="Enter your name">
                                     </div>
                                 </div>
 
                                 <div class="row mb-3"></div>
 
                                 <div class="form-group; mb-3 row">
-                                    <label for="applicantAddress" class="col-sm-2 col-form-label">Applicant <br> Address</label><br>
+                                    <label for="applicantAddress" class="col-sm-2 col-form-label">Applicant <br>
+                                        Address</label><br>
                                     <div class="col-md-6">
-                                    <input id="applicantAddress" type="text" name="applicantAddress" [(ngModel)]="bookevent.applicantAddress" class="form-control" placeholder="Enter your permanent address"  >
+                                        <input id="applicantAddress" type="text" name="applicantAddress"
+                                            [(ngModel)]="bookevent.applicantAddress" class="form-control"
+                                            placeholder="Enter your permanent address">
                                     </div>
                                 </div>
 
                                 <div class="row mb-3"></div>
 
                                 <div class="form-group; mb-3 row">
-                                    <label for="applicantMobileNo" class="col-sm-2 col-form-label">Applicant <br> Mobile Number</label><br>
+                                    <label for="applicantMobileNo" class="col-sm-2 col-form-label">Applicant <br> Mobile
+                                        Number</label><br>
                                     <div class="col-md-6">
-                                    <input id="applicantMobileNo" type="text" name="applicantMobile" [(ngModel)]="bookevent.applicantMobile" class="form-control" placeholder="Enter your mobile number"  >
+                                        <input id="applicantMobileNo" type="number" name="applicantMobile"
+                                            [(ngModel)]="bookevent.applicantMobile" class="form-control"
+                                            placeholder="Enter your mobile number">
                                     </div>
                                 </div>
 
                                 <div class="row mb-3"></div>
 
                                 <div class="form-group; mb-3 row">
-                                    <label for="applicantEmailId" class="col-sm-2 col-form-label">Applicant <br> Email Id</label><br>
+                                    <label for="applicantEmailId" class="col-sm-2 col-form-label">Applicant <br> Email
+                                        Id</label><br>
                                     <div class="col-md-6">
-                                    <input id="applicantEmailId" type="email" name="applicantEmail" class="form-control"[(ngModel)]="bookevent.applicantEmail"  placeholder="Enter your email Id"  >
+                                        <input id="applicantEmailId" type="email" name="applicantEmail"
+                                            class="form-control" [(ngModel)]="bookevent.applicantEmail"
+                                            placeholder="Enter your email Id">
                                     </div>
                                 </div>
 
                                 <div class="row mb-3"></div>
 
                                 <div class="InputWithIcon" class="form-group; mb-3 row">
-                                    <label for="eventAddress" class="col-sm-2 col-form-label">Event <br> Location</label><br>
+                                    <label for="eventAddress" class="col-sm-2 col-form-label">Event <br>
+                                        Location</label><br>
                                     <div class="col-md-6">
-                                    <input [value]="loc"  id="eventAddress" type="text"  name="eventAddress" class="form-control"  placeholder="Enter location of event"  >
+                                        <input [value]="loc" id="eventAddress" type="text" name="eventAddress"
+                                            class="form-control" readonly placeholder="Enter location of event">
                                     </div>
                                 </div>
 
@@ -80,16 +97,30 @@ background-size: 100%;
                                 <div class="form-group; mb-3 row">
                                     <label for="eventDate" class="col-sm-2 col-form-label">Event Date</label><br>
                                     <div class="col-md-6">
-                                    <input id="eventDate" type="date"  name="eventDate" class="form-control" [(ngModel)]="bookevent.eventDate" placeholder="Enter date of event"  >
+                                        <input id="eventDate" [min]="currentDate" type="date" name="eventDate" class="form-control"
+                                            [(ngModel)]="bookevent.eventDate" placeholder="Enter date of event">
                                     </div>
                                 </div>
 
                                 <div class="row mb-3"></div>
 
                                 <div class="form-group; mb-3 row">
-                                    <label for="eventTime" class="col-sm-2 col-form-label">Event Time</label><br>
+                                    <label for="eventTime" class="col-sm-2 col-form-label">Event Time From</label><br>
                                     <div class="col-md-6">
-                                        <input id="eventTime" type="text"  name="eventTime" class="form-control"  [(ngModel)]="bookevent.eventTime" placeholder="Eg.5pm-10pm" required="" >
+                                        <ngx-timepicker-field [format]="12" name="fromtime"
+                                            [(ngModel)]="bookevent.eventFromTime" (timeChanged)="onChangeHour()">
+                                        </ngx-timepicker-field>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3"></div>
+
+                                <div class="form-group; mb-3 row">
+                                    <label for="eventTime" class="col-sm-2 col-form-label">Event Time To</label><br>
+                                    <div class="col-md-6">
+                                        <ngx-timepicker-field [format]="12" name="totime"
+                                            [(ngModel)]="bookevent.eventToTime" (timeChanged)="onChangeHour()">
+                                        </ngx-timepicker-field>
                                     </div>
                                 </div>
 
@@ -98,7 +129,8 @@ background-size: 100%;
                                 <div class="form-group; mb-3 row">
                                     <label for="noOfPeople" class="col-sm-2 col-form-label">People Count</label><br>
                                     <div class="col-md-6">
-                                    <input type="text"  id="noOfPeople" class="form-control"  placeholder="Enter number of people"  >
+                                        <input type="number" id="noOfPeople" class="form-control"
+                                            placeholder="Enter number of people">
                                     </div>
                                 </div>
 
@@ -109,20 +141,23 @@ background-size: 100%;
                                 <div class="row mb-3"></div>
                                 <div class="nextBtn; col-md-6 text-end">
                                     <button id="nextPageButton" class="nextBtn; btn btn-dark" class="btn">
-                                        <span class="btn btn-dark" (click)="nextPage()" >Next Page</span>
+                                        <span class="btn btn-dark" (click)="nextPage()">Next Page</span>
                                         <i class="uil uil-navigator"></i>
                                     </button>
                                 </div>
 
                                 <div class="row mb-3"></div>
 
-                                <div class="btn-toolbar; col-md-6 "  style="margin-left: 50px;" role="toolbar" aria-label="Toolbar with button groups">
+                                <div class="btn-toolbar; col-md-6 " style="margin-left: 50px;" role="toolbar"
+                                    aria-label="Toolbar with button groups">
                                     <div class="btn-group me-2 page" role="group" aria-label="First group">
-                                        <button disabled="" type="button" class="btn btn-outline-dark" class="btn">Page1</button>&nbsp;&nbsp;
-                                        <button type="button"  (click)="nextPage()" class="btn btn-outline-dark" class="btn">Page2</button>&nbsp;&nbsp;
+                                        <button disabled="" type="button" class="btn btn-outline-dark"
+                                            class="btn">Page1</button>&nbsp;&nbsp;
+                                        <button type="button" (click)="nextPage()" class="btn btn-outline-dark"
+                                            class="btn">Page2</button>&nbsp;&nbsp;
                                     </div>
                                 </div>
-                                <br/><br/>
+                                <br /><br />
                             </div>
                         </div>
                     </div>
@@ -131,70 +166,86 @@ background-size: 100%;
 
 
             <div *ngIf="currentPage === 2">
-                <form action="#" (ngSubmit) = "onSubmit()">
+                <form action="#" (ngSubmit)="onSubmit()">
                     <div class="form second">
                         <div class="details food and addOns">
                             <span class="title" class="btn4"><b>Food Catering Details</b></span>
-                            <br/><br/>
+                            <br /><br />
 
                             <div class="fields; row g-3">
-                            <div class="form-group;  mb-3 row">
-                                <label for="selectFoodCategory" class="col-sm-2 col-form-label">Food Type</label><br>
-                                <div class="col-md-8">
+                                <div class="form-group;  mb-3 row">
+                                    <label for="selectFoodCategory" class="col-sm-2 col-form-label">Food
+                                        Type</label><br>
+                                    <div class="col-md-8">
 
-                                <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle dropdownbtn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Select Food Item(s)
-                                    </button>
-                                <ul  class = "dropdown-menu dropdownfood" aria-labelledby="dropdownMenuButton1" >
-                                    <table class = "table table-striped">
-                                        <thead>
-                                        <tr>
-                                            <th>Food Item</th>
-                                            <th>Price</th>
-                                            <th>Food Type</th>
-                                            <th></th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr *ngFor="let f of foodlis">
-                                            <td>{{f.foodMenuItems}}</td>
-                                            <td>{{ f.foodMenuCost}}</td>
-                                            <td>{{ f.foodMenuType}}</td>
-                                            <td><div>
-                                    <input class="form-check-input" type="checkbox" id="checkboxNoLabel" aria-label="..." (click)="FoodMenu(f.foodMenuID)">
-                                    </div></td>
-                                        </tr>
-                                        </tbody>
-                                        </table>
-                                </ul>
+                                        <div class="dropdown">
+                                            <button class="btn btn-secondary dropdown-toggle dropdownbtn" type="button"
+                                                id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                                                aria-expanded="false">
+                                                Select Food Item(s)
+                                            </button>
+                                            <ul class="dropdown-menu dropdownfood"
+                                                aria-labelledby="dropdownMenuButton1">
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Food Item</th>
+                                                            <th>Price</th>
+                                                            <th>Food Type</th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr *ngFor="let f of foodlis">
+                                                            <td>{{f.foodMenuItems}}</td>
+                                                            <td>{{ f.foodMenuCost}}</td>
+                                                            <td>{{ f.foodMenuType}}</td>
+                                                            <td>
+                                                                <div>
+                                                                    <input class="form-check-input" type="checkbox"
+                                                                        id="checkboxNoLabel" aria-label="..."
+                                                                        (click)="FoodMenu(f.foodMenuID)" [checked]="f.selected">                                                            
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </ul>
+                                        </div>
+
+
+
+                                    </div>
                                 </div>
 
+                                <div *ngIf="selecteditemveg()">
+                                    <div class="row mb-3"></div>
 
-
+                                    <div class="form-group; mb-3 row">
+                                        <label for="quantityOfVeg" class="col-sm-2 col-form-label">Quantity of <br> Veg
+                                            Items</label><br>
+                                        <div class="col-md-6">
+                                            <input type="number" id="quantityOfVeg" class="form-control"
+                                                placeholder="Enter Quantity of Veg items" required="" name="vegCount" min= "1"
+                                                [(ngModel)]="bookevent.vegCount">
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                                <div *ngIf="selecteditemnonveg()">
+                                    <div class="row mb-3"></div>
 
+                                    <div class="form-group; mb-3 row">
+                                        <label for="quantityOfNonVeg" class="col-sm-2 col-form-label">Quantity of <br>
+                                            Non Veg Items</label><br>
+                                        <div class="col-md-6">
+                                            <input type="number" id="quantityOfNonVeg" class="form-control"
+                                                placeholder="Enter Quality of Non veg items" required=""
+                                                min = "1" name="nonvegCount" [(ngModel)]="bookevent.nonvegCount">
+                                        </div>
+                                    </div>
+                                </div>
 
-                        <div class="row mb-3"></div>
-
-                        <div class="form-group; mb-3 row">
-                            <label for="quantityOfVeg" class="col-sm-2 col-form-label">Quantity of <br> Veg Items</label><br>
-                            <div class="col-md-6">
-                            <input type="number"  id="quantityOfVeg" class="form-control" placeholder="Enter Quantity of Veg items" required="" >
-                            </div>
-                        </div>
-
-                        <div class="row mb-3"></div>
-
-                        <div class="form-group; mb-3 row">
-                            <label for="quantityOfNonVeg" class="col-sm-2 col-form-label">Quantity of <br> Non Veg Items</label><br>
-                            <div class="col-md-6">
-                            <input type="number"  id="quantityOfNonVeg" class="form-control" placeholder="Enter Quality of Non veg items" required="" >
-                            </div>
-                        </div>
-
-                        <div class="row mb-3"></div>
+                                <div class="row mb-3"></div>
                             </div>
                         </div>
 
@@ -205,65 +256,74 @@ background-size: 100%;
 
                             <div class="fields; row g-3">
                                 <div class="form-group;  mb-3 row">
-                                    <label for="selectAddOnsCategory" class="col-sm-2 col-form-label">AddOns Type</label><br>
+                                    <label for="selectAddOnsCategory" class="col-sm-2 col-form-label">AddOns
+                                        Type</label><br>
                                     <div class="col-md-8">
 
-                                    <div class="addonDiv">
-                                    <ul  class = "addontable" >
-                                        <table class = "table table-striped">
-                                        <thead>
-                                        <tr>
-                                            <th>Item</th>
-                                            <th>Price</th>
-                                            <th></th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr *ngFor="let i of lis">
-                                            <td>{{i.addOnName}}</td>
-                                            <td>{{ i.addAddonPrice}}</td>
-                                            <td><div>
-                                    <input class="form-check-input" type="checkbox" id="checkboxNoLabel" aria-label="..." (click)="Nothing(i.addOnid)">
-                                    </div></td>
-                                        </tr>
-                                        </tbody>
-                                        </table>
+                                        <div class="addonDiv">
+                                            <ul class="addontable">
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Item</th>
+                                                            <th>Price</th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr *ngFor="let i of lis">
+                                                            <td>{{i.addOnName}}</td>
+                                                            <td>{{ i.addAddonPrice}}</td>
+                                                            <td>
+                                                                <div>
+                                                                    <input class="form-check-input" type="checkbox"
+                                                                        id="checkboxNoLabel" aria-label="..."
+                                                                        (click)="Nothing(i.addOnid)" [checked]="i.selected">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
 
-                                    </ul>
-                                </div>
-                            </div>
+                                            </ul>
+                                        </div>
+                                    </div>
 
 
-                            <div class="buttons">
+                                    <div class="buttons">
 
-                                <div class="backBtn; col-md-6 text-end">
-                                    <button class="nextBtn; btn btn-dark" class="btn" style="
+                                        <div class="backBtn; col-md-6 text-end">
+                                            <button class="nextBtn; btn btn-dark" class="btn" style="
                                     margin-left: 285px;">
-                                        <span class="btn btn-dark" (click)="previousPage()">Back</span>&nbsp;&nbsp;
-                                        <i class="uil uil-navigator"></i>
-                                    </button>
-                                </div>
+                                                <span class="btn btn-dark"
+                                                    (click)="previousPage()">Back</span>&nbsp;&nbsp;
+                                                <i class="uil uil-navigator"></i>
+                                            </button>
+                                        </div>
 
-                                <div class="row mb-3"></div>
+                                        <div class="row mb-3"></div>
 
-                                <div class="btn-toolbar; col-md-6 " style="margin-left: 255px;" role="toolbar" aria-label="Toolbar with button groups">
-                                    <div class="btn-group me-2" role="group" aria-label="First group">
-                                    <button type="button" (click)="previousPage()" class="btn btn-outline-dark"class="btn">Page1</button>&nbsp;&nbsp;
-                                    <button disabled="" type="button" class="btn btn-outline-dark" class="btn">Page2</button>&nbsp;&nbsp;
+                                        <div class="btn-toolbar; col-md-6 " style="margin-left: 255px;" role="toolbar"
+                                            aria-label="Toolbar with button groups">
+                                            <div class="btn-group me-2" role="group" aria-label="First group">
+                                                <button type="button" (click)="previousPage()"
+                                                    class="btn btn-outline-dark" class="btn">Page1</button>&nbsp;&nbsp;
+                                                <button disabled="" type="button" class="btn btn-outline-dark"
+                                                    class="btn">Page2</button>&nbsp;&nbsp;
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="submit" style="margin-left: 300px;">
+                                            <button id="bookEvent" class="btn btn-dark" type="submit">
+                                                Submit
+                                            </button>
+                                        </div>
+                                        <br />
+                                        <br /><br />
+
                                     </div>
                                 </div>
-                                <br>
-                                <div class="submit" style="margin-left: 300px;">
-                                <button id="bookEvent" class="btn btn-dark"  type="submit" >
-                                    Submit
-                                </button>
-                                </div>
-                                <br/>
-                                <br/><br/>
-
                             </div>
-                        </div>
-                    </div>
                         </div>
                     </div>
                 </form>

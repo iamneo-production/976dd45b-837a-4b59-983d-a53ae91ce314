@@ -61,7 +61,7 @@ const routes: Routes = [
         { path: 'viewbookevent', component: MybookingComponent},
         { path: 'editEvent/:eventId' ,component:EditEventComponent}
       ],
-      // canActivate: [AuthComponent]
+      canActivate: [AuthComponent]
     },
       { path: 'home', component: HomeComponent},
       { path: 'signup', component: SignupComponent},

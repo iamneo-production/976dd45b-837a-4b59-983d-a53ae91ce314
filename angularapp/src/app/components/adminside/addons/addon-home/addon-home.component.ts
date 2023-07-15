@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { addon } from 'src/app/class/addon';
+import { Addon } from 'src/app/class/addon';
 import { AddonserviceService } from 'src/app/services/addonservice.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { AddonserviceService } from 'src/app/services/addonservice.service';
   styleUrls: ['./addon-home.component.css']
 })
 export class AddonHomeComponent implements OnInit {
-  addons: addon[] = [];
+  addons: Addon[] = [];
 
   private getAddons(): void{
     this.addservice.getAddon().subscribe(data => {
