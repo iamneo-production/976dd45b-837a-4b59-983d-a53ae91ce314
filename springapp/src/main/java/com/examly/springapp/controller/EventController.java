@@ -89,5 +89,11 @@ public class EventController
     List<EventModel> booking = eservice.getbookingById(userId);
    return booking;
  }
-
+ @PutMapping("/user/editReview/{eventId}")
+ public String editReview(@PathVariable int eventId,@RequestBody EventModel e){
+  EventModel booking = eservice.findById(eventId);
+  booking.setReview(e.getReview());
+  eservice.editReview(booking);
+  return "\"Review Updated\"";
+ }
 }

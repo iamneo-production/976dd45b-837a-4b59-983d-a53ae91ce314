@@ -49,4 +49,10 @@ public class EventServiceImpl implements EventService{
     public List<EventModel> getbookingById(long userId) {
         return eRepo.findByuserId(userId);
     }
+    @Override
+    public void editReview(EventModel event)
+    {
+        eRepo.save(event);
+    }
+   
 }
