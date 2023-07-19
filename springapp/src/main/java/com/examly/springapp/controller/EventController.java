@@ -72,6 +72,7 @@ public class EventController
     event.setEventMenuId(e.getEventMenuId());
     event.setVegCount(e.getVegCount());
     event.setNonvegCount(e.getNonvegCount());
+    event.setNoOfPeople(e.getNoOfPeople());
     eservice.editEvent(event);
    
     return "\"Updated Successfully\" ";

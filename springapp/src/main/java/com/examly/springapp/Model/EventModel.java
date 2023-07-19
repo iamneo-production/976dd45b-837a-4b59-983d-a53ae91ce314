@@ -20,6 +20,7 @@ public class EventModel {
     private String eventDate;
     private String review;
 	private String eventTime;
+    private String noOfPeople;
     
     @ElementCollection()
     @CollectionTable(name = "addon_ids")
@@ -187,5 +188,10 @@ public class EventModel {
 		this.review = review;
 	}
 
-
+    public String getNoOfPeople() {
+		return noOfPeople;
+	}
+	public void setNoOfPeople(String noOfPeople) {
+		this.noOfPeople = noOfPeople;
+	}
 }
