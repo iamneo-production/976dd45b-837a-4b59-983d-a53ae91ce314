@@ -1,43 +1,64 @@
-<div class="col-md-8 offset-md-2" >
-    <h2 >Update Theme</h2>
+<div class="back">
+    <div class="col-md-8 offset-md-2" >
+        <div><h2><button id="btn2" (click)="back()"> <i class="fa fa-arrow-left" aria-hidden="true"></i> </button> Update Theme</h2> </div>
     <br>
-    <form (ngSubmit) = "onSubmit()">
-        <div class ="form-group">
-            <label>Photographer Details</label>
-            <input type = "text" id = "photographerDetails" class="form-control"
+    <form (ngSubmit) = "onSubmit()" #updatethemeform="ngForm">
+        <div class ="form-group" [class.has-error]="phName.invalid && phName.touched">
+            <label>Photographer Details</label><br/><br/>
+            <input type = "text" id = "photographerDetails" class="form-control" required="" #phName="ngModel"
                     [(ngModel)] = "theme.themePhotographer" name = "themePhotographer" placeholder="Enter photographerDetails">
-        </div >
-        <div class ="form-group">
-            <label>Return Gift</label>
-            <input type = "text" id = "returnGift" class="form-control"
+        </div ><br/>
+        <div class="error" *ngIf="phName.invalid && phName.touched"> This field can't be empty <i class="fa fa-exclamation-triangle" aria-hidden="true"></i><br/><br/>
+        </div>
+        <div class ="form-group"  [class.has-error]="returngift.invalid && returngift.touched">
+            <label>Return Gift</label><br/><br/>
+            <input type = "text" id = "returnGift" class="form-control" required="" #returngift="ngModel"
                     [(ngModel)] = "theme.themeReturnGift" name = "themeReturnGift" placeholder="Enter returnGift">
+        </div><br/>
+        <div class="error" *ngIf="returngift.invalid && returngift.touched"> This field can't be empty <i class="fa fa-exclamation-triangle" aria-hidden="true"></i><br/><br/>
         </div>
-        <div class ="form-group">
-            <label>Theme Name</label>
-            <input type = "text" id = "themeName" class="form-control"
-                    [(ngModel)] = "theme.themeName" name = "themeName" placeholder="Enter themeName">
+
+        <div class ="form-group" [class.has-error]="NameControl.invalid && NameControl.touched">
+            <label>Theme Name</label><br/><br/>
+            <input type = "text" id = "themeName" class="form-control" required="" #NameControl="ngModel"
+                    [(ngModel)] = "theme.themeName" name = "themeName" pattern="[a-zA-Z][a-zA-Z ]+" placeholder="Enter themeName">
+        </div><br/>
+        <div class="error">
+            <br>
+            <div *ngIf="NameControl.errors?.required && NameControl.touched"> This field can't be empty <i
+                    class="fa fa-exclamation-triangle" aria-hidden="true"></i><br /><br /></div>
+            <div *ngIf="NameControl.errors?.pattern && NameControl.touched">Food Name contains only Characters.<br /><br /></div>
         </div>
-        <div class ="form-group">
-            <label>Image Url</label>
-            <input type = "text" id = "imageUrl" class="form-control"
+        <div class ="form-group" [class.has-error]="ImageControl.invalid && ImageControl.touched">
+            <label>Image Url</label><br/><br/>
+            <input type = "text" id = "imageUrl" class="form-control" required="" #ImageControl="ngModel"
                     [(ngModel)] = "theme.themeImageURL" name = "themeImageURL" placeholder="Enter imageUrl">
+        </div><br/>
+        <div class="error" *ngIf="ImageControl.invalid && ImageControl.touched"> This field can't be empty <i class="fa fa-exclamation-triangle" aria-hidden="true"></i><br/><br/>
         </div>
-        <div class ="form-group">
-            <label>Videographer Details</label>
-            <input type = "text" id = "videographerDetails" class="form-control"
+        <div class ="form-group"  [class.has-error]="vdname.invalid && vdname.touched">
+            <label>Videographer Details</label><br/><br/>
+            <input type = "text" id = "videographerDetails" class="form-control" required="" #vdname="ngModel"
                     [(ngModel)] = "theme.themeVideographer" name = "themeVideographer" placeholder="Enter videographerDetails">
+        </div><br/>
+        <div class="error" *ngIf="vdname.invalid && vdname.touched"> This field can't be empty <i class="fa fa-exclamation-triangle" aria-hidden="true"></i><br/><br/>
         </div>
-        <div class ="form-group">
-            <label>Theme Cost</label>
-            <input type = "number" id = "themeCost" class="form-control"
+        <div class ="form-group" [class.has-error]="cost.invalid && cost.touched">
+            <label>Theme Cost</label><br/><br/>
+            <input type = "number" id = "themeCost" class="form-control" required="" #cost="ngModel"
                     [(ngModel)] = "theme.themeCost" name = "themeCost" placeholder="Enter themeCost">
+        </div><br/>
+        <div class="error" *ngIf="cost.invalid && cost.touched"> This field can't be empty <i class="fa fa-exclamation-triangle" aria-hidden="true"></i><br/><br/>
         </div>
-        <div class ="form-group">
-            <label>Theme Description</label>
-            <input type = "text" id = "themeDescription" class="form-control"
+        <div class ="form-group" [class.has-error]="description.invalid && description.touched">
+            <label>Theme Description</label><br/><br/>
+            <input type = "text" id = "themeDescription" class="form-control" required="" #description="ngModel"
                     [(ngModel)] = "theme.themeDescription" name = "themeDescription" placeholder="Enter themeDescription">
+        </div><br/>
+        <div class="error" *ngIf="description.invalid && description.touched"> This field can't be empty <i class="fa fa-exclamation-triangle" aria-hidden="true"></i><br/><br/>
         </div>
-        <button class="btn btn-outline-success mt-3 mb-2" type = "submit">SUBMIT</button>
+        <button class="btn btn-outline-success mt-3 mb-2" type = "submit" [disabled]="updatethemeform.form.invalid">SUBMIT</button>
     </form>
     
+</div>
 </div>

@@ -1,39 +1,57 @@
 <div class="back">
-<div class="col-md-8 offset-md-2">
-    <h2 >Add Food Item</h2>
-    <br>
-        <form (ngSubmit) = "onSubmit(foodMenuType.value)">
+    <div class="col-md-8 offset-md-2">
+        <div>
+            <h2><button id="btn1" (click)="back()"> <i class="fa fa-arrow-left" aria-hidden="true"></i> </button> Add
+                Food Item</h2>
+        </div>
+        <br>
+        <form (ngSubmit)="onSubmit(foodMenuType.value)" #addmenuform="ngForm">
             <!-- Url of the image is to be entered here -->
-            <div class ="form-group">
-                <input type = "text" class="form-control" id = "foodMenuImage" 
-                    [(ngModel)] = "addmenu.foodMenuImage" name = "foodMenuImage" placeholder="Enter URL of image">
+            <div class="form-group " [class.has-error]="ImageControl.invalid && ImageControl.touched">
+                <input type="text" class="form-control" id="foodMenuImage" required [(ngModel)]="addmenu.foodMenuImage"
+                    name="foodMenuImage" #ImageControl="ngModel" placeholder="Enter URL of image">
             </div>
             <br>
+            <div class="error" *ngIf="ImageControl.invalid && ImageControl.touched"> This field can't be empty <i
+                    class="fa fa-exclamation-triangle" aria-hidden="true"></i><br /><br />
+            </div>
             <!-- Name of the foodmenu to be added is to be entered here -->
-            <div class ="form-group">
-                <input type = "text" class="form-control" id = "foodMenuItems" 
-                    [(ngModel)] = "addmenu.foodMenuItems" name = "foodMenuItems" placeholder="Enter Name">
+            <div class="form-group" [class.has-error]="fullNameControl.invalid && fullNameControl.touched">
+                <input type="text" class="form-control" id="foodMenuItems" required pattern="[a-zA-Z][a-zA-Z ]+"
+                    [(ngModel)]="addmenu.foodMenuItems" name="foodMenuItems" #fullNameControl="ngModel"
+                    placeholder="Enter Name">
             </div>
-            <br>
+            <div class="error">
+                <br>
+                <div *ngIf="fullNameControl.errors?.required && fullNameControl.touched"> This field can't be empty <i
+                        class="fa fa-exclamation-triangle" aria-hidden="true"></i><br /><br /></div>
+                <div *ngIf="fullNameControl.errors?.pattern && fullNameControl.touched">Food Name contains only Characters.<br /><br /></div>
+            </div>
             <!-- Type/category of the foodmenu to be added is to be entered here -->
-            <div class ="form-group">
-                    <select id="foodMenuType" #foodMenuType  class="form-select" [(ngModel)] = "addmenu.foodMenuType" name = "foodMenuType" >
-                        <option value="" disabled selected>Select a Food Type</option>
-                        <option value="Veg">Veg</option>
-                        <option value="Non-Veg">Non-Veg</option>
-                      </select>
+            <div class="form-group" [class.has-error]="typeControl.invalid && typeControl.touched">
+                <select id="foodMenuType" #foodMenuType required="" class="form-select"
+                    [(ngModel)]="addmenu.foodMenuType" name="foodMenuType" #typeControl="ngModel">
+                    <option value="" disabled selected>Select a Food Type</option>
+                    <option value="Veg">Veg</option>
+                    <option value="Non-Veg">Non-Veg</option>
+                </select>
             </div>
             <br>
+            <div class="error" *ngIf="typeControl.invalid && typeControl.touched"> This field can't be empty <i
+                    class="fa fa-exclamation-triangle" aria-hidden="true"></i><br /><br />
+            </div>
             <!-- Cost of the foodmenu to be added is to be entered here -->
-            <div class ="form-group">
-                <input type = "text" class="form-control" id = "foodMenuCost" 
-                    [(ngModel)] = "addmenu.foodMenuCost" name = "foodMenuCost" placeholder="Enter Cost">
+            <div class="form-group" [class.has-error]="costControl.invalid && costControl.touched">
+                <input type="text" class="form-control" id="foodMenuCost" required [(ngModel)]="addmenu.foodMenuCost"
+                    name="foodMenuCost" #costControl="ngModel" type="number" placeholder="Enter Cost">
             </div>
             <br>
+            <div class="error" *ngIf="costControl.invalid && costControl.touched"> This field can't be empty <i
+                    class="fa fa-exclamation-triangle" aria-hidden="true"></i><br /><br />
+            </div>
+
             <!-- Submit button to add food menu -->
-            <button class = "btn btn-success" type = "submit">SUBMIT</button>
+            <button class="btn btn-success" type="submit" [disabled]="addmenuform.form.invalid">ADD MENU</button>
         </form>
-        
     </div>
 </div>
-    
