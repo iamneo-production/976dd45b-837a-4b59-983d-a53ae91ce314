@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { Addon } from '../../../../class/addon';
 import { Router } from '@angular/router';
 import { AddonserviceService } from '../../../../services/addonservice.service';
 import { ToastrService } from 'ngx-toastr';
+import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-addaddons',
@@ -14,17 +15,33 @@ export class AddaddonsComponent implements OnInit{
 
   newaddon: Addon = new Addon();
 
-  constructor(private router: Router, private addservice: AddonserviceService,private toastr: ToastrService){
+  addonForm: FormGroup;
+
+  constructor(private router: Router, private addservice: AddonserviceService, private fb: FormBuilder,private toastr: ToastrService){
 
   }
   saves(): void{
-    this.toastr.success('New Addon is added successfully!','Addon Status' );
-    this.addservice.addAddon(this.newaddon).subscribe(data => {
+    console.log(this.newaddon);
+    this.addservice.addAddon(this.newaddon).subscribe((data) => {
     console.log(data);
-    this.gotoaddon(); } );
+    },
+    (error) => {
+      console.error('Failed to add food item:', error);
+      this.toastr.warning('New Addon is not added successfully!','Addon Status' );
+    }
+    
+   );
+     this.gotoaddon();
   }
 
   ngOnInit(): void{
+    this.addonForm = this.fb.group({
+      addOnName:['',[Validators.required,Validators.pattern("[a-zA-Z][a-zA-Z ]+")]],
+      addAddonPrice:['',[Validators.required,Validators.pattern("^[1-9][0-9]*")]],
+      addonDescription:['']
+    }
+
+    )
 
   }
 
@@ -33,6 +50,7 @@ export class AddaddonsComponent implements OnInit{
   }
 
   onSubmit(): void{
+    console.log(this.addonForm);
     this.saves();
   }
 

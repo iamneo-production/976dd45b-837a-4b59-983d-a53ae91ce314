@@ -21,9 +21,13 @@
         <div class ="form-group" [class.has-error]="NameControl.invalid && NameControl.touched">
             <label>Theme Name</label><br/><br/>
             <input type = "text" id = "themeName" class="form-control" required="" #NameControl="ngModel"
-                    [(ngModel)] = "theme.themeName" name = "themeName" placeholder="Enter themeName">
+                    [(ngModel)] = "theme.themeName" name = "themeName" pattern="[a-zA-Z][a-zA-Z ]+" placeholder="Enter themeName">
         </div><br/>
-        <div class="error" *ngIf="NameControl.invalid && NameControl.touched"> This field can't be empty <i class="fa fa-exclamation-triangle" aria-hidden="true"></i><br/><br/>
+        <div class="error">
+            <br>
+            <div *ngIf="NameControl.errors?.required && NameControl.touched"> This field can't be empty <i
+                    class="fa fa-exclamation-triangle" aria-hidden="true"></i><br /><br /></div>
+            <div *ngIf="NameControl.errors?.pattern && NameControl.touched">Food Name contains only Characters.<br /><br /></div>
         </div>
         <div class ="form-group" [class.has-error]="ImageControl.invalid && ImageControl.touched">
             <label>Image Url</label><br/><br/>
@@ -47,9 +51,9 @@
         <div class="error" *ngIf="cost.invalid && cost.touched"> This field can't be empty <i class="fa fa-exclamation-triangle" aria-hidden="true"></i><br/><br/>
         </div>
         <div class ="form-group" [class.has-error]="description.invalid && description.touched">
-            <label>Theme Description</label><br/><br/>
+            <label>Theme Location</label><br/><br/>
             <input type = "text" id = "themeDescription" class="form-control" required="" #description="ngModel"
-                    [(ngModel)] = "theme.themeDescription" name = "themeDescription" placeholder="Enter themeDescription">
+                    [(ngModel)] = "theme.themeDescription" name = "themeDescription" placeholder="Enter theme location">
         </div><br/>
         <div class="error" *ngIf="description.invalid && description.touched"> This field can't be empty <i class="fa fa-exclamation-triangle" aria-hidden="true"></i><br/><br/>
         </div>
