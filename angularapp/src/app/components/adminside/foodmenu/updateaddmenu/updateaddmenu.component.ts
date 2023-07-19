@@ -44,6 +44,10 @@ export class UpdateaddmenuComponent implements OnInit {
       this.gotoAddmenu();
     });
   }
+  back(): any{
+  
+    this.router.navigate(['admin/addmenu']);
+  }
 
 
 }

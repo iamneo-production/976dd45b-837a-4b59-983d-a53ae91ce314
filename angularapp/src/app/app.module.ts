@@ -32,13 +32,16 @@ import { UpdateaddonsComponent } from './components/adminside/addons/updateaddon
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { NavbarUserComponent } from './components/customerside/navbar-user/navbar-user.component';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { ErrorInterceptorInterceptor } from './interceptor/error-interceptor.interceptor';
+import { FrontEndErrorComponent } from './interceptor/front-end-error/front-end-error.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +71,8 @@ import { ToastrModule } from 'ngx-toastr';
     NewThemeComponent,
     UpdatethemeComponent,
     AddonHomeComponent,
-    UpdateaddonsComponent
+    UpdateaddonsComponent,
+    FrontEndErrorComponent
 
   ],
   imports: [
@@ -87,7 +91,13 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptorInterceptor,
+      multi: true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
