@@ -68,3 +68,27 @@ label{
     font-weight: 500;
 }
 
+.error{
+    color: red;
+    margin-right: 640px;
+    font-weight: 700;
+  }
+
+  #btn2{
+
+    background-image: linear-gradient(to left,rgb(252, 169, 175),rgb(189, 189, 241));
+   border-radius: 5px;
+   color:black;
+   border:none;
+   width:50px;
+   height:40px;
+   transition-duration: 0.4s;
+   margin-left:-1100px;
+   margin-top: 50px;
+   
+  
+  }
+  
+  #btn2:hover{
+   background-image: linear-gradient(to left,pink,rgb(5, 195, 248));
+  }
