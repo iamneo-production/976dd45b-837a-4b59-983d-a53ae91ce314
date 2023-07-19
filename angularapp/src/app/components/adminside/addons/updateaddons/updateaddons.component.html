@@ -14,7 +14,7 @@
             <input class="form-control" type = "text" id = "addOnsImageurl" 
                     [(ngModel)] = "newaddon.addonDescription" name = "addonDescription" placeholder="Enter URL of image">
         </div>
-        <button class="btn btn-outline-success mt-2" id="addAddOns" type = "submit">SUBMIT</button>
+        <button id="btn1" (click)="back()"> <i class="fa fa-arrow-left" aria-hidden="true"></i>  </button>  &nbsp; &nbsp; <button class="btn btn-outline-success mt-2" id="addAddOns" type = "submit">SUBMIT</button>
         </div>
     </form>
 </div>

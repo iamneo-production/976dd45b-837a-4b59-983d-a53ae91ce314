@@ -45,4 +45,9 @@ export class AddaddmenuComponent implements OnInit{
     this.saveAddMenu();
   }
 
+  back(): any{
+  
+    this.router.navigate(['admin/addmenu']);
+  }
+
 }
