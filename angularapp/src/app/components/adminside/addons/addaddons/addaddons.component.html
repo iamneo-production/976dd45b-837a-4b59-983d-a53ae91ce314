@@ -1,25 +1,46 @@
 <!-- <router-outlet></router-outlet> -->
-<div  class="back">
-    <form (ngSubmit) = "onSubmit()">
-    <div class = "form-group col addonForm">
-        <div class="width p-2">
-            <input class="form-control" type = "text" id = "addOnsName" 
-                    [(ngModel)] = "newaddon.addOnName" name = "addOnName" placeholder="Enter name">
+<!-- <router-outlet></router-outlet> -->
+<div class="back">
+    <form (ngSubmit)="onSubmit()" [formGroup]="addonForm">
+        <div class="form-group col addOnForm">
+            <div class="width p-2">
+                <input class="form-control" type="text" id="addOnsName" [(ngModel)]="newaddon.addOnName"
+                    formControlName="addOnName" placeholder="Enter name">
+
+                <div *ngIf="addonForm.get('addOnName').invalid && addonForm.get('addOnName').touched"
+                    class="alert alert-danger" style="padding:5px;font-weight: 600;">
+                    <small *ngIf="addonForm.get('addOnName').errors.required">
+                        ADD-ON Name is Mandatory
+                    </small>
+                    <small *ngIf="addonForm.get('addOnName').errors.pattern">
+                        ADD-ON Name should contain only alphabets
+                    </small>
+
+                </div>
+            </div>
+            <div class="width p-2">
+                <input class="form-control" type="text" id="addOnsPrice" [(ngModel)]="newaddon.addAddonPrice"
+                    formControlName="addAddonPrice" placeholder="Enter Price">
+                <div *ngIf="addonForm.get('addAddonPrice').invalid && addonForm.get('addAddonPrice').touched"
+                    class="alert alert-danger" style="padding:5px;font-weight: 600;">
+                    <small *ngIf="addonForm.get('addAddonPrice').errors.required">
+                        ADD-ON Price is Mandatory
+                    </small>
+                    <small *ngIf="addonForm.get('addAddonPrice').errors.pattern">
+                        ADD-ON Name should contain only numbers
+                    </small>
+                </div>
+            </div>
+            <div class="width p-2">
+                <input class="form-control" type="text" id="addOnsImageurl" [(ngModel)]="newaddon.addonDescription"
+                    formControlName="addonDescription" placeholder="Enter URL of image">
+            </div>
+            <div style="margin-top:15px;margin-left:20px;">
+                <button class = "btn btn-warning" (click)="back()">BACK</button> &nbsp;
+                &nbsp; <button [ngClass]="addonForm.invalid ? 'btn btn-danger' : 'btn btn-success'"
+                    [disabled]="addonForm.invalid" id="addAddOns" type="submit">ADD</button>
+            </div>
         </div>
-        <div class="width p-2">
-            <input class="form-control" type = "text" id = "addOnsPrice" 
-                    [(ngModel)] = "newaddon.addAddonPrice" name = "addAddonPrice" placeholder="Enter Price">
-        </div>
-        <div class="width p-2">
-            <input class="form-control" type = "text" id = "addOnsImageurl" 
-                    [(ngModel)] = "newaddon.addonDescription" name = "addonDescription" placeholder="Enter URL of image">
-        </div>
-        
-    </div>
-    <button id="btn1" (click)="back()"> <i class="fa fa-arrow-left" aria-hidden="true"></i>  </button>  &nbsp; &nbsp;<button class="btn btn-outline-success mt-2 mb-2"  id="addAddOns" type = "submit">SUBMIT</button>
-   
-</form>
-    
+    </form>
 </div>
 <app-addon-home></app-addon-home>
-    
