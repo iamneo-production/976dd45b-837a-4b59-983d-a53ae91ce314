@@ -43,7 +43,8 @@ export class AddeventComponent implements OnInit {
   foodsum = 0; 
   addsum=0;
   currentDate: any;
-
+  selectedFoodItemIds: number[] = [];
+  selectedAddOnsIds: number[] = [];
 
   constructor(private bookEventService: BookEventService,
               private ser: AddonserviceService, private toastr: ToastrService,
@@ -80,15 +81,25 @@ export class AddeventComponent implements OnInit {
 
     this.foodService.getMenu().subscribe((data) => {
       this.foodlis = data;
+      this.getSelectedFoodItems();
       console.log(data);
     });
     // addonid/menuid
   }
-
+  getSelectedFoodItems(): void{
+    this.foodlis.forEach(f => {
+      f.selected = this.selectedFoodItemIds.includes(f.foodMenuID);
+    });
+    this.lis.forEach(addItem => {
+      addItem.selected = this.selectedAddOnsIds.includes(addItem.addOnid);        
+    });
+    console.log("value in selected food items ids ",this.selectedFoodItemIds);
+  }
   nextPage(): void {
     if (this.currentPage < 2) {
       this.currentPage++;
     }
+    this.getSelectedFoodItems();
   }
 
   previousPage(): void {
@@ -98,7 +109,6 @@ export class AddeventComponent implements OnInit {
       this.currentPage--;
     }
   }
-
 
   onSubmit(): void {
     console.log(this.bookevent);
@@ -138,6 +148,8 @@ export class AddeventComponent implements OnInit {
     this.bookevent.eventCost = String(this.totalCost);
     this.bookevent.addonId=(this.l);
     console.log(this.l);
+    this.selectedAddOnsIds = this.bookevent.addonId;
+    console.log(this.selectedAddOnsIds);
   }
 
   addonstotal(): any{
@@ -173,6 +185,8 @@ export class AddeventComponent implements OnInit {
 
     this.bookevent.eventCost = String(this.totalCost);
     this.bookevent.eventMenuId = (this.j);
+    this.selectedFoodItemIds = this.bookevent.eventMenuId;
+    console.log("value in j",this.selectedFoodItemIds);
   }
 
   foodmenutotal(): any{
