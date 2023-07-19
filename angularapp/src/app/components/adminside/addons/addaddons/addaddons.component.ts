@@ -35,4 +35,9 @@ export class AddaddonsComponent implements OnInit{
   onSubmit(): void{
     this.saves();
   }
+
+  back(): any{
+  
+    this.router.navigate(['admin/addon']);
+  }
 }
