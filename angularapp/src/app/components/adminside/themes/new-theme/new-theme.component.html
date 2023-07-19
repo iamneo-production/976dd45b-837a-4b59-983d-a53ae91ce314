@@ -97,11 +97,11 @@
 
                         <div class="form-group; mb-3 row"
                             [class.has-error]="description.invalid && description.touched">
-                            <label for="themeDescription" class="col-sm-2 col-form-label">Theme Description</label><br>
+                            <label for="themeDescription" class="col-sm-2 col-form-label">Theme Location</label><br>
                             <div class="col-sm-10">
                                 <input id="themeDescription" type="textarea" name="eventDate"
                                     [(ngModel)]="newtheme.themeDescription" class="form-control" required=""
-                                    #description="ngModel" placeholder="Enter theme description"
+                                    #description="ngModel" placeholder="Enter theme location"
                                     style="height: 40px; width: 500px;" required="" ngModel>
                             </div>
                         </div>
