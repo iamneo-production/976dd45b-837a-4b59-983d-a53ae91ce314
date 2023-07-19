@@ -16,9 +16,9 @@ public interface EventService {
      void deleteEvent(int eventid);
 
     void editEvent(EventModel event);
+    void editReview(EventModel e);
 
     EventModel findById(int eventid);
-
     //unique
    List<EventModel> getbookingById(long userId);
    

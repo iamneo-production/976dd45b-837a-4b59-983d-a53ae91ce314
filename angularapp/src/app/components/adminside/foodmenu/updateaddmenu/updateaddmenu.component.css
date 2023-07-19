@@ -1,0 +1,23 @@
+.error{
+    color: red;
+    margin-right: 370px;
+    font-weight: 700;
+  }
+  #btn1{
+
+    background-image: linear-gradient(to left,rgb(252, 169, 175),rgb(189, 189, 241));
+   border-radius: 5px;
+   color:black;
+   border:none;
+   width:50px;
+   height:40px;
+   transition-duration: 0.4s;
+   /* margin-left:-400px; */
+   margin-top: 50px;
+   
+  
+  }
+  
+  #btn1:hover{
+   background-image: linear-gradient(to left,pink,rgb(5, 195, 248));
+  }

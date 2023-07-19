@@ -34,4 +34,9 @@ export class UpdateaddonsComponent implements OnInit{
     this.gotoaddon();
     } );
   }
+  
+  back(): any{
+  
+    this.router.navigate(['admin/addon']);
+  }
 }
