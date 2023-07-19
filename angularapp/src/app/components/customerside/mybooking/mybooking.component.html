@@ -31,6 +31,31 @@
                     data-bs-toggle="modal" data-bs-target="#showDelete">Delete&nbsp;
                         <i class="fa fa-trash" aria-hidden="true" ></i>
                     </button>
+                   <!-- Button trigger modal -->&nbsp;
+<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">feedback&nbsp;
+  <i class="fa fa-comments-o" aria-hidden="true"></i>
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title col-11 text-center" id="exampleModalLabel">Add/Edit a Feedback</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <textarea class="form-control" id="textAreaExample" [(ngModel)]="e.review" rows="4"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="feedback(e)" data-bs-dismiss="modal">Submit
+
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
                 </td>
             </tr>
         </tbody>
