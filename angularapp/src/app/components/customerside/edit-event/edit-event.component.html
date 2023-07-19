@@ -95,7 +95,7 @@ background-size: 100%; background-size: cover; padding-top: 20px;">
                             <div class="form-group; mb-3 row">
                                 <label for="noOfPeople" class="col-sm-2 col-form-label">People Count</label><br>
                                 <div class="col-md-6">
-                                <input type="text"  id="noOfPeople" class="form-control"  placeholder="Enter number of people" required="" >
+                                <input type="text"  id="noOfPeople" class="form-control" min= "1" name="noOfPeople" placeholder="Enter number of people" required="" [(ngModel)]="formData.noOfPeople">
                                 </div>
                             </div>
     

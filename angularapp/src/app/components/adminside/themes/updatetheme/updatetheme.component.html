@@ -51,9 +51,9 @@
         <div class="error" *ngIf="cost.invalid && cost.touched"> This field can't be empty <i class="fa fa-exclamation-triangle" aria-hidden="true"></i><br/><br/>
         </div>
         <div class ="form-group" [class.has-error]="description.invalid && description.touched">
-            <label>Theme Description</label><br/><br/>
+            <label>Theme Location</label><br/><br/>
             <input type = "text" id = "themeDescription" class="form-control" required="" #description="ngModel"
-                    [(ngModel)] = "theme.themeDescription" name = "themeDescription" placeholder="Enter themeDescription">
+                    [(ngModel)] = "theme.themeDescription" name = "themeDescription" placeholder="Enter theme location">
         </div><br/>
         <div class="error" *ngIf="description.invalid && description.touched"> This field can't be empty <i class="fa fa-exclamation-triangle" aria-hidden="true"></i><br/><br/>
         </div>
