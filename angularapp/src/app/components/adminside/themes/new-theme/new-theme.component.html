@@ -1,86 +1,125 @@
 <div class="back">
-    <br/>
-    <div><h2><button id="btn2" (click)="back()"> <i class="fa fa-arrow-left" aria-hidden="true"></i> </button> Add theme </h2> </div>
-        <div class="container">
-                    
-              <form (ngSubmit) = "onSubmit()" #addthemeform="ngForm">
-                <div class="form first">
-                    <div class="details event">
-                        <br/><br/>
-                        <div class="fields">
-                            <div class="form-group; mb-3 row" [class.has-error]="NameControl.invalid && NameControl.touched">
-                                <label for="themeName" class="col-sm-2 col-form-label">Theme Name</label><br>
-                                <div class="col-sm-10">
-                                <input id="themeName" type="text"  [(ngModel)] = "newtheme.themeName" name = "themeName" class="form-control" required #NameControl="ngModel" placeholder="Enter theme name" style="height: 40px; width: 500px;" required="" ngModel>
-                                </div>
-                            </div>
-                            <div class="error" *ngIf="NameControl.invalid && NameControl.touched"> This field can't be empty <i class="fa fa-exclamation-triangle" aria-hidden="true"></i><br/><br/>
-                            </div>
-    
-                            <div class="form-group; mb-3 row" [class.has-error]="ImageControl.invalid && ImageControl.touched">
-                                <label for="imageUrl" class="col-sm-2 col-form-label">Image Url</label><br>
-                                <div class="col-sm-10">
-                                <input id=imageUrl type="text"  [(ngModel)] = "newtheme.themeImageURL" name = "themeImageURL" class="form-control"  type="url" required #ImageControl="ngModel" placeholder="Enter the image url"  style="height: 40px; width: 500px;" required="" ngModel>
-                                </div>
-                            </div>
-                            <div class="error" *ngIf="ImageControl.invalid && ImageControl.touched"> This field can't be empty <i class="fa fa-exclamation-triangle" aria-hidden="true"></i><br/><br/>
-                            </div>
-
-                            <div class="form-group; mb-3 row" [class.has-error]="phNameControl.invalid && phNameControl.touched">
-                                <label for="photographerDetails" class="col-sm-2 col-form-label">Photographer Details</label><br>
-                                <div class="col-sm-10">
-                                <input id="photographerDetails" type="text" [(ngModel)] = "newtheme.themePhotographer" name = "themePhotographer" class="form-control" required #phNameControl="ngModel" placeholder="Enter photographer details"  style="height: 40px; width: 500px;" required="" ngModel>
-                                </div>
-                            </div>
-                            <div class="error" *ngIf="phNameControl.invalid && phNameControl.touched"> This field can't be empty <i class="fa fa-exclamation-triangle" aria-hidden="true"></i><br/><br/>
-                            </div>
-
-                            <div class="form-group; mb-3 row" [class.has-error]="vdname.invalid && vdname.touched">
-                                <label for="videographerDetails" class="col-sm-2 col-form-label">Videographer Details</label><br>
-                                <div class="col-sm-10">
-                                <input id="videographerDetails" type="text" [(ngModel)] = "newtheme.themeVideographer" name = "themeVideographer" class="form-control" required #vdname="ngModel" placeholder="Enter videographer details"  style="height: 40px; width: 500px;" required="" ngModel>
-                                </div>
-                            </div>
-                            <div class="error" *ngIf="vdname.invalid && vdname.touched"> This field can't be empty <i class="fa fa-exclamation-triangle" aria-hidden="true"></i><br/><br/>
-                            </div>
-
-                            <div class="form-group; mb-3 row" [class.has-error]="returngift.invalid && returngift.touched">
-                                <label for="returnGift" class="col-sm-2 col-form-label">Theme return gift</label><br>
-                                <div class="col-sm-10">
-                                <input id="returnGift" type="email" [(ngModel)] = "newtheme.themeReturnGift" name = "themeReturnGift" class="form-control" required="" #returngift="ngModel" placeholder="Enter theme return gift"  style="height: 40px; width: 500px;" required="" ngModel>
-                                </div>
-                            </div>
-                            <div class="error" *ngIf="returngift.invalid && returngift.touched"> This field can't be empty <i class="fa fa-exclamation-triangle" aria-hidden="true"></i><br/><br/>
-                            </div>
-
-                            <div class="form-group; mb-3 row" [class.has-error]="cost.invalid && cost.touched">
-                                <label for="themeCost" class="col-sm-2 col-form-label">Theme cost</label><br>
-                                <div class="col-sm-10">
-                                <input id="themeCost" type="text"  [(ngModel)] = "newtheme.themeCost" name = "themeCost" class="form-control" required="" #cost="ngModel" placeholder="Enter theme cost"  type="number" style="height: 40px; width: 500px;" required="" ngModel>
-                                </div>
-                            </div>
-                            <div class="error" *ngIf="cost.invalid && cost.touched"> This field can't be empty <i class="fa fa-exclamation-triangle" aria-hidden="true"></i><br/><br/>
-                            </div>
-    
-                            <div class="form-group; mb-3 row" [class.has-error]="description.invalid && description.touched">
-                                <label for="themeDescription" class="col-sm-2 col-form-label">Theme Description</label><br>
-                                <div class="col-sm-10">
-                                <input id="themeDescription" type="textarea"  name="eventDate" [(ngModel)]="newtheme.themeDescription" class="form-control" required="" #description="ngModel" placeholder="Enter theme description"   style="height: 40px; width: 500px;" required="" ngModel>
-                                </div>
-                            </div> 
-                            <div class="error" *ngIf="description.invalid && description.touched"> This field can't be empty <i class="fa fa-exclamation-triangle" aria-hidden="true"></i><br/><br/>
-                            </div>
-                        </div>
-                      
-                        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                            <div class="btn-group add" role="group" aria-label="First group" >
-                              <button id="addTheme" class="btn btn-outline-primary" id="btn1" type="submit" [disabled]="addthemeform.form.invalid" > ADD THEME</button>
-                            </div>                        
-                        </div>
-                        <br/>
-                        <br/>
-                    </div>
-                </div>
-                </form>
-            </div>
+    <br />
+    <div>
+        <h2><button id="btn2" (click)="back()"> <i class="fa fa-arrow-left" aria-hidden="true"></i> </button> Add theme
+        </h2>
     </div>
+    <div class="container">
+
+        <form (ngSubmit)="onSubmit()" #addthemeform="ngForm">
+            <div class="form first">
+                <div class="details event">
+                    <br /><br />
+                    <div class="fields">
+                        <div class="form-group; mb-3 row"
+                            [class.has-error]="NameControl.invalid && NameControl.touched">
+                            <label for="themeName" class="col-sm-2 col-form-label">Theme Name</label><br>
+                            <div class="col-sm-10">
+                                <input id="themeName" type="text" [(ngModel)]="newtheme.themeName" name="themeName"
+                                    class="form-control" pattern="[a-zA-Z][a-zA-Z ]+" required #NameControl="ngModel" placeholder="Enter theme name"
+                                    style="height: 40px; width: 500px;" required="" ngModel>
+                            </div>
+                        </div>
+                        <div class="error">
+                            <br>
+                            <div *ngIf="NameControl.errors?.required && NameControl.touched"> This field can't be empty <i
+                                    class="fa fa-exclamation-triangle" aria-hidden="true"></i><br /><br /></div>
+                            <div *ngIf="NameControl.errors?.pattern && NameControl.touched">Food Name contains only Characters.<br /><br /></div>
+                        </div>
+
+                        <div class="form-group; mb-3 row"
+                            [class.has-error]="ImageControl.invalid && ImageControl.touched">
+                            <label for="imageUrl" class="col-sm-2 col-form-label">Image Url</label><br>
+                            <div class="col-sm-10">
+                                <input id=imageUrl type="text" [(ngModel)]="newtheme.themeImageURL" name="themeImageURL"
+                                    class="form-control" type="url" required #ImageControl="ngModel"
+                                    placeholder="Enter the image url" style="height: 40px; width: 500px;" required=""
+                                    ngModel>
+                            </div>
+                        </div>
+                        <div class="error" *ngIf="ImageControl.invalid && ImageControl.touched"> This field can't be
+                            empty <i class="fa fa-exclamation-triangle" aria-hidden="true"></i><br /><br />
+                        </div>
+
+                        <div class="form-group; mb-3 row"
+                            [class.has-error]="phNameControl.invalid && phNameControl.touched">
+                            <label for="photographerDetails" class="col-sm-2 col-form-label">Photographer
+                                Details</label><br>
+                            <div class="col-sm-10">
+                                <input id="photographerDetails" type="text" [(ngModel)]="newtheme.themePhotographer"
+                                    name="themePhotographer" class="form-control" required #phNameControl="ngModel"
+                                    placeholder="Enter photographer details" style="height: 40px; width: 500px;"
+                                    required="" ngModel>
+                            </div>
+                        </div>
+                        <div class="error" *ngIf="phNameControl.invalid && phNameControl.touched"> This field can't be
+                            empty <i class="fa fa-exclamation-triangle" aria-hidden="true"></i><br /><br />
+                        </div>
+
+                        <div class="form-group; mb-3 row" [class.has-error]="vdname.invalid && vdname.touched">
+                            <label for="videographerDetails" class="col-sm-2 col-form-label">Videographer
+                                Details</label><br>
+                            <div class="col-sm-10">
+                                <input id="videographerDetails" type="text" [(ngModel)]="newtheme.themeVideographer"
+                                    name="themeVideographer" class="form-control" required #vdname="ngModel"
+                                    placeholder="Enter videographer details" style="height: 40px; width: 500px;"
+                                    required="" ngModel>
+                            </div>
+                        </div>
+                        <div class="error" *ngIf="vdname.invalid && vdname.touched"> This field can't be empty <i
+                                class="fa fa-exclamation-triangle" aria-hidden="true"></i><br /><br />
+                        </div>
+
+                        <div class="form-group; mb-3 row" [class.has-error]="returngift.invalid && returngift.touched">
+                            <label for="returnGift" class="col-sm-2 col-form-label">Theme return gift</label><br>
+                            <div class="col-sm-10">
+                                <input id="returnGift" type="email" [(ngModel)]="newtheme.themeReturnGift"
+                                    name="themeReturnGift" class="form-control" required="" #returngift="ngModel"
+                                    placeholder="Enter theme return gift" style="height: 40px; width: 500px;"
+                                    required="" ngModel>
+                            </div>
+                        </div>
+                        <div class="error" *ngIf="returngift.invalid && returngift.touched"> This field can't be empty
+                            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i><br /><br />
+                        </div>
+
+                        <div class="form-group; mb-3 row" [class.has-error]="cost.invalid && cost.touched">
+                            <label for="themeCost" class="col-sm-2 col-form-label">Theme cost</label><br>
+                            <div class="col-sm-10">
+                                <input id="themeCost" type="text" [(ngModel)]="newtheme.themeCost" name="themeCost"
+                                    class="form-control" required="" #cost="ngModel" placeholder="Enter theme cost"
+                                    type="number" style="height: 40px; width: 500px;" required="" ngModel>
+                            </div>
+                        </div>
+                        <div class="error" *ngIf="cost.invalid && cost.touched"> This field can't be empty <i
+                                class="fa fa-exclamation-triangle" aria-hidden="true"></i><br /><br />
+                        </div>
+
+                        <div class="form-group; mb-3 row"
+                            [class.has-error]="description.invalid && description.touched">
+                            <label for="themeDescription" class="col-sm-2 col-form-label">Theme Description</label><br>
+                            <div class="col-sm-10">
+                                <input id="themeDescription" type="textarea" name="eventDate"
+                                    [(ngModel)]="newtheme.themeDescription" class="form-control" required=""
+                                    #description="ngModel" placeholder="Enter theme description"
+                                    style="height: 40px; width: 500px;" required="" ngModel>
+                            </div>
+                        </div>
+                        <div class="error" *ngIf="description.invalid && description.touched"> This field can't be empty
+                            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i><br /><br />
+                        </div>
+                    </div>
+
+                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group add" role="group" aria-label="First group">
+                            <button id="addTheme" class="btn btn-outline-primary" id="btn1" type="submit"
+                                [disabled]="addthemeform.form.invalid"> ADD THEME</button>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

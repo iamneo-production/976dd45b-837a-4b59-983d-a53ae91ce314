@@ -1,3 +1,26 @@
+.width{
+    width: 280px;
+  }
+  .container {
+    height: 100vh;
+    min-height: 700px;
+    margin-top: 0;
+    width: 50%;
+  }
+  .addOnForm{
+    background-color: rgb(223, 218, 218);
+    width: 320px;
+    border-radius: 10px;
+    padding: 20px 20px 20px 20px;
+  }
+  
+  input.ng-invalid.ng-touched{
+    border:red 1px solid;
+  }
+  .back{
+    margin-left: 30px;
+  }
+  
 #btn1{
 
     background-image: linear-gradient(to left,rgb(252, 169, 175),rgb(189, 189, 241));
