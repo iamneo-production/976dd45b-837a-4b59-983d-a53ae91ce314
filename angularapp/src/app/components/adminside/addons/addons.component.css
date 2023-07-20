@@ -1,24 +1,36 @@
-h2{
+h2 {
     font-family: Georgia, serif;
     padding: 10px 0 20px 0;
     text-align: center;
+    font-weight: bold;
 }
-.thumbcard{
+
+
+@media(max-width: 768px) {
+    .thumbcard {
+        width: 10rem;
+        width: 100%;
+        height: 18rem;
+    }
+}
+
+.thumbcard {
     width: 15rem;
     width: 100%;
     height: 18rem;
-    }
-    
-    @media(max-width: 768px){
-    .thumbcard{
-    width: 10rem;
-    width: 100%;
-    height: 18rem;
-    }
-    }
+}
 
-
-.back{
-    background-image: radial-gradient( circle 588px at 31.7% 40.2%,  rgba(225,200,239,1) 21.4%, rgba(163,225,233,1) 57.1% );
-    
+.btn-success {
+    background-color: #317bca;
+    color: white;
+    border: none;
   }
+.btn-success:hover{
+    background-color: #033569;
+}
+
+.back {
+    
+    background: linear-gradient(to bottom, #98999b, #98999b),
+              linear-gradient(to right, #b1b2b3, #b1b2b3);
+}

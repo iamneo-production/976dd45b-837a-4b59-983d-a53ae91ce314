@@ -23,6 +23,7 @@ import { ThemesComponent } from './components/adminside/themes/themes.component'
 import { CustomersideComponent } from './components/customerside/customerside.component';
 import { AddeventComponent } from './components/customerside/addevent/addevent.component';
 import { EditEventComponent } from './components/customerside/edit-event/edit-event.component';
+import { FrontEndErrorComponent } from './interceptor/front-end-error/front-end-error.component';
 
 const routes: Routes = [
       { path: '', component: LoginComponent},
@@ -51,7 +52,7 @@ const routes: Routes = [
         ]
         }
       ],
-      // canActivate: [AuthComponent]
+      canActivate: [AuthComponent]
     },
       { path: 'user', component: CustomersideComponent,
       children:[
@@ -66,7 +67,7 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent},
       { path: 'signup', component: SignupComponent},
       { path: 'login', component: LoginComponent},
-
+      { path: '**', pathMatch:'full', component: FrontEndErrorComponent}
 
 
 ];
