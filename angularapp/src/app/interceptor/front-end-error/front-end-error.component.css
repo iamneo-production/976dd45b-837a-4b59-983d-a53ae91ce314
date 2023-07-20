@@ -19,5 +19,5 @@
    .img-overlay:before {
      content: ' ';
      display: block;
-     height: 85%;
+     height: 90%;
    }
