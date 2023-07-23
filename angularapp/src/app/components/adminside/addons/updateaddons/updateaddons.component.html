@@ -33,9 +33,9 @@
                 <input class="form-control" type="text" id="addOnsImageurl" [(ngModel)]="newaddon.addonDescription"
                     formControlName="addonDescription" placeholder="Enter URL of image">
             </div>
-            <div style="margin-top:15px;margin-left:110px;">
-                <button id="btn1" (click)="back()"> <i class="fa fa-arrow-left" aria-hidden="true"></i> </button> &nbsp;
-                &nbsp;<button [ngClass]="addonForm.invalid ? 'btn btn-danger' : 'btn btn-success'"
+            <div style="margin-top:15px;margin-left:20px;">
+                <button class = "btn btn-warning" (click)="back()">BACK</button> &nbsp;
+                &nbsp; <button [ngClass]="addonForm.invalid ? 'btn btn-danger' : 'btn btn-success'"
                     [disabled]="addonForm.invalid" id="addAddOns" type="submit">ADD</button>
             </div>
         </div>

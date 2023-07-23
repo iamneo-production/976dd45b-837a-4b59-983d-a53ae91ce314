@@ -39,6 +39,7 @@ export class EditEventComponent implements OnInit {
   //common add/sub
   foodsum = 0; 
   addsum= 0;
+  currentDate: any; 
 
   constructor(private router: Router, private bookEventService: BookEventService,
               private route: ActivatedRoute,
@@ -46,6 +47,7 @@ export class EditEventComponent implements OnInit {
               private foodService: AddmenuserviceService,private toastr: ToastrService) {
   }
   ngOnInit(): void {
+    this.currentDate = new Date().toISOString().slice(0,10);
     this.eventId = this.route.snapshot.params[`eventId`];
     this.bookEventService.viewEventbyId(this.eventId).subscribe(data => {
       this.formData = data;
