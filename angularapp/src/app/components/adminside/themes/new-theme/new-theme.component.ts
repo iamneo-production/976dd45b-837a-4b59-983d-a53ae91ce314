@@ -32,6 +32,9 @@ export class NewThemeComponent {
     this.saveTheme();
   }
 
-
+  back(): any{
+  
+    this.router.navigate(['/admin/']);
+  }
 
 }

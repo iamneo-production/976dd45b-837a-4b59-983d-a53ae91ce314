@@ -1,0 +1,23 @@
+
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+   
+   }
+   
+   .img-overlay {
+     position: absolute;
+     top: 0;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     text-align: center;
+   }
+   .img-overlay:before {
+     content: ' ';
+     display: block;
+     height: 90%;
+   }

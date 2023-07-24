@@ -16,4 +16,6 @@ export class BookEvent{
     userId= 0;
     nonvegCount= 1;
     vegCount= 1;
+    review= '';
+    noOfPeople= '';
 }

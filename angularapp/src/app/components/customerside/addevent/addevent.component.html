@@ -6,11 +6,7 @@ background-size: 100%;
  min-height: 1200px;
  padding-top: 20px;
 ">
-
-
     <div class="image">
-
-
         <div class="container">
             <header style="text-align: center;"><b>
                     <h3> Book Event Details</h3>
@@ -130,7 +126,7 @@ background-size: 100%;
                                     <label for="noOfPeople" class="col-sm-2 col-form-label">People Count</label><br>
                                     <div class="col-md-6">
                                         <input type="number" id="noOfPeople" class="form-control"
-                                            placeholder="Enter number of people">
+                                            placeholder="Enter number of people" name="noOfPeople" [(ngModel)]="bookevent.noOfPeople">
                                     </div>
                                 </div>
 
@@ -204,7 +200,7 @@ background-size: 100%;
                                                                 <div>
                                                                     <input class="form-check-input" type="checkbox"
                                                                         id="checkboxNoLabel" aria-label="..."
-                                                                        (click)="FoodMenu(f.foodMenuID)">
+                                                                        (click)="FoodMenu(f.foodMenuID)" [checked]="f.selected">                                                            
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -278,7 +274,7 @@ background-size: 100%;
                                                                 <div>
                                                                     <input class="form-check-input" type="checkbox"
                                                                         id="checkboxNoLabel" aria-label="..."
-                                                                        (click)="Nothing(i.addOnid)">
+                                                                        (click)="Nothing(i.addOnid)" [checked]="i.selected">
                                                                 </div>
                                                             </td>
                                                         </tr>

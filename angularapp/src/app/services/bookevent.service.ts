@@ -14,6 +14,7 @@ export class BookEventService {
   private baseUrl2 = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/user/editTheme';
   private baseUrl3 = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/user/getBookedTheme';
   private baseUrl4 = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/user/deleteTheme';
+  private baseUrl5 = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/user/editReview';
 
   constructor(private httpclient: HttpClient) { }
 
@@ -47,5 +48,8 @@ export class BookEventService {
 
   getBookingById(userId: number): Observable<BookEvent[]>{
     return this.httpclient.get<BookEvent[]>(`https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/mybooking/`+userId);
+  }
+  updateReview(ad: BookEvent): Observable<object>{
+    return this.httpclient.put(`${this.baseUrl5}/${ad.eventId}`,ad);
   }
 }

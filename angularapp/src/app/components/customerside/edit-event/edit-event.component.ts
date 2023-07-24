@@ -39,6 +39,7 @@ export class EditEventComponent implements OnInit {
   //common add/sub
   foodsum = 0; 
   addsum= 0;
+  currentDate: any; 
 
   constructor(private router: Router, private bookEventService: BookEventService,
               private route: ActivatedRoute,
@@ -46,6 +47,7 @@ export class EditEventComponent implements OnInit {
               private foodService: AddmenuserviceService,private toastr: ToastrService) {
   }
   ngOnInit(): void {
+    this.currentDate = new Date().toISOString().slice(0,10);
     this.eventId = this.route.snapshot.params[`eventId`];
     this.bookEventService.viewEventbyId(this.eventId).subscribe(data => {
       this.formData = data;
@@ -62,9 +64,7 @@ export class EditEventComponent implements OnInit {
     this.ser.getAddon().subscribe((data) => {
       this.lis = data;
       console.log(data);
-      this.lis.forEach(addItem => {
-        addItem.selected = this.selectedAddOnsIds.includes(addItem.addOnid);        
-      });
+      this.getSelectedFoodItems();
       console.log("Addon Selected: "+this.selectedAddOnsIds);
     });
     // themecost
@@ -81,14 +81,18 @@ export class EditEventComponent implements OnInit {
     this.foodService.getMenu().subscribe((data) => {
       this.foodlis = data;
       console.log(data);
-      this.foodlis.forEach(f => {
-        f.selected = this.selectedFoodItemIds.includes(f.foodMenuID);
-        
-      });
+      this.getSelectedFoodItems();
       console.log("Food Selected: "+this.selectedFoodItemIds);
     });
   }
-
+  getSelectedFoodItems(): void{
+    this.foodlis.forEach(f => {
+      f.selected = this.selectedFoodItemIds.includes(f.foodMenuID);
+    });
+    this.lis.forEach(addItem => {
+      addItem.selected = this.selectedAddOnsIds.includes(addItem.addOnid);        
+    });
+  }
   getThemecost(): void {
     for (const theme of this.themeData) {
       if (this.formData.eventName === theme.themeName) {
@@ -99,6 +103,7 @@ export class EditEventComponent implements OnInit {
 
   }
   nextPage(): void {
+    this.getSelectedFoodItems();
     if (this.currentPage < 2) {
       this.currentPage++;
     }
