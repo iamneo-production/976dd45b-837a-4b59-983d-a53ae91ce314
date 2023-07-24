@@ -69,7 +69,7 @@ background-size: 100%; background-size: cover; padding-top: 20px;">
                             <div class="form-group; mb-3 row">
                                 <label for="eventDate" class="col-sm-2 col-form-label">Event Date</label><br>
                                 <div class="col-md-6">
-                                <input id="eventDate" type="date"  name="eventDate" class="form-control" [(ngModel)]="formData.eventDate" placeholder="Enter date of event" required="" >
+                                <input id="eventDate" type="date" [min]="currentDate" name="eventDate" class="form-control" [(ngModel)]="formData.eventDate" placeholder="Enter date of event" required="" >
                                 </div>
                             </div>
     
