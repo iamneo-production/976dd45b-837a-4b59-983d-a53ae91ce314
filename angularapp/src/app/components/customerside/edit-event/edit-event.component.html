@@ -13,6 +13,14 @@ background-size: 100%; background-size: cover; padding-top: 20px;">
                     <div class="details event">   
                             <div class="row mb-3"></div>
                             <div class="form-group; mb-3 row">
+                                <label for="eventName" class="col-sm-2 col-form-label">Event Name</label><br>
+                                <div class="col-md-6">
+                                <input readonly  id="eventName" type="text" name="eventName"  class="form-control" placeholder="Enter event name" 
+                                    [(ngModel)]="formData.eventName">
+                            </div>
+                            </div>
+                            <div class="row mb-3"></div>
+                            <div class="form-group; mb-3 row">
                                 <label for="applicantName" class="col-sm-2 col-form-label">Applicant <br> name</label><br>
                                 <div class="col-md-6">
                                 <input id="applicantName" type="text" name="applicantName" [(ngModel)]="formData.applicantName" class="form-control" placeholder="Enter your name" >
@@ -48,12 +56,20 @@ background-size: 100%; background-size: cover; padding-top: 20px;">
     
                             <div class="row mb-3"></div>
     
+                            <div class="InputWithIcon" class="form-group; mb-3 row">
+                                <label for="eventAddress" class="col-sm-2 col-form-label">Event <br> Location</label><br>
+                                <div class="col-md-6">
+                                <input readonly id="eventAddress" type="text"  name="eventAddress" class="form-control"  placeholder="Enter location of event"  
+                                [(ngModel)]="formData.eventAddress">
+                                </div>
+                            </div>
+    
                             <div class="row mb-3"></div>
     
                             <div class="form-group; mb-3 row">
                                 <label for="eventDate" class="col-sm-2 col-form-label">Event Date</label><br>
                                 <div class="col-md-6">
-                                <input id="eventDate" type="date"  name="eventDate" class="form-control" [(ngModel)]="formData.eventDate" placeholder="Enter date of event" required="" >
+                                <input id="eventDate" type="date" [min]="currentDate" name="eventDate" class="form-control" [(ngModel)]="formData.eventDate" placeholder="Enter date of event" required="" >
                                 </div>
                             </div>
     
@@ -79,7 +95,7 @@ background-size: 100%; background-size: cover; padding-top: 20px;">
                             <div class="form-group; mb-3 row">
                                 <label for="noOfPeople" class="col-sm-2 col-form-label">People Count</label><br>
                                 <div class="col-md-6">
-                                <input type="text"  id="noOfPeople" class="form-control"  placeholder="Enter number of people" required="" >
+                                <input type="text"  id="noOfPeople" class="form-control" min= "1" name="noOfPeople" placeholder="Enter number of people" required="" [(ngModel)]="formData.noOfPeople">
                                 </div>
                             </div>
     
@@ -141,7 +157,8 @@ background-size: 100%; background-size: cover; padding-top: 20px;">
                                             <td>{{ f.foodMenuCost}}</td>
                                             <td>{{ f.foodMenuType}}</td>
                                             <td><div>
-                                      <input class="form-check-input" type="checkbox" id="checkboxNoLabel" aria-label="..." (click)="FoodMenu(f.foodMenuID)">
+                                      <input class="form-check-input" type="checkbox" id="checkboxNoLabel" aria-label="..." (click)="FoodMenu(f.foodMenuID)"
+                                      [checked]="f.selected">
                                     </div></td>
                                           </tr>
                                         </tbody>
@@ -156,7 +173,8 @@ background-size: 100%; background-size: cover; padding-top: 20px;">
                             <div class="form-group; mb-3 row">
                                 <label for="quantityOfVeg" class="col-sm-2 col-form-label">Quantity of <br> Veg Items</label><br>
                                 <div class="col-md-6">
-                                <input type="number"  id="quantityOfVeg" class="form-control" placeholder="Enter Quantity of Veg items" required="" >
+                                <input type="number"  id="quantityOfVeg" class="form-control" placeholder="Enter Quantity of Veg items" required="" 
+                                name="vegCount" [(ngModel)]="formData.vegCount">
                                 </div>
                             </div>
     
@@ -165,7 +183,8 @@ background-size: 100%; background-size: cover; padding-top: 20px;">
                             <div class="form-group; mb-3 row">
                                 <label for="quantityOfNonVeg" class="col-sm-2 col-form-label">Quantity of <br> Non Veg Items</label><br>
                                 <div class="col-md-6">
-                                <input type="number"  id="quantityOfNonVeg" class="form-control" placeholder="Enter Quality of Non veg items" required="" >
+                                <input type="number"  id="quantityOfNonVeg" class="form-control" placeholder="Enter Quality of Non veg items" required="" 
+                                name ="nonvegCount" [(ngModel)]="formData.nonvegCount">
                                 </div>
                             </div>
     
@@ -192,11 +211,12 @@ background-size: 100%; background-size: cover; padding-top: 20px;">
                                               </tr>
                                             </thead>
                                             <tbody>
-                                              <tr *ngFor="let i of lis">
-                                                <td>{{ i.addOnName}}</td>
-                                                <td>{{ i.addAddonPrice}}</td>
+                                              <tr *ngFor="let addItem of lis">
+                                                <td>{{ addItem.addOnName}}</td>
+                                                <td>{{ addItem.addAddonPrice}}</td>
                                                 <td><div>
-                                          <input class="form-check-input" type="checkbox" id="checkboxNoLabel" aria-label="..." (click)="Nothing(i.addOnid)">
+                                          <input class="form-check-input" type="checkbox" id="checkboxNoLabel" aria-label="..." (click)="Nothing(addItem.addOnid)"
+                                          [checked]="addItem.selected">
                                         </div></td>
                                               </tr>
                                             </tbody>
@@ -229,7 +249,7 @@ background-size: 100%; background-size: cover; padding-top: 20px;">
                             <br>
                             <div class="submit" style="margin-left: 300px;">
                                 <button id = "bookEvent" class="btn btn-dark"  type="submit" >
-                                    Book the event
+                                    Edit the event
                                 </button>
                                 </div>
                             <br/>

@@ -18,8 +18,9 @@ public class EventModel {
     private String applicantEmail;
     private String eventAddress;
     private String eventDate;
-    
-    private String eventTime;
+    private String review;
+	private String eventTime;
+    private String noOfPeople;
     
     @ElementCollection()
     @CollectionTable(name = "addon_ids")
@@ -31,6 +32,9 @@ public class EventModel {
     private String eventFromTime; 
     private String eventToTime;
     private String eventCost;
+    private int nonvegCount;
+    private int vegCount;
+    
     public int getEventId()
      {
         return eventId;
@@ -162,5 +166,32 @@ public class EventModel {
         this.userId = userId;
     }
 
+    public int getNonvegCount() {
+        return this.nonvegCount;
+    }
 
+    public void setNonvegCount(int nonvegCount) {
+        this.nonvegCount = nonvegCount;
+    }
+
+    public int getVegCount() {
+        return this.vegCount;
+    }
+
+    public void setVegCount(int vegCount) {
+        this.vegCount = vegCount;
+    }
+    public String getReview() {
+		return review;
+	}
+	public void setReview(String review) {
+		this.review = review;
+	}
+
+    public String getNoOfPeople() {
+		return noOfPeople;
+	}
+	public void setNoOfPeople(String noOfPeople) {
+		this.noOfPeople = noOfPeople;
+	}
 }
