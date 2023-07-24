@@ -3,22 +3,23 @@
     <br>
         <form (ngSubmit) = "onSubmit(foodMenuType.value)" #updatemenuform="ngForm">
             <div class ="form-group" [class.has-error]="ImageControl.invalid && ImageControl.touched">
-                <input type = "text" class="form-control" id = "foodMenuImage"  required="" pattern="[a-zA-Z][a-zA-Z ]+" #ImageControl="ngModel"
+                <input type = "text" class="form-control" id = "foodMenuImage"  required=""  #ImageControl="ngModel"
                     [(ngModel)] = "addmenus.foodMenuImage" name = "foodMenuImage">
             </div>
+            <br>
+        <div class="error" *ngIf="ImageControl.touched"> This field can't be empty <i class="fa fa-exclamation-triangle" aria-hidden="true"></i><br/><br/>
+        </div>
+            <div class ="form-group" [class.has-error]="name.invalid && name.touched">
+                <input type = "text" class="form-control" id = "foodMenuItems"  pattern="[a-zA-Z][a-zA-Z ]+" required="" #name="ngModel"
+                    [(ngModel)] = "addmenus.foodMenuItems" name = "foodMenuItems">
+            </div>
+            <br>
             <br>
             <div class="error">
                 <br>
                 <div *ngIf="name.errors?.required && name.touched"> This field can't be empty <i
                         class="fa fa-exclamation-triangle" aria-hidden="true"></i><br /><br /></div>
                 <div *ngIf="name.errors?.pattern && name.touched">Food Name contains only Characters.<br /><br /></div>
-            </div>
-            <div class ="form-group" [class.has-error]="name.invalid && name.touched">
-                <input type = "text" class="form-control" id = "foodMenuItems"  required="" #name="ngModel"
-                    [(ngModel)] = "addmenus.foodMenuItems" name = "foodMenuItems">
-            </div>
-            <br>
-            <div class="error" *ngIf="name.invalid && name.touched"> This field can't be empty <i class="fa fa-exclamation-triangle" aria-hidden="true"></i><br/><br/>
             </div>
             <div class ="form-group" [class.has-error]="category.invalid && category.touched">
                 <div class ="form-group">
@@ -41,6 +42,5 @@
             <div class="error" *ngIf="cost.invalid && cost.touched"> This field can't be empty <i class="fa fa-exclamation-triangle" aria-hidden="true"></i><br/><br/>
             </div>
             <button class = "btn btn-success" type = "submit" id = "UpdateaddMenu"   [disabled]="updatemenuform.form.invalid" >SUBMIT</button>
-        </form>
-        
-    </div>
+        </form>        
+</div>

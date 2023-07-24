@@ -52,7 +52,7 @@ const routes: Routes = [
         ]
         }
       ],
-      // canActivate: [AuthComponent]
+      canActivate: [AuthComponent]
     },
       { path: 'user', component: CustomersideComponent,
       children:[
