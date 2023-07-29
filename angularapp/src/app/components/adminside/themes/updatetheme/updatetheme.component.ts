@@ -39,4 +39,9 @@ export class UpdatethemeComponent implements OnInit {
       this.gotoAddtheme();
     });
   }
+
+  back(): any{
+  
+    this.router.navigate(['/admin/']);
+  }
 }

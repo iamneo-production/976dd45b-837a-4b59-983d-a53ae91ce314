@@ -12,7 +12,7 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class MybookingComponent implements OnInit{
   // events: bookevent=new bookevent();
-  events?: BookEvent[];
+  events: BookEvent[] = [];
   userid= 0;
   cusId='';
   id= 0;
@@ -60,6 +60,12 @@ export class MybookingComponent implements OnInit{
 
   closeModal(): any{
     this.deleteItem();
+  }
+  feedback(u: any): any{
+    this.bookEventService.updateReview(u).subscribe( data =>{
+      this.ngOnInit();
+      
+    });
   }
 }
 
