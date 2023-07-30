@@ -8,10 +8,10 @@ import { Theme } from '../class/theme';
 })
 export class ThemeService {
 
-  private baseUrl = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/addTheme';
-  private baseUrl2 = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/editTheme';
-  private baseUrl3 = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/theme';
-  private baseUrl4 = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/deleteTheme';
+  private baseUrl = 'https://8080-beddbfbbfbabaccccfeafbbadefeafcdfecbcbddcca.project.examly.io/admin/addTheme';
+  private baseUrl2 = 'https://8080-beddbfbbfbabaccccfeafbbadefeafcdfecbcbddcca.project.examly.io/admin/editTheme';
+  private baseUrl3 = 'https://8080-beddbfbbfbabaccccfeafbbadefeafcdfecbcbddcca.project.examly.io/admin/theme';
+  private baseUrl4 = 'https://8080-beddbfbbfbabaccccfeafbbadefeafcdfecbcbddcca.project.examly.io/admin/deleteTheme';
 
   constructor(private httpclient: HttpClient) { }
 
