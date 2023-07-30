@@ -10,11 +10,11 @@ import { User } from '../class/user';
 export class BookEventService {
 
 
-  private baseUrl = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/user/bookTheme';
-  private baseUrl2 = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/user/editTheme';
-  private baseUrl3 = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/user/getBookedTheme';
-  private baseUrl4 = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/user/deleteTheme';
-  private baseUrl5 = 'https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/user/editReview';
+  private baseUrl = 'https://8080-beddbfbbfbabaccccfeafbbadefeafcdfecbcbddcca.project.examly.io/user/bookTheme';
+  private baseUrl2 = 'https://8080-beddbfbbfbabaccccfeafbbadefeafcdfecbcbddcca.project.examly.io/user/editTheme';
+  private baseUrl3 = 'https://8080-beddbfbbfbabaccccfeafbbadefeafcdfecbcbddcca.project.examly.io/user/getBookedTheme';
+  private baseUrl4 = 'https://8080-beddbfbbfbabaccccfeafbbadefeafcdfecbcbddcca.project.examly.io/user/deleteTheme';
+  private baseUrl5 = 'https://8080-beddbfbbfbabaccccfeafbbadefeafcdfecbcbddcca.project.examly.io/user/editReview';
 
   constructor(private httpclient: HttpClient) { }
 
