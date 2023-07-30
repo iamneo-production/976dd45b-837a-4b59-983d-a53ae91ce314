@@ -16,20 +16,20 @@ export class LoginService {
       responseType: 'text'
     };
     return this.httpclient.get<any>
-    (`https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/login/checkUserRole/`+email, requestOptions);
+    (`https://8080-beddbfbbfbabaccccfeafbbadefeafafebddcc.project.examly.io/login/checkUserRole/`+email, requestOptions);
   }
 
   // login to Admin/User page
   isUserPresent(login: Login): Observable<boolean>{
 
     return this.httpclient.post<boolean>
-    ('https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/user/login', login);
+    ('https://8080-beddbfbbfbabaccccfeafbbadefeafafebddcc.project.examly.io/user/login', login);
   }
 
   isAdminPresent(login: Login): Observable<boolean>{
 
     return this.httpclient.post<boolean>
-    ('https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/login', login);
+    ('https://8080-beddbfbbfbabaccccfeafbbadefeafafebddcc.project.examly.io/admin/login', login);
   }
   // unique
   getUserIdbyEmail(email: string): Observable<any>{
@@ -37,6 +37,6 @@ export class LoginService {
     const requestOptions: object = {
       responseType: 'text'
     };
-    return this.httpclient.get<any>(`https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/login/getUserId/`+email,requestOptions);
+    return this.httpclient.get<any>(`https://8080-beddbfbbfbabaccccfeafbbadefeafafebddcc.project.examly.io/login/getUserId/`+email,requestOptions);
   }
 }
