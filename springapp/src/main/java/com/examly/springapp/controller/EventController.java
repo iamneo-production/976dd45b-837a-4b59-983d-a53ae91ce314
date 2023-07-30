@@ -7,7 +7,7 @@ import com.examly.springapp.Model.EventModel;
 import com.examly.springapp.Service.EventService;
 
 @RestController
-@CrossOrigin(origins = "https://8081-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io")
+@CrossOrigin(origins = "https://8081-beddbfbbfbabaccccfeafbbadefeafcdfecbcbddcca.project.examly.io")
 @RequestMapping
 public class EventController 
 {
