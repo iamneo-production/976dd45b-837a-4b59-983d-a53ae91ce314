@@ -13,7 +13,7 @@ import com.examly.springapp.Service.AddonService;
 
 
 @RestController
-@CrossOrigin(origins = "https://8081-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io")
+@CrossOrigin(origins = "https://8081-beddbfbbfbabaccccfeafbbadefeafafebddcc.project.examly.io")
 @RequestMapping
 public class AddOnController {
     
