@@ -12,21 +12,21 @@ export class UserserviceService {
 
   checkEmail(email: string): Observable<boolean>{
     console.log(email);
-    return this.httpclient.get<boolean>(`https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/user/signup/`+email);
+    return this.httpclient.get<boolean>(`https://8080-beddbfbbfbabaccccfeafbbadefeafafebddcc.project.examly.io/user/signup/`+email);
   }
 
   storeUser(newUser: User): Observable<any>{
     const requestOptions: object = {
       responseType: 'text'
     };
-    return this.httpclient.post('https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/user/signup', newUser, requestOptions);
+    return this.httpclient.post('https://8080-beddbfbbfbabaccccfeafbbadefeafafebddcc.project.examly.io/user/signup', newUser, requestOptions);
   }
 
   storeAdmin(newUser: User): Observable<any>{
     const requestOptions: object = {
       responseType: 'text'
     };
-    return this.httpclient.post('https://8080-bbccbbbafbbadefeafcdfecbcbddcca.project.examly.io/admin/signup', newUser, requestOptions);
+    return this.httpclient.post('https://8080-beddbfbbfbabaccccfeafbbadefeafafebddcc.project.examly.io/admin/signup', newUser, requestOptions);
   }
 
 
